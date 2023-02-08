@@ -1,0 +1,104 @@
+// Top Header css
+.top-header{
+    .top-links {
+        ul {
+            li {
+                a {@include fontSize(14px);}
+            }
+        }
+    }
+}
+
+.bottom-header{
+    .search-bar{
+        .form-control{
+            width:450px;height:40px;
+            @include radius(5px 0px 0px 5px);
+            background:transparent;
+            box-shadow:inset 0px 0px 7px -5px #2a2a2a;
+        }
+        .btn-primary{@include radius(0px 5px 5px 0px);
+            .custom-icon{
+                .path2{
+                    &:before{color:#ffffff;}
+                }
+            }
+        }
+    }
+
+    .user-link{
+        li{
+            a{
+                @include fontSize(25px);
+                padding:0.4rem 1rem;
+                .custom-icon{
+                    .path1,.path2{
+                        &:before{@include transition(0.5s all ease);}
+                    }
+                }
+                &:hover,&:active,&:focus{
+                    .custom-icon{
+                        .path1{
+                            &:before{color:$info;}
+                        }
+                    }
+                }
+                .cart-badge{
+                    @include fontSize(12px);
+                }
+            }
+        }
+    }
+}
+
+nav{
+    .navbar-nav{
+        .nav-item{margin-right:0.4rem;
+            .nav-link{
+                display: inline-block;                   
+                position: relative;
+                padding: 0.8rem 1.2rem;
+                @include transition(0.5s color);
+                font-weight:600;
+                &:before{
+                    content: '';
+                    display: block;
+                    position:absolute;
+                    bottom:0;
+                    left:0;
+                    width: 0;
+                    height: 2px;
+                    background: $primary;
+                    transition: width .3s;
+                }
+                &:after{
+                    content:"";
+                    display:block;
+                    opacity:0;
+                    position:absolute;
+                    border-bottom: 8px solid $primary;
+                    border-right: 8px solid transparent;
+                    border-left: 8px solid transparent;
+                    left:0;
+                    width:17px;
+                    right: 0;
+                    bottom:0;
+                    margin:auto;
+                    transition: width 1s;
+                }
+                &:hover,&:focus,&:active,&.active{color:$primary;
+                    &:before{
+                        width: 100%;
+                        transition: width .3s;
+                    }
+                   
+                }
+                &.active{
+                    &:after{
+                        opacity:1;
+                    }
+                }
+            }
+        }
+    }
+}
