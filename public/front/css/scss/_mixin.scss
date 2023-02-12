@@ -21,3 +21,118 @@
     font-size: calculateRem($size);
 }
 
+.offcanvas {
+    .offcanvas-header {
+        .close-btn {
+            right: -36px;
+            top: 0;
+            width: 30px;
+            opacity: 1;
+            height: 30px;
+            @include radius(0px 5px 5px 0px)
+        }
+    }
+}
+
+.services {
+    border-color: #d5d5d5 !important;
+}
+
+.product-slider {
+    .slick-track {
+        display: flex;
+        padding: 0.8rem 0rem;
+    }
+    .slick-arrow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ed2124;
+        border-radius: 100%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: -40px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ed2124;
+        cursor:pointer;
+        &.prev-arrow{left: -40px;right:Auto;}
+        &.next-arrow{left:auto;right: -40px;}
+    }
+    .card {
+        @include transition(0.5s all ease);
+        display: flex;
+        flex-direction: column;
+
+        .product-img {
+            max-width: 340px;
+            display: flex;
+            margin: 0 auto;
+            overflow: hidden;
+            @include radius(5px);
+
+            img {
+                @include transition(0.5s all linear);
+                @include radius(5px);
+            }
+        }
+
+        .wishlist-icon {
+            position: absolute;
+            top: -65px;
+            right: 7px;
+            background: $primary;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include radius(100%);
+            @include transition(0.5s all ease);
+
+            .custom-icon {
+
+                .path1,
+                .path2 {
+                    &:before {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        .card-body {
+            @include radius(0px 0px 6px 6px);
+            flex-grow: 1;
+
+            .product-price {
+                font-family: 'Roboto Slab', 'sans-serif';
+            }
+        }
+
+        &:hover {
+            @include box-shadow(3px, 3px, 9px, 2px, #e1e1e1);
+
+            .wishlist-icon {
+                top: 7px;
+            }
+
+            .product-img {
+                img {
+                    @include transform(scale(1.1));
+                }
+            }
+
+            .card-body {
+                .product-heading {
+                    a {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}

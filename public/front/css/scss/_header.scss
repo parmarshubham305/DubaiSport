@@ -1,65 +1,72 @@
 // Top Header css
-.top-header{
-    .top-links {
-        ul {
-            li {
-                a {@include fontSize(14px);}
-            }
-        }
+#header{
+    &.sticky-header{
+        @include box-shadow(0px,2px,7px,-1px,#979797);
     }
-}
-
-.bottom-header{
-    .search-bar{
-        .form-control{
-            width:450px;height:40px;
-            @include radius(5px 0px 0px 5px);
-            background:transparent;
-            box-shadow:inset 0px 0px 7px -5px #2a2a2a;
-        }
-        .btn-primary{@include radius(0px 5px 5px 0px);
-            .custom-icon{
-                .path2{
-                    &:before{color:#ffffff;}
-                }
+    .top-header{
+        @include mq("desktop"){padding:2rem 1rem;}
+        @include mq("large-container"){padding:2rem 3rem;}
+        .search-bar{
+            .form-control{
+                width:860px;height:40px;
+                @include mq("desktop"){width:550px;}
+                @include mq("large-container"){width:680px;}
+                @include radius(5px 0px 0px 5px);
+                background:transparent;
+                box-shadow:inset 0px 0px 7px -5px #2a2a2a;
             }
-        }
-    }
-
-    .user-link{
-        li{
-            a{
-                @include fontSize(25px);
-                padding:0.4rem 1rem;
+            .btn-primary{@include radius(0px 5px 5px 0px);
                 .custom-icon{
-                    .path1,.path2{
-                        &:before{@include transition(0.5s all ease);}
+                    .path2{
+                        &:before{color:#ffffff;}
                     }
                 }
-                &:hover,&:active,&:focus{
-                    .custom-icon{
-                        .path1{
-                            &:before{color:$info;}
+            }
+        }
+    
+        .user-link{
+            li{
+                a{
+                    @include fontSize(15px);
+                    padding:0.1rem 1rem;
+                    align-items: center;
+                    line-height:17px;
+                    @include mq("desktop"){line-height:15px;@include fontSize(13px);}
+                    @include mq("large-container"){line-height:17px;@include fontSize(15px);}
+                    .custom-icon,svg{@include fontSize(20px);
+                        @include mq("desktop"){@include fontSize(18px);}
+                        @include mq("large-container"){@include fontSize(20px);}
+                        .path1,.path2{
+                            &:before{@include transition(0.5s all ease);}
                         }
                     }
-                }
-                .cart-badge{
-                    @include fontSize(12px);
+                    &:hover,&:active,&:focus{
+                        .custom-icon{
+                            .path1{
+                                &:before{color:$info;}
+                            }
+                        }
+                    }
+                    .cart-badge{
+                        @include fontSize(11px);
+                    }
                 }
             }
         }
     }
 }
-
 nav{
     .navbar-nav{
         .nav-item{margin-right:0.4rem;
             .nav-link{
                 display: inline-block;                   
                 position: relative;
-                padding: 0.8rem 1.2rem;
+                padding: 0.8rem 1rem;
+                color:#333333;
                 @include transition(0.5s color);
                 font-weight:600;
+                @include mq("desktop"){padding: 0.8rem 0.65rem;@include fontSize(13px);}
+                @include mq("large-container"){ padding: 0.8rem 1rem;@include fontSize(15px);}
                 &:before{
                     content: '';
                     display: block;
@@ -99,6 +106,18 @@ nav{
                     }
                 }
             }
+            .btn{@include radius(5px 5px 0px 0px);}
+        }
+    }
+}
+.services{
+    .service-icon{
+        .custom-icon {
+            color:$primary;
+            @include fontSize(30px);
+            &.custom-secure-shopping{@include fontSize(38px);}
+            &.custom-free-installation{@include fontSize(39px);}
+            &.custom-product-warranty{@include fontSize(38px);}
         }
     }
 }

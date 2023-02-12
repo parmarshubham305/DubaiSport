@@ -9,12 +9,36 @@ $( document ).ready(function() {
     });  
 
     
-$('.banner-slider').slick({
-    dots: true,
-    infinite: true,
-    speed: 500,
-    fade: true,
-    cssEase: 'linear'
-  });
-      
+    $('.slider').slick({
+        autoplay: true,
+        draggable: false,
+        infinite:true,
+        speed: 1500,
+        autoplaySpeed:3000,
+        lazyLoad: 'progressive',
+        arrows: true,
+        dots: false,
+          prevArrow: '<div class="slick-nav prev-arrow"><span class="long-arrow-left"></span><svg><use xlink:href="#circle"></svg></div>',
+          nextArrow: '<div class="slick-nav next-arrow"><span class="long-arrow-right"></span><svg><use xlink:href="#circle"></svg></div>',
+      }).slickAnimation();
+
+      $(".product-slider").slick({
+        infinite: true,
+        draggable: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        prevArrow: '<div class="slick-nav prev-arrow"><i class="fa-solid fa-angle-left"></i></div>',
+        nextArrow: '<div class="slick-nav next-arrow"><i class="fa-solid fa-chevron-right"></i></div>',
+      })
+});
+
+
+
+$(window).scroll(function() {
+	var stickyTop = $('#header').height();
+	if( $(this).scrollTop() > stickyTop ) {
+		$("#header").addClass("sticky-header");
+	} else {
+		$("#header").removeClass("sticky-header");
+	}
 });

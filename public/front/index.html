@@ -6,88 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dubai Sport</title>
     <link rel="stylesheet" href="/thirdparty/css/all.min.css">
+    <link rel="stylesheet" href="/thirdparty/css/animate.min.css">
     <link rel="stylesheet" href="/thirdparty/css/slick.css">
     <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="/thirdparty/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/thirdparty/js/slick-animation.min.js"></script>
     <script type="text/javascript" src="/thirdparty/js/all.min.js"></script>
     <script type="text/javascript" src="/thirdparty/js/slick.min.js"></script>
     <script type="text/javascript" src="/js/theme.js"></script>
 </head>
 
 <body>
-    <div class="dark-switch">
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
-        </div>
-    </div>
-    <header id="header">
-        <div class="top-header py-2 bg-light border-bottom">
-            <div class="container">
-                <div class="d-flex top-links align-items-center justify-content-between">
-                    <ul class="top-links-left d-flex align-items-center justify-content-between list-unstyled mb-0">
-                        <li><a href="#" class="pe-3 border-end border-secondary">About Us</a></li>
-                        <li><a href="#" class="px-3 border-end border-secondary">Privacy</a></li>
-                        <li><a href="#" class="px-3">FAQ</a></li>
-                    </ul>
-                    <div class="top-link-right  d-flex align-items-center justify-content-between list-unstyled mb-0">
-                        <ul class="order-list list-unstyled d-flex align-items-center mb-0">
-                            <li><a href="#" class="px-3 border-end border-secondary"><i
-                                        class="fa-solid fa-phone me-1 text-primary"></i> +971 4 2678618</a></li>
-                            <li><a href="#" class="px-3 border-end border-secondary"><i
-                                        class="fa-solid fa-envelope me-1 text-primary"></i> info@dubaisportsuae.com</a>
-                            </li>
-                            <li><a href="#" class="px-3 border-end border-secondary"><i
-                                        class="fa-solid fa-truck me-1 text-primary"></i> Track Your Order</a></li>
-                        </ul>
-                        <ul class="social-media list-unstyled d-flex align-items-center mb-0 ps-2">
-                            <li class="me-2">
-                                <a href="#" class="px-2"><i class="fa-brands fa-facebook-f"></i></a>
-                            </li>
-                            <li class="me-2">
-                                <a href="#" class="px-2"><i class="fa-brands fa-instagram"></i></a>
-                            </li>
-                            <li class="me-2">
-                                <a href="#" class="px-2"><i class="fa-brands fa-youtube"></i></a>
-                            </li>
-                            <li class="me-2">
-                                <a href="#" class="ps-1"><i class="fa-brands fa-twitter"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom-header py-4 bg-light">
-            <div class="container">
+
+    <header id="header" class="sticky-top">
+        <div class="top-header bg-white">
+            <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="#" class="site-logo"> <img src="/images/site_logo.png" alt="site logo"></a>
+                    <a href="#" class="site-logo"> <img src="/images/site_logo.png" alt="site logo" width="300"
+                            height="36"></a>
                     <div class="d-flex search-bar" role="search">
                         <input class="form-control border-end-0" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-primary" type="submit"><span
-                                class="custom-icon custom-search"><span class="path1"></span><span
-                                    class="path2"></span></span></button>
+                        <button class="btn btn-primary" type="submit"><span class="custom-icon custom-search"><span
+                                    class="path1"></span><span class="path2"></span></span></button>
                     </div>
-
                     <ul class="user-link d-flex align-items-center list-unstyled mb-0">
-                        <li><a href="#" class="d-inline-block position-relative"><span
-                                    class="custom-icon custom-account"><span class="path1"></span><span
-                                        class="path2"></span></span></a></li>
-                        <li> <a href="#" class="d-inline-block position-relative"><span
-                                    class="custom-icon custom-wishlistsvg"><span class="path1"></span><span
-                                        class="path2"></span></span></a></li>
-                        <li> <a href="#" class="d-inline-block position-relative"><span
-                                    class="custom-icon custom-cart"><span class="path1"></span><span
-                                        class="path2"></span></span>
-                                <span
-                                    class="position-absolute translate-middle badge rounded-pill bg-primary cart-badge">1</span>
+                        <li><a href="#" class="d-flex position-relative border-end border-secondary"><span
+                                    class="custom-icon custom-telephone me-2"><span class="path1"></span><span
+                                        class="path2"></span></span><span class="link-content"> +971 4
+                                    2678618</span></a></li>
+                        <li><a href="#" class="d-flex position-relative border-end border-secondary"><span
+                                    class="custom-icon custom-account me-2"><span class="path1"></span><span
+                                        class="path2"></span></span><span class="link-content">Sign Up</span></a></li>
+                        <li> <a href="#" class="d-flex position-relative border-end border-secondary"><span
+                                    class="custom-icon custom-wishlistsvg me-2"><span class="path1"></span><span
+                                        class="path2"></span></span><span class="link-content">Wishlist</span></a></li>
+                        <li> <a href="#" class="d-flex position-relative border-end border-secondary me-3"><span
+                                    class="custom-icon custom-cart me-2"><span class="path1"></span><span
+                                        class="path2"></span></span><span class="link-content">Cart</span>
+                                <span class="badge rounded-pill bg-primary ms-1 cart-badge">1</span>
+
                             </a></li>
+                        <li>
+                            <span class="dark-switch">
+                                <span class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        id="flexSwitchCheckChecked">
+                                </span>
+                            </span>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg sticky-top py-0 bg-light-gray">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg py-0 bg-white">
+            <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -95,34 +68,345 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i
+                                    class="fa-solid fa-bars me-1"></i> All</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Cardio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">Bikes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#">Strengh & Free weight</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Benchs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Flooring</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Accessories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Loker & Benches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sonar & Stream</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Outdoor Fitness Equipment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kids Plays</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Multiple Cords</a>
+                        </li>
+                        <li class="nav-item align-self-end">
+                            <a class="btn btn-primary text-white px-4 py-2" href="#">Sale</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    
-<div class="banner-slider">
-    <div>
-        <img src="images/banner1.jpg" alt="banner" class="img-fluid" width="1920" height="800">
-    </div>
-    <div>
-        <img src="images/banner2.jpg" alt="banner" class="img-fluid"  width="1920" height="800">
-    </div>
-    <div>
-        <img src="images/banner3.jpg" alt="banner" class="img-fluid"  width="1920" height="800">
-    </div>
-</div>
+    <section class="services border-top border-bottom py-3 bg-light-gray">
+        <div class="container">
+            <ul class="list-unstyled d-flex align-items-center justify-content-between mb-0">
+                <li class="d-flex align-items-center">
+                    <span class="service-icon me-3"><span class="custom-icon custom-fast-delivery"></span></span>
+                    <span>
+                        <span class="d-block fw-semibold lh-2 text-primary">Fastest Delivery </span>
+                        <small>Next day delivery available</small>
+                    </span>
+                </li>
+                <li class="d-flex align-items-center">
+                    <span class="service-icon me-3"><span class="custom-icon custom-secure-shopping"></span></span>
+                    <span>
+                        <span class="d-block fw-semibold lh-2 text-primary">Secure Shopping </span>
+                        <small>Safe and Secure Checkout</small>
+                    </span>
+                </li>
+                <li class="d-flex align-items-center">
+                    <span class="service-icon me-3"><span class="custom-icon custom-free-installation"></span></span>
+                    <span>
+                        <span class="d-block fw-semibold lh-2 text-primary">Free Installation </span>
+                        <small>On all fitness & sports equipment</small>
+                    </span>
+                </li>
+                <li class="d-flex align-items-center">
+                    <span class="service-icon me-3"><span class="custom-icon custom-product-warranty"></span></span>
+                    <span>
+                        <span class="d-block fw-semibold lh-2 text-primary">Product Warranty</span>
+                        <small>1 Year Standard Warranty on Equipment</small>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="banner__slider">
+        <div class="slider stick-dots">
+            <div class="slide">
+                <div class="slide__img overflow-hidden">
+                    <img src="/images/banner1.jpg" class="full-image img-fluid animated"
+                        data-animation-in="zoomInImage" />
+                </div>
+                <div class="slide__content slide__content__left" data-animation-in="fadeInLeft">
+                    <div class="slide__content_details">
+                        <h2 class="animated">Being the Best <span class="d-block"><span
+                                    class="text-primary">Fitness</span> Products</span></h2>
+                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide__img overflow-hidden">
+                    <img src="/images/banner2.jpg" class="full-image img-fluid animated"
+                        data-animation-in="zoomInImage" />
+                </div>
+                <div class="slide__content slide__content__right" data-animation-in="fadeInRight">
+                    <div class="slide__content_details">
+                        <h2 class="animated">Being the Best <span class="d-block"><span
+                                    class="text-primary">Fitness</span> Products</span></h2>
+                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide__img overflow-hidden">
+                    <img src="images/banner3.jpg" class="full-image img-fluid animated"
+                        data-animation-in="zoomInImage" />
+                </div>
+                <div class="slide__content slide__content__right" data-animation-in="fadeInRight">
+                    <div class="slide__content_details">
+                        <h2 class="animated">Being the Best <span class="d-block"><span
+                                    class="text-primary">Fitness</span> Products</span></h2>
+                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle"
+                fill="none" stroke="currentColor">
+                <circle r="20" cy="22" cx="22" id="test">
+            </symbol>
+        </svg>
+    </section>
+
+    <section class="product-list spacing-y" id="#product-list">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="mb-0 text-center">Best Seller <span class="text-primary">Products</span></h2>
+            </div>
+            <div class="product-slider py-md-5 py-4">
+                <div class="card mx-3 position-relative">
+                  <a href="#" class="product-img"><img src="/images/products/product_1.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                  <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_2.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Inspire Fitness Functional Trainer FT2</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_3.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Schwinn 570R Recumbent Bike</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_4.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Concept 2 Indoor Rower Model</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_5.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Dumbles</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"><img src="/images/products/product_6.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Bikes</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+    <section class="product-list bg-light spacing-y" id="#product-list">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="mb-0 text-center">Popular <span class="text-primary">Products</span></h2>
+            </div>
+            <div class="product-slider py-md-5 py-4">
+                <div class="card mx-3 position-relative">
+                  <a href="#" class="product-img"><img src="/images/products/product_1.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                  <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_2.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Inspire Fitness Functional Trainer FT2</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_3.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Schwinn 570R Recumbent Bike</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_4.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Concept 2 Indoor Rower Model</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_5.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Dumbles</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"><img src="/images/products/product_6.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Bikes</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-list spacing-y" id="#product-list">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="mb-0 text-center">New <span class="text-primary">Listing</span></h2>
+            </div>
+            <div class="product-slider py-md-5 py-4">
+                <div class="card mx-3 position-relative">
+                  <a href="#" class="product-img"><img src="/images/products/product_1.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                  <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_2.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Inspire Fitness Functional Trainer FT2</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_3.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Schwinn 570R Recumbent Bike</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_4.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Concept 2 Indoor Rower Model</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"> <img src="/images/products/product_5.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Dumbles</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+                <div class="card mx-3 position-realtive">
+                    <a href="#" class="product-img"><img src="/images/products/product_6.jpg" alt="produsct" class="card-img-top img-fluid"></a>
+                    <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span class="path1"></span><span class="path2"></span></span></a>
+                    <div class="card-body bg-light-gray border-top">
+                        <span class="d-block mb-1">Super Gym</span>
+                        <p class="fw-semibold mb-1 product-heading"><a href="#">Bikes</a></p>
+                        <p class="text-primary fw-bold product-price mb-0 d-flex align-items-center">AED 6243.21 <del class="text-secondary ms-1">AED 7536</del><small class="badge ms-1 bg-primary px-2">20% OFF</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
+
+    <div class="offcanvas offcanvas-start py-4" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header border-bottom pb-1">
+            <h5 class="mb-0 offcanvas-title fs-6" id="offcanvasExampleLabel"><a href="#">Shop By Category</a></h5>
+            <button type="button" class="btn-close close-btn position-absolute bg-primary" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark fs-2x text-white"></i></button>          
+        </div>
+        <div class="offcanvas-body p-0">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="#" class="py-2 px-4 border-bottom d-block">Hello</a>
+                </li>
+                <li>
+                    <a href="#" class="py-2 px-4 border-bottom d-block">Hello</a>
+                </li>
+            </ul>
+          
+      </div>
 
 </body>
 
