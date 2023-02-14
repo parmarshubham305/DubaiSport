@@ -27,8 +27,16 @@ $( document ).ready(function() {
         draggable: false,
         slidesToShow: 4,
         slidesToScroll: 1,
-        prevArrow: '<div class="slick-nav prev-arrow"><i class="fa-solid fa-angle-left"></i></div>',
-        nextArrow: '<div class="slick-nav next-arrow"><i class="fa-solid fa-chevron-right"></i></div>',
+        prevArrow: '<div class="slick-nav slick-btn prev-arrow"><i class="fa-solid fa-angle-left"></i></div>',
+        nextArrow: '<div class="slick-nav slick-btn next-arrow"><i class="fa-solid fa-chevron-right"></i></div>',
+      })
+      $(".distributors-slider").slick({
+        infinite: true,
+        draggable: false,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        prevArrow: '<div class="slick-nav slick-btn prev-arrow"><i class="fa-solid fa-angle-left"></i></div>',
+        nextArrow: '<div class="slick-nav slick-btn next-arrow"><i class="fa-solid fa-chevron-right"></i></div>',
       })
 });
 

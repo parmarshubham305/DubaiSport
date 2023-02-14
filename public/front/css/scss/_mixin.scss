@@ -34,46 +34,21 @@
     }
 }
 
-.services {
-    border-color: #d5d5d5 !important;
-}
-
+// product slider
 .product-slider {
-    .slick-track {
-        display: flex;
-        padding: 0.8rem 0rem;
-    }
-    .slick-arrow {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        border: 1px solid #ed2124;
-        border-radius: 100%;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        left: -40px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ed2124;
-        cursor:pointer;
-        &.prev-arrow{left: -40px;right:Auto;}
-        &.next-arrow{left:auto;right: -40px;}
-    }
     .card {
         @include transition(0.5s all ease);
         display: flex;
         flex-direction: column;
-
         .product-img {
             max-width: 340px;
+            min-height:430px;
+            align-items: center;
+            justify-content: center;
             display: flex;
             margin: 0 auto;
             overflow: hidden;
             @include radius(5px);
-
             img {
                 @include transition(0.5s all linear);
                 @include radius(5px);
@@ -92,7 +67,6 @@
             justify-content: center;
             @include radius(100%);
             @include transition(0.5s all ease);
-
             .custom-icon {
 
                 .path1,
@@ -119,19 +93,106 @@
             .wishlist-icon {
                 top: 7px;
             }
-
             .product-img {
                 img {
                     @include transform(scale(1.1));
                 }
             }
-
             .card-body {
                 .product-heading {
                     a {
                         color: $primary;
                     }
                 }
+            }
+        }
+    }
+}
+
+// Shop By Brands
+.shop-by-brand{
+    .box-brand{
+        @include radius(0.8rem);
+        @include transition(0.5s all ease);
+        @include box-shadow(1px ,4px, 9px, 0px, #d9d9d9);
+        a{
+            .brand {overflow:hidden;
+                .brand-img{@include radius(0.8rem 0.8rem 0 0);
+                    img{@include radius(0.8rem 0.8rem 0 0);}
+                }
+                .brand-logo{width:100%;height:100%;display:flex;;align-items: center;justify-content: center;position: absolute;top:100%;;left:0;@include transition(0.5s all ease);@include radius(0.8rem 0.8rem 0 0);background: #ffffffc7;
+                    img{max-width:200px;margin:auto;}
+                }
+               
+            }
+            &:hover,&:active,&:focus{
+                .brand-logo{top:0;}
+            }
+        }
+        &:hover,&:active,&:focus{
+            @include box-shadow(4px ,4px ,11px ,0px, #d9d9d9);@include transform(translateY(-10px));
+        }
+    }
+}
+
+
+// distributors-logo
+.distributors-logo{
+    .client-logo{
+        max-width:270px;margin:0 auto;
+        img{
+          filter:grayscale(1);
+          @include transition(0.5s all ease);
+        }
+        &:hover{
+            img{
+                filter:grayscale(0);
+            }
+
+        }
+    }
+}
+
+// commercial
+.commercial{
+    .commercial-box{position:relative;
+        img{@include radius(0.8rem);}
+        .commercial-content{
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content:center;
+            h4{
+                @include fontSize(30px);
+            }
+        }
+    }
+}
+
+
+.footer-content{
+    .footer_top{
+        h5{@include fontSize(18px);font-family:'Roboto Slab', 'sans-serif'; color:$primary;}
+        ul{
+            li{
+                a{display:inline-block;padding:0.2rem 0rem;color:#6e6e6e;
+                    &:hover,&:focus,&:active{color:$primary;}
+                }
+            }
+        }
+        .category-list{
+            -webkit-column-count:2;-moz-column-count:2;column-count:2
+        }
+    }
+    .footer_bottom{
+        .social-media{
+            li{
+                a{}
             }
         }
     }

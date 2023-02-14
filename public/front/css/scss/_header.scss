@@ -55,6 +55,8 @@
         }
     }
 }
+
+// Navbar
 nav{
     .navbar-nav{
         .nav-item{margin-right:0.4rem;
@@ -110,7 +112,9 @@ nav{
         }
     }
 }
-.services{
+
+// services
+.services{ border-color: #d5d5d5 !important;
     .service-icon{
         .custom-icon {
             color:$primary;

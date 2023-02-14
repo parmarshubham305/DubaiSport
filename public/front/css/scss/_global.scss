@@ -76,9 +76,107 @@ a {
         @include box-shadow(0, 0, 0, 0, #ffffff);
     }
 }
-// Spacing
-.spacing-y{padding:5rem 0rem;}
 
+.btn-primary,.btn-info,.btn-success,.btn-secondary{
+    color: #fff;
+    @include transition(0.5s all ease);
+    position: relative;
+    overflow: hidden;
+    padding:0.5rem 1.4rem;
+    border: none;
+    z-index: 1;
+    &:after,  &:before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      background-color: $primary;
+      @include transition(0.5s all ease);
+      z-index: -2;
+    }
+    &:before {
+      content: '';
+      width: 0%;
+      background-color: darken($primary, 10%);
+      z-index: -1;
+    }
+    &:hover,&:active,&:focus {
+      color: #fff;
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  .btn-primary{
+    &:after,  &:before{
+      background-color: $primary;     
+    }
+    &:before {
+      background-color: darken($primary, 10%);
+    }
+  }
+  .btn-info{
+    &:after,  &:before{
+      background-color: $info;     
+    }
+    &:before {
+      background-color: lighten($info, 20%);
+    }
+  }
+  .btn-success{
+    &:after,  &:before{
+      background-color: $success;     
+    }
+    &:before {
+      background-color: darken($success, 10%);
+    }
+  }
+  .btn-secondary{
+    &:after,  &:before{
+      background-color: $secondary;     
+    }
+    &:before {
+      background-color: darken($secondary, 10%);
+    }
+  }
+
+// Spacing
+.spacing-y{padding:3.5rem 0rem;}
+
+
+// slick
+.slick-track {
+  display: flex;
+  align-items:center;
+  padding-bottom: 0.8rem;
+}
+
+.slick-btn{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $primary;
+  border-radius: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: -40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary;
+  @include transition(0.5s all ease);
+  cursor:pointer;
+  &.prev-arrow{left: -40px;right:Auto;}
+  &.next-arrow{left:auto;right: -40px;}
+  &:hover,&:active,&:focus{
+      background:$primary;
+      color:#ffffff;
+  }
+}
 
 // page header
 
@@ -87,7 +185,7 @@ a {
     width: 100%;
     display: block;
     padding-bottom:1.4rem;
-    margin-bottom:1rem;
+    margin-bottom:2.5rem;
     &:after {
         content:"";
         position:absolute;
@@ -130,7 +228,7 @@ a {
         align-items: center;
         justify-content: center;
         .form-check-input {
-            --bs-form-switch-bg: url("/images/moon.svg");
+            --bs-form-switch-bg: url("../images/moon.svg");
             width: 40px;
             height: 40px;
             margin: 0;
