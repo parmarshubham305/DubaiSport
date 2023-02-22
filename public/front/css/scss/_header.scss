@@ -10,7 +10,7 @@
             .form-control{
                 width:860px;height:40px;
                 @include mq("desktop"){width:550px;}
-                @include mq("large-container"){width:680px;}
+                @include mq("large-container"){width:780px;}
                 @include radius(5px 0px 0px 5px);
                 background:transparent;
                 box-shadow:inset 0px 0px 7px -5px #2a2a2a;
@@ -23,7 +23,7 @@
                 }
             }
         }
-    
+
         .user-link{
             li{
                 a{
@@ -51,6 +51,9 @@
                         @include fontSize(11px);
                     }
                 }
+                &:first-child{
+                    a{padding-left:0;}
+                }
             }
         }
     }
@@ -61,10 +64,11 @@ nav{
     .navbar-nav{
         .nav-item{margin-right:0.4rem;
             .nav-link{
-                display: inline-block;                   
+                display: inline-block;
                 position: relative;
                 padding: 0.8rem 1rem;
                 color:#333333;
+                text-transform: capitalize;
                 @include transition(0.5s color);
                 font-weight:600;
                 @include mq("desktop"){padding: 0.8rem 0.65rem;@include fontSize(13px);}
@@ -95,17 +99,26 @@ nav{
                     margin:auto;
                     transition: width 1s;
                 }
-                &:hover,&:focus,&:active,&.active{color:$primary;
+                &:hover,&:focus,&:active,&.active,&.show{color:$primary;
                     &:before{
                         width: 100%;
                         transition: width .3s;
                     }
-                   
+
                 }
                 &.active{
                     &:after{
                         opacity:1;
                     }
+                }
+            }
+            .dropdown-menu{
+                width:100%;border:none;@include radius(0);margin-top: 0;padding:2rem 0rem;@include box-shadow(0px, 4px, 6px, 0px, #7171718c);
+                .dropdown-item{
+                  padding: 0rem;@include radius(6px);
+                    img{max-width: 250px;margin:auto;@include radius(6px 6px 0px 0px);}
+                    span{@include radius(0px 0px 6px 6px);}
+                    &:hover,&:focus,&:active,&.active,&.show{color:$primary;}
                 }
             }
             .btn{@include radius(5px 5px 0px 0px);}
