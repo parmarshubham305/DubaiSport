@@ -1,0 +1,167 @@
+// Login Pages
+.login-page {background: url("../images/bg_login.jpg") no-repeat;height:100vh;background-size:100%;position:relative;
+    &:after{
+        content:'';
+        position: absolute;
+        background-color: $info;
+        opacity:0.1;
+        top:0;left:0;
+        width:100%;
+        height:100%;
+        z-index:0;
+    }
+    .sign-in-form {
+        width: 500px;
+        padding: 1.5rem;
+        z-index:99;
+        @include transition(0.8s all ease);
+        @include box-shadow(5px,4px,16px,2px,#c3c3c3);
+        background: #ffffff;
+        @include radius(7px);
+        .form-group {
+            @include radius(0px 7px 7px 0px);
+            .form-control{
+                height: 50px;
+                @include radius(0px 7px 7px 0px);
+            }
+        }
+        .content {
+            padding: 1.5rem;margin-bottom:-70px;
+            background: $info;
+            @include radius(7px);
+        }
+    }
+}
+
+.square-icon{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:$primary;
+    color:#ffffff;
+    @include radius(7px 0px 0px 7px)
+}
+
+.signup-page {
+	background: url("../images/bg_registration.jpg") no-repeat;background-size:100%;
+	background-size: cover;
+    height: 100vh;
+        .signup{
+            height: 100vh;
+            overflow: hidden;
+            &:after{
+                content:'';
+                position: absolute;
+                background-color: $info;
+                opacity:0.2;
+                width:100%;
+                height:100%;
+                z-index:0;
+                top:0;
+                left:0;
+            }
+            .sign-up-form {
+                width: 900px;
+                height: 440px;
+                padding: 1.5rem;
+                @include transition(0.8s all ease);
+                @include box-shadow(5px,4px,16px,2px,#c3c3c3);
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+                background: #ffffff;
+                @include radius(7px);
+                opacity: 0;
+                transform: translateY(300%);
+                visibility: hidden;
+                z-index:99;
+                .form-group {
+                    @include radius(0px 7px 7px 0px);
+                    .form-control{
+                        height: 50px;
+                        @include radius(0px 7px 7px 0px);
+                    }
+                }
+                .content {
+                    padding: 1.5rem;
+                    margin-bottom:-70px;
+                    background: $info;
+                    @include radius(7px);
+                }
+            }
+            .sign-up-form.locationdetails {
+                height: 310px;
+            }
+            .sign-up-form.Completed {
+                height: 380px;
+            }
+            .sign-up-form.active {
+                transform: translate(0);
+                opacity: 1;
+                visibility: visible;
+            }
+    }
+
+}
+.singup-step {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: flex;
+	width: 900px;
+	justify-content: space-between;
+	.singup-step-btn {
+        position: relative;
+        z-index: 99;
+        min-width: 130px;
+        color:$info;
+		span {
+			width: 60px;
+			height: 60px;
+			background-color: $info;
+			color: #ffffff;
+			@include radius(100%);
+			line-height: 60px;
+			text-align: center;
+			margin: auto;
+			pointer-events: none;
+			z-index: 99;
+			position: relative;
+            @include transition(0.5s all ease);
+		}
+		&:before {
+			position: absolute;
+			top: 35px;
+			left: 62%;
+			transition-property: all;
+			transition-duration: 0.15s;
+			transition-timing-function: linear;
+			transition-delay: 0s;
+			display: block;
+			width: 380px;
+			height: 2px;
+			content: '';
+			background-color: $info;
+			z-index: 1;
+		}
+		&:last-child {
+			&:before {
+				content: none;
+			}
+		}
+		&:hover,&:active, &.active {color: $primary;
+			span {
+				background-color: $primary;
+			}
+            &:before {
+                background-color: $primary;
+            }
+		}
+	}
+}

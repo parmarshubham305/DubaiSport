@@ -1,14 +1,14 @@
 $( document ).ready(function() {
     $('#flexSwitchCheckChecked').click(function(){
         if($(this).is(":checked")){
-            $("body").attr("data-bs-theme","dark"); 
+            $("body").attr("data-bs-theme","dark");
         }
         else{
-            $("body").attr("data-bs-theme","light"); 
+            $("body").attr("data-bs-theme","light");
         }
-    });  
+    });
 
-    
+
     $('.slider').slick({
         autoplay: true,
         draggable: false,
@@ -50,3 +50,4 @@ $(window).scroll(function() {
 		$("#header").removeClass("sticky-header");
 	}
 });
+

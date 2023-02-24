@@ -102,7 +102,7 @@ a {
       z-index: -1;
     }
     &:hover,&:active,&:focus {
-      color: #fff;
+      color: #fff !important;
       &:before {
         width: 100%;
       }
