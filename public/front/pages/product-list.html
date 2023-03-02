@@ -145,230 +145,655 @@
         </nav>
     </header>
 
-    <div class="product-list spacing-y">
+    <div class="spacing-y">
         <div class="container">
             <div class="page-header">
                 <h2 class="mb-0 text-center">Products <span class="text-primary">List</span></h2>
             </div>
             <div class="row">
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
+                <div class="col-md-3">
+                    <div id="filter-sidebar" name="filter_sidebar">
+                        <div class="filter_side_bar card">
+                            <div class="card-header">
+                                <h4 class="mb-0">Filter</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled d-flex flex-wrap pt-2 mb-0 text-nowrap"
+                                    id="filter_by_container">
+                                    <li class="m-1" id="fb_category_ids_14"><a href="javascript:void(0);"
+                                            onclick="removeFilterBy('category_ids_14','1');">
+                                            <badge class="badge rounded-pill bg-light text-secondary p-2 p2">Throw
+                                                Pillow <i aria-hidden="true" class="fa fa-times ml-md-2 ml-1"></i>
+                                            </badge>
+                                        </a></li>
+                                </ul>
+                                <div class="accordion border-bottom pt-2" id="accordion_for_sidebar_first">
+                                    <div class="accordion-item bg-transparent border-0">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button aria-controls="categories" aria-expanded="true"
+                                                class="accordion-button pt-3 pb-2 fw-semibold  bg-transparent text-dark"
+                                                data-bs-target="#categories" data-bs-toggle="collapse"
+                                                type="button">Categories</button>
+                                        </h2>
+                                        <div aria-labelledby="headingOne"
+                                            class="accordian-main-filter accordion-collapse collapse show"
+                                            data-bs-parent="#accordionExample" id="categories">
+                                            <div class="accordion-body p-0">
+                                                <ul class="list-unstyled py-2 mb-0">
+                                                    <li class="pt-2">
+                                                        <div class="form-check"><input class="form-check-input"
+                                                                name="fc[]" id="category_ids_29" type="checkbox"
+                                                                value="29" data-title="Wall &amp; Surfaces"
+                                                                data-cal-type="1"><label
+                                                                class="form-check-label ps-1 categorie_label"
+                                                                for="category_ids_29"> Wall &amp; Surfaces </label>
+                                                        </div>
+                                                        <ul class="list-unstyled ms-3">
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_30" type="checkbox"
+                                                                        value="30" data-title="Tapestries New"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_30"> Tapestries New </label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="pt-2">
+                                                        <div class="form-check"><input class="form-check-input"
+                                                                name="fc[]" id="category_ids_31" type="checkbox"
+                                                                value="31" data-title="Pet Supplies"
+                                                                data-cal-type="1"><label
+                                                                class="form-check-label ps-1 categorie_label"
+                                                                for="category_ids_31"> Pet Supplies </label></div>
+                                                        <ul class="list-unstyled ms-3">
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_28" type="checkbox"
+                                                                        value="28" data-title="OPS Product"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_28"> OPS Product </label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="pt-2">
+                                                        <div class="form-check"><input class="form-check-input"
+                                                                name="fc[]" id="category_ids_21" type="checkbox"
+                                                                value="21" data-title="Home &amp; Living"
+                                                                data-cal-type="1"><label
+                                                                class="form-check-label ps-1 categorie_label"
+                                                                for="category_ids_21"> Home &amp; Living </label></div>
+                                                        <ul class="list-unstyled ms-3">
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_13" type="checkbox"
+                                                                        value="13" data-title="Wall &amp; Surfaces"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_13"> Wall &amp; Surfaces
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_24" type="checkbox"
+                                                                        value="24" data-title="Mugs &amp; Bottle"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_24"> Mugs &amp; Bottle
+                                                                    </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_25" type="checkbox"
+                                                                        value="25" data-title="Table"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_25"> Table </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_26" type="checkbox"
+                                                                        value="26" data-title="Doormat"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_26"> Doormat </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_27" type="checkbox"
+                                                                        value="27" data-title="Posters"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_27"> Posters </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_23" type="checkbox"
+                                                                        value="23" data-title="Tapestries"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_23"> Tapestries </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_22" type="checkbox"
+                                                                        value="22" data-title="Pillow"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_22"> Pillow </label></div>
+                                                                <ul class="list-unstyled ms-3">
+                                                                    <li class="pt-2">
+                                                                        <div class="form-check"><input
+                                                                                class="form-check-input"
+                                                                                checked="checked" name="fc[]"
+                                                                                id="category_ids_14" type="checkbox"
+                                                                                value="14" data-title="Throw Pillow"
+                                                                                data-cal-type="1"><label
+                                                                                class="form-check-label ps-1 categorie_label"
+                                                                                for="category_ids_14"> Throw Pillow
+                                                                            </label>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_17" type="checkbox"
+                                                                        value="17" data-title="Pet Supplies"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_17"> Pet Supplies </label>
+                                                                </div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_19" type="checkbox"
+                                                                        value="19" data-title="NE Curated"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_19"> NE Curated </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_32" type="checkbox"
+                                                                        value="32"
+                                                                        data-title="Throw Pillows &amp; Covers"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_32"> Throw Pillows &amp;
+                                                                        Covers
+                                                                    </label></div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="pt-2">
+                                                        <div class="form-check"><input class="form-check-input"
+                                                                name="fc[]" id="category_ids_20" type="checkbox"
+                                                                value="20" data-title="Accessories"
+                                                                data-cal-type="1"><label
+                                                                class="form-check-label ps-1 categorie_label"
+                                                                for="category_ids_20"> Accessories </label></div>
+                                                        <ul class="list-unstyled ms-3">
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_15" type="checkbox"
+                                                                        value="15" data-title="T-Shirt"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_15"> T-Shirt </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_16" type="checkbox"
+                                                                        value="16" data-title="Stationery"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_16"> Stationery </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        name="fc[]" id="category_ids_18" type="checkbox"
+                                                                        value="18" data-title="Bags"
+                                                                        data-cal-type="1"><label
+                                                                        class="form-check-label ps-1 categorie_label"
+                                                                        for="category_ids_18"> Bags </label></div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- Product List Container -->
+                                <div id="filter_main_containter">
+                                    <div class="accordion border-bottom" id="accordion_for_sidebar_second">
+                                        <div class="accordion-item bg-transparent border-0">
+                                            <h2 class="accordion-header" id="headingTwo"><button
+                                                    aria-controls="product_accordion" aria-expanded="false"
+                                                    class="accordion-button  pt-3 pb-2 fw-semibold collaps bg-transparent text-dark"
+                                                    data-bs-target="#product_accordion" data-bs-toggle="collapse"
+                                                    type="button">Products</button></h2>
 
+                                            <div aria-labelledby="headingTwo" class="accordion-collapse collapse show"
+                                                data-bs-parent="#accordionExample" id="product_accordion">
+                                                <div class="accordion-body p-0">
+                                                    <div class="position-relative"><input id="product_search"
+                                                            aria-label="Search" class="form-control bg-transparent py-0"
+                                                            placeholder="Search" type="search"
+                                                            onkeyup="myProductSearch()"><button
+                                                            class="h-100 position-absolute top-0 end-0 bg-transparent border-0 px-3 disabled"
+                                                            type="button"><i class="fal fa-search fa-lg"></i></button>
+                                                    </div>
+                                                    <div id="list_products_container" class="accordian-main-filter">
+                                                        <ul class="list-unstyled">
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        type="checkbox" name="fp[]" id="product_ids_117"
+                                                                        value="117" data-title="Throw Pillows"
+                                                                        data-cal-type="2"><label
+                                                                        class="form-check-label ps-1 sub_categorie"
+                                                                        for="product_ids_117"> Throw Pillows</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="list_options_container">
+                                        <div class="accordion border-bottom" id="accordion_for_sidebar_three">
+                                            <div class="accordion-item bg-transparent  border-0">
+                                                <h2 class="accordion-header" id="headingthree_list_material_type">
+                                                    <button aria-controls="list_material_type" aria-expanded="false"
+                                                        class="accordion-button pt-3 pb-2 fw-semibold  collaps bg-transparent text-dark"
+                                                        data-bs-target="#list_material_type" data-bs-toggle="collapse"
+                                                        type="button">Material Type</button></h2>
+                                                <div aria-labelledby="headingthree_list_material_type"
+                                                    class="accordian-main-filter accordion-collapse collapse show"
+                                                    data-bs-parent="#accordionExample" id="list_material_type">
+                                                    <div class="accordion-body p-0">
+                                                        <ul class="list-unstyled">
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        id="list_options_list_mt_striped"
+                                                                        name="filter[list_material_type][]"
+                                                                        type="checkbox" value="list_mt_striped"
+                                                                        data-title="Striped Texture" data-cal-type="3">
+                                                                    <label class="form-check-label ps-1 sub_categorie"
+                                                                        for="list_options_list_mt_striped"> Striped
+                                                                        Texture
+                                                                    </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        id="list_options_list_mt_jute"
+                                                                        name="filter[list_material_type][]"
+                                                                        type="checkbox" value="list_mt_jute"
+                                                                        data-title="Textured Jute" data-cal-type="3">
+                                                                    <label class="form-check-label ps-1 sub_categorie"
+                                                                        for="list_options_list_mt_jute"> Textured Jute
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        id="list_options_list_mt_polyester"
+                                                                        name="filter[list_material_type][]"
+                                                                        type="checkbox" value="list_mt_polyester"
+                                                                        data-title="Polyester" data-cal-type="3"> <label
+                                                                        class="form-check-label ps-1 sub_categorie"
+                                                                        for="list_options_list_mt_polyester"> Polyester
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion border-bottom" id="accordion_for_sidebar_three">
+                                            <div class="accordion-item bg-transparent  border-0">
+                                                <h2 class="accordion-header" id="headingthree_listing_shape">
+                                                    <button aria-controls="listing_shape" aria-expanded="false"
+                                                        class="accordion-button pt-3 pb-2 fw-semibold collaps bg-transparent text-dark"
+                                                        data-bs-target="#listing_shape" data-bs-toggle="collapse"
+                                                        type="button">Shape</button>
+                                                </h2>
+                                                <div aria-labelledby="headingthree_listing_shape"
+                                                    class="accordian-main-filter accordion-collapse collapse show"
+                                                    data-bs-parent="#accordionExample" id="listing_shape">
+                                                    <div class="accordion-body p-0">
+                                                        <ul class="list-unstyled">
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        id="list_options_listing_square_shape"
+                                                                        name="filter[listing_shape][]" type="checkbox"
+                                                                        value="listing_square_shape" data-title="Square"
+                                                                        data-cal-type="3"> <label
+                                                                        class="form-check-label ps-1 sub_categorie"
+                                                                        for="list_options_listing_square_shape"> Square
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        id="list_options_listing_rectangle_shape"
+                                                                        name="filter[listing_shape][]" type="checkbox"
+                                                                        value="listing_rectangle_shape"
+                                                                        data-title=" Rectangle" data-cal-type="3">
+                                                                    <label class="form-check-label ps-1 sub_categorie"
+                                                                        for="list_options_listing_rectangle_shape">
+                                                                        Rectangle
+                                                                    </label></div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        id="list_options_listing_round_shape"
+                                                                        name="filter[listing_shape][]" type="checkbox"
+                                                                        value="listing_round_shape" data-title="Round"
+                                                                        data-cal-type="3"> <label
+                                                                        class="form-check-label ps-1 sub_categorie"
+                                                                        for="list_options_listing_round_shape"> Round
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                            <li class="pt-2">
+                                                                <div class="form-check"><input class="form-check-input"
+                                                                        id="list_options_lisiting_bow_shape"
+                                                                        name="filter[listing_shape][]" type="checkbox"
+                                                                        value="lisiting_bow_shape" data-title="Bow"
+                                                                        data-cal-type="3"> <label
+                                                                        class="form-check-label ps-1 sub_categorie"
+                                                                        for="list_options_lisiting_bow_shape"> Bow
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- Price bar slider -->
+                                <div class="accordion position-relative" id="accordion_for_sidebar_six">
+                                    <div class="accordion-item bg-transparent  border-0">
+                                        <h2 class="accordion-header" id="headingsix"><button aria-controls="Price"
+                                                aria-expanded="false"
+                                                class="accordion-button pt-3 pb-2 fw-semibold  collaps bg-transparent text-dark"
+                                                data-bs-target="#Price" data-bs-toggle="collapse"
+                                                type="button">Price</button>
+                                        </h2>
+                                        <div aria-labelledby="headingsix" class="accordion-collapse collapse show"
+                                            data-bs-parent="#accordionExample" id="Price">
+                                            <div class="accordion-body p-0 my-2
+                                px-2">
+                                                <div class="price-range-slider">
+                                                    <p class="range-value"><input id="filter_min_price"
+                                                            name="filter.price[]" readonly="readonly" type="hidden"
+                                                            value="1" disabled=""><input id="filter_max_price"
+                                                            name="filter.price[]" readonly="readonly" type="hidden"
+                                                            value="1000" disabled=""></p>
+                                                    <div class="d-flex justify-content-between mb-1"><span
+                                                            class="price-range-min value start-0">$1</span><span
+                                                            class="price-range-max value end-0">$1000</span></div>
+                                                    <div class="range-bar ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                                        id="slider-range">
+                                                        <div class="ui-slider-range ui-corner-all ui-widget-header"
+                                                            style="left: 0%; width: 100%;"></div><span tabindex="0"
+                                                            class="ui-slider-handle ui-corner-all ui-state-default"
+                                                            style="left: 0%;"></span><span tabindex="0"
+                                                            class="ui-slider-handle ui-corner-all ui-state-default"
+                                                            style="left: 100%;"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
+                <div class="col-md-9 product-list">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
 
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card mx-3 position-relative">
+                                <a href="#" class="product-img"><img src="../images/products/product_1.jpg"
+                                        alt="produsct" class="card-img-top img-fluid"></a>
+                                <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
+                                            class="path1"></span><span class="path2"></span></span></a>
+                                <div class="card-body bg-light-gray border-top">
+                                    <span class="d-block mb-1">Super Gym</span>
+                                    <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus
+                                            Reformer</a>
+                                    </p>
+                                    <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21
+                                        <del class="text-secondary ms-1">AED 7536</del><small
+                                            class="badge ms-1 bg-primary px-2">20%
+                                            OFF</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xl-3 mb-4">
-                    <div class="card mx-3 position-relative">
-                        <a href="#" class="product-img"><img src="../images/products/product_1.jpg" alt="produsct"
-                                class="card-img-top img-fluid"></a>
-                        <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                                    class="path1"></span><span class="path2"></span></span></a>
-                        <div class="card-body bg-light-gray border-top">
-                            <span class="d-block mb-1">Super Gym</span>
-                            <p class="fw-semibold mb-1 product-heading"><a href="#">Merrithew V2 Max Plus Reformer</a>
-                            </p>
-                            <p class="text-primary fw-bold product-price d-flex align-items-center">AED 6243.21 <del
-                                    class="text-secondary ms-1">AED 7536</del><small
-                                    class="badge ms-1 bg-primary px-2">20%
-                                    OFF</small></p>
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
         </div>
     </div>
     <div id="footer" class="footer-content spacing-y pb-0 bg-light-gray border-top">

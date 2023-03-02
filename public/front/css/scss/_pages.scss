@@ -12,8 +12,6 @@
     }
     .sign-in-form {
         width: 500px;
-        padding: 1.5rem;
-        z-index:99;
         @include transition(0.8s all ease);
         @include box-shadow(5px,4px,16px,2px,#c3c3c3);
         background: #ffffff;
@@ -26,9 +24,9 @@
             }
         }
         .content {
-            padding: 1.5rem;margin-bottom:-70px;
+            padding: 1.5rem;
             background: $info;
-            @include radius(7px);
+            @include radius(0px 0px 7px 7px);
         }
     }
 }
@@ -63,12 +61,11 @@
             }
             .sign-up-form {
                 width: 900px;
-                height: 440px;
-                padding: 1.5rem;
+                height:580px;
                 @include transition(0.8s all ease);
                 @include box-shadow(5px,4px,16px,2px,#c3c3c3);
                 position: absolute;
-                top: 0;
+                top: 90px;
                 left: 0;
                 bottom: 0;
                 right: 0;
@@ -81,16 +78,15 @@
                 z-index:99;
                 .form-group {
                     @include radius(0px 7px 7px 0px);
-                    .form-control{
+                    .form-control,.form-select{
                         height: 50px;
                         @include radius(0px 7px 7px 0px);
                     }
                 }
                 .content {
                     padding: 1.5rem;
-                    margin-bottom:-70px;
                     background: $info;
-                    @include radius(7px);
+                    @include radius(0px 0px 7px 7px);
                 }
             }
             .sign-up-form.locationdetails {

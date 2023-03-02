@@ -31,8 +31,8 @@ body {
 }
 .text-gray{color:$light-gray;}
 .bg-light-gray{background: $light-gray;}
-input,
-.btn {
+input,select,
+.btn,button {
     &:focus {
         box-shadow: none !important;
         outline: none !important;
@@ -44,7 +44,7 @@ a {
     text-decoration: none;
 }
 
-.form-control {
+.form-control ,.form-select{
     font-family: 'Poppins', sans-serif;
 }
 

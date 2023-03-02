@@ -26,7 +26,7 @@
                 <button class="singup-step-btn border-0 btn fw-semibold" type="button" title="Comments"><span class="d-inline-block">3</span><br>Completed </button>
               </div>
             <div class="sign-up-form accessdaata wow fadeIn active" data-wow-delay="0.3s">
-                <form action="#" class="text-center m-auto">
+                <form action="#" class="text-center m-auto p-4">
                     <img src="../images/site_logo.png" alt="site_logo" class="mb-5 img-fluid">
                     <div class="row">
                         <div class="col-md-6">
@@ -83,7 +83,7 @@
                     </a>
                 </div>
             </div>
-            <div class="sign-up-form locationdetails">
+            <div class="sign-up-form locationdetails p-4">
                 <form action="#" class="text-center m-auto">
                     <div class="row">
                         <div class="col-md-6">
@@ -94,29 +94,49 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex form-group mb-3">
+                                 <span class="square-icon"><i class="fas fa-building"></i></span>
+                                <input type="text" class="form-control" placeholder="Address" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex form-group mb-3">
+                                 <span class="square-icon"><i class="fas fa-globe"></i></span>
+                                 <select name="Country" class="form-select" id="Country">
+                                    <option value="Us">Country</option>
+                                    <option value="Us">US</option>
+                                    <option value="Us">India</option>
+                                    <option value="Us">USA</option>
+                                    <option value="Us">UK</option>
+                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex form-group mb-3">
+                                 <span class="square-icon"><i class="fas fa-globe"></i></span>
+                                 <select name="State" class="form-select" id="State">
+                                    <option value="Us">State</option>
+                                    <option value="Us">Gujrat</option>
+                                    <option value="Us">GOA</option>
+                                    <option value="Us">KalKata</option>
+                                    <option value="Us">Maharastra</option>
+                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex form-group mb-3">
                                  <span class="square-icon"><i class="fas fa-university"></i></span>
                                 <input type="text" class="form-control" placeholder="Town / City" required />
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="d-flex form-group mb-3">
-                                 <span class="square-icon"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="District" required />
-                            </div>
-                        </div>
+
 
                         <div class="col-md-6">
                             <div class="d-flex form-group mb-3">
-                                 <span class="square-icon"><i class="fas fa-globe"></i></span>
-                                <input type="text" class="form-control" placeholder="State" required />
-                            </div>
+                                <span class="square-icon"><i class="fas fa-link"></i></span>
+                               <input type="number" class="form-control w-100" placeholder="Pin Number" required />
+                           </div>
                         </div>
-                        <div class="col-12">
-                            <div class="d-flex form-group mb-3">
-                                 <span class="square-icon"><i class="fas fa-link"></i></span>
-                                <input type="text" class="form-control w-100" placeholder="Pin Number" required />
-                            </div>
-                        </div>
+
                         <div class="col-12 mt-4">
                            <div class="d-flex justify-content-between">
                             <button class="btn btn-secondary btn-prev px-3" type="button" title="Previous">Previous</button>
@@ -127,7 +147,7 @@
                     </div>
                 </form>
             </div>
-            <div class="sign-up-form Completed">
+            <div class="sign-up-form Completed p-4">
                 <form action="#" class="text-center m-auto">
                     <div class="row justify-content-center mt-md-5">
                         <div class="col-md-6 text-center mb-3">
