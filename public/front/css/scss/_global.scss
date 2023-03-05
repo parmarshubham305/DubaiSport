@@ -36,6 +36,14 @@ input,select,
     &:focus {
         box-shadow: none !important;
         outline: none !important;
+        &:not(:focus-visible){
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    }
+    &:not(.collapsed){
+        box-shadow: none !important;
+        outline: none !important;
     }
 }
 
