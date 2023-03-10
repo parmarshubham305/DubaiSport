@@ -191,7 +191,108 @@
             }
         }
     }
-    &.list-product-view{
+}
 
+#products {
+    .page-header{
+        &:before,&:after{content:none;}
+    }
+    .stock{
+        .badge{
+            padding:0.4rem 0.8rem;
+            @include fontSize(14px);
+            display: inline-block;
+        }
+    }
+    #product_images{top:160px;
+        .carousel-inner{border: 1px solid #d3d3d3;@include radius(7px);
+            .carousel-item{
+                width:100%;height:500px;background:#f1f1f1;padding:1.5rem;@include radius(7px);
+                a{cursor: zoom-in;overflow:hidden;display: block;
+                    img{
+                        height:100%;object-fit:contain;width: 100%;@include radius(7px);@include transition(0.5s all ease);@include transform(sclae(1));
+                    }
+                    &:hover{
+                        img{@include transform(scale(0.9));}
+                    }
+                }
+
+            }
+        }
+    }
+    .carousel-control-prev,.carousel-control-next{position: absolute;width: 40px;
+        height: 40px;
+        border: 1px solid $primary;
+        background:$primary;
+        border-radius: 100%;
+        top: 38%;
+        bottom: auto;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:#ffffff;
+        @include transition(0.5s all ease);
+        cursor:pointer;
+        &.prev-arrow{left: 20px;right:auto;}
+        &.next-arrow{left:auto;right: 20px;}
+        &:hover,&:active,&:focus{
+            background:$primary;
+            color:#ffffff;
+        }
+      }
+    .carousel-thumbs{
+        .thumb-box{ width: 100px;height: 100px; padding: 0.4rem;border: 1px solid #d3d3d3; margin-right: 0.5rem;@include radius(7px);background:#f1f1f1;
+            &.active,&:hover{border-color:$primary;}
+            img{width:100%;height:100%;object-fit: contain;@include radius(7px);}
+        }
+    }
+    .price-calculator{
+        .qty {
+            .btn-info{
+                padding :0.3rem 0.7rem !important;
+            }
+            .form-control {
+                max-width:70px;width: 80px;;
+            }
+        }
+        .price{
+            h3{
+                font-family: 'Roboto Slab', 'sans-serif';
+            }
+        }
+    }
+    .services{
+        border:none !important; background:#ffffff !important;
+        h5{display:block;}
+        ul{
+            li{margin-bottom:1rem;
+                @include mq("tablet"){width:50%;flex:0 0 50%;}
+                .custom-icon{
+                    background-color: $light-gray;display:flex;@include radius(100%);width:60px;height:60px;align-items: center;justify-content: center;
+                    @include fontSize(24px);
+                    &.custom-secure-shopping{@include fontSize(33px);}
+                    &.custom-free-installation{@include fontSize(34px);}
+                    &.custom-product-warranty{@include fontSize(33px);}
+                }
+            }
+        }
+    }
+}
+.product-tab{
+    .nav-tabs{
+        .nav-item{margin-right:1.5rem;
+            .nav-link{
+                color:#5c5c5c;border-bottom:2px solid transparent !important;
+                &.active,&:hover,&:focus,&:active{color:$primary;background:transparent;border-bottom:2px solid $primary !important;}
+            }
+        }
+    }
+    .tab-content{
+        border-top: 2px solid #dedede;
+    }
+    .table {border-color:#a7a7a7;
+        td,th{padding:0.6rem 1.3rem;}
     }
 }

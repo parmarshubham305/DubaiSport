@@ -55,6 +55,13 @@ $( document ).ready(function() {
             $(".listing-product .card").removeClass("flex-row");
            }
       })
+      $(function () {
+        $('[data-bs-toggle="popover"]').popover()
+    })
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
+    });
+
 });
 
 
@@ -66,5 +73,24 @@ $(window).scroll(function() {
 	} else {
 		$("#header").removeClass("sticky-header");
 	}
+});
+
+$(function () {
+    $(".add").click(function () {
+        var currentVal = parseInt($(this).next(".qty").val());
+        if (currentVal != NaN) {
+            $(this).next(".qty").val(currentVal + 1);
+        }
+    });
+
+    $(".minus").click(function () {
+        var currentVal = parseInt($(this).prev(".qty").val());
+        if (currentVal != NaN) {
+            if (currentVal > 0) {
+                $(this).prev(".qty").val(currentVal - 1);
+            }
+
+        }
+    });
 });
 

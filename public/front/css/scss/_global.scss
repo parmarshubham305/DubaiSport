@@ -150,6 +150,11 @@ a {
     }
   }
 
+  .btn-outline-primary, .btn-outline-info, .btn-outline-secondary{
+    &:hover{
+        color:#ffffff;
+    }
+  }
 // Spacing
 .spacing-y{padding:3.5rem 0rem;}
 
@@ -254,3 +259,4 @@ a {
         }
     }
 }
+
