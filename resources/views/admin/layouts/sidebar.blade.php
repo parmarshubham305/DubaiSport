@@ -43,6 +43,30 @@
             <li class="@if(Request::segment(2) == 'categories' && Request::segment(3) == 'create') active @endif"><a href="{{ route('admin.categories.create') }}"><i class="fa fa-circle-o"></i> Create </a></li>
           </ul>
         </li>
+        <li class="@if(Request::segment(2) == 'master-options') active @endif treeview">
+          <a href="#">
+            <i class="fa fa-gear"></i> <span>Master Option</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+           <ul class="treeview-menu">
+            <li class="@if(Request::segment(2) == 'master-options' && Request::segment(3) == '') active @endif"><a href="{{ route('admin.master-options.index') }}"><i class="fa fa-circle-o"></i> List </a></li>
+            <li class="@if(Request::segment(2) == 'master-options' && Request::segment(3) == 'create') active @endif"><a href="{{ route('admin.master-options.create') }}"><i class="fa fa-circle-o"></i> Create </a></li>
+          </ul>
+        </li>
+        <li class="@if(Request::segment(2) == 'products') active @endif treeview">
+          <a href="#">
+            <i class="fa fa-th"></i> <span>Product</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+           <ul class="treeview-menu">
+            <li class="@if(Request::segment(2) == 'products' && Request::segment(3) == '') active @endif"><a href="{{ route('admin.products.index') }}"><i class="fa fa-circle-o"></i> List </a></li>
+            <li class="@if(Request::segment(2) == 'products' && Request::segment(3) == 'create') active @endif"><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i> Create </a></li>
+          </ul>
+        </li>
       </ul>
     </section>
   </aside>

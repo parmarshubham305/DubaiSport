@@ -34,7 +34,13 @@ Route::group(['as' => 'admin.'], function () {
 		Route::post('category-groups/delete', 'CategoryGroupController@delete')->name('category-groups.delete');
 		Route::resource('/category-groups', 'CategoryGroupController');
 		
-		Route::post('categories/delete', 'CategoryGroupController@delete')->name('categories.delete');
+		Route::post('categories/delete', 'CategoryController@delete')->name('categories.delete');
 		Route::resource('/categories', 'CategoryController');
+
+		Route::post('master-options/delete', 'MasterOptionController@delete')->name('master-options.delete');
+		Route::resource('/master-options', 'MasterOptionController');
+
+		Route::post('products/delete', 'ProductController@delete')->name('products.delete');
+		Route::resource('/products', 'ProductController');
 	});
 });

@@ -13,4 +13,5 @@
     {{ Html::script("front/thirdparty/js/all.min.js") }}
     {{ Html::script("front/thirdparty/js/slick.min.js") }}
     {{ Html::script("front/js/theme.js") }}
+    @livewireStyles
 </head>

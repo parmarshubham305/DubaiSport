@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\MasterOption;
 use App\Http\Requests\Backend\CategoryRequest;
 use App\Jobs\Backend\CategoryJob;
 
@@ -72,7 +73,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $masterOptions = MasterOption::pluck('name', 'id')->toArray();
+
+        return view('admin.category.create', compact('masterOptions'));
     }
 
     /**
@@ -112,7 +115,9 @@ class CategoryController extends Controller
     {
         $data = Category::find($id);
 
-        return view('admin.category.edit', compact('data'));
+        $masterOptions = MasterOption::pluck('name', 'id')->toArray();
+
+        return view('admin.category.edit', compact('data', 'masterOptions'));
     }
 
     /**

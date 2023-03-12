@@ -1,4 +1,4 @@
-<header id="header" class="sticky-top">
+<header id="header" class="sticky-top border-bottom">
     <div class="top-header bg-white">
         <div class="container-fluid">
             <div class="d-flex align-items-center justify-content-between">
@@ -14,9 +14,9 @@
                                 class="custom-icon custom-telephone me-2"><span class="path1"></span><span
                                     class="path2"></span></span><span class="link-content"> +971 4
                                 2678618</span></a></li>
-                    <li><a href="#" class="d-flex position-relative border-end border-secondary"><span
+                    <li><a href="{{ route('login') }}" class="d-flex position-relative border-end border-secondary"><span
                                 class="custom-icon custom-account me-2"><span class="path1"></span><span
-                                    class="path2"></span></span><span class="link-content">Sign Up</span></a></li>
+                                    class="path2"></span></span><span class="link-content">Sign In</span></a></li>
                     <li> <a href="#" class="d-flex position-relative border-end border-secondary"><span
                                 class="custom-icon custom-wishlistsvg me-2"><span class="path1"></span><span
                                     class="path2"></span></span><span class="link-content">Wishlist</span></a></li>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg py-0 bg-white">
+    <nav class="navbar navbar-expand-lg py-0 bg-white position-relative">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,17 +51,44 @@
                             href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i
                                 class="fa-solid fa-bars me-1"></i> All</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Cardio</a>
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Cardio</a>
+                        <div class="dropdown-menu bg-light">
+                            <div class="container">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-md-auto">
+                                        <a class="dropdown-item border" href="#">
+                                            <img src="{{ env('APP_URL').'front/images/products/product_1.jpg' }}" alt="product_1" class="img-fluid">
+                                            <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-auto">
+                                        <a class="dropdown-item border" href="#">
+                                            <img src="{{ env('APP_URL').'front/images/products/product_1.jpg' }}" alt="product_1" class="img-fluid">
+                                            <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-auto">
+                                        <a class="dropdown-item border" href="#">
+                                            <img src="{{ env('APP_URL').'front/images/products/product_1.jpg' }}" alt="product_1" class="img-fluid">
+                                            <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-auto">
+                                        <a class="dropdown-item border" href="#">
+                                            <img src="{{ env('APP_URL').'front/images/products/product_1.jpg' }}" alt="product_1" class="img-fluid">
+                                            <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bikes</a>
+                        <a class="nav-link" href="#">Strengh & Free weights</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Strengh & Free weight</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Benchs</a>
+                        <a class="nav-link" href="#">Benches</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Flooring</a>
@@ -70,22 +97,22 @@
                         <a class="nav-link" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Loker & Benches</a>
+                        <a class="nav-link" href="#">Locker & Benches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sonar & Stream</a>
+                        <a class="nav-link" href="#">sauna & stems</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Outdoor Fitness Equipment</a>
+                        <a class="nav-link" href="#">Outdoor Fitness Equipments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kids Plays</a>
+                        <a class="nav-link" href="#">Kids Play</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Multiple Cords</a>
+                        <a class="nav-link" href="#">multiple-courts</a>
                     </li>
                     <li class="nav-item align-self-end">
-                        <a class="btn btn-primary text-white px-4 py-2" href="#">Sale</a>
+                        <a class="btn btn-primary text-white px-4 text-uppercase py-2" href="#">SALE!</a>
                     </li>
                 </ul>
             </div>

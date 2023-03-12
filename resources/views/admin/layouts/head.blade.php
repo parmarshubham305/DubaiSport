@@ -40,6 +40,7 @@
   <!-- Google Font -->
   {{ Html::style("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic") }}
   @yield('css')
+  @livewireStyles
   <style type="text/css">
     .pulseWarning {
       display: none !important;

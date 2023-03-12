@@ -13,11 +13,20 @@ class Category extends Model
         'title',
         'image',
         'status',
-        'sort'
+        'sort',
+        'option_ids'
     ];
     
     public function getImageAttribute($value)
     {
         return env('APP_URL').$value;
+    }
+
+    public function setOptionIdsAttribute($value) {
+        $this->attributes['option_ids'] = implode(',', $value);
+    }
+
+    public function getOptionIdsAttribute($value) {
+        return explode(',', $value);
     }
 }

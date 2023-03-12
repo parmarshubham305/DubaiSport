@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->text('image');
             $table->enum('status',['0','1'])->default('1');
             $table->tinyInteger('sort')->nullable();
+            $table->text('option_ids')->nullable();
             $table->timestamps();
         });
     }

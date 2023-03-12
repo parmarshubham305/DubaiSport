@@ -29,7 +29,11 @@ class CategoryGroupJob
             $this->data['id'] = null;
         }
         $data = CategoryGroup::firstOrNew(['id' => $this->data['id']]);
-
+        if(!isset($this->data['status'])) {
+            $this->data['status'] = '0';
+        } else {
+            $this->data['status'] = '1';
+        }
         $data->fill($this->data);
 
         if(isset($this->data['icon'])) {

@@ -11,7 +11,7 @@
 	<div class="form-group">
 		<label for="inputEmail3" class="col-sm-4 control-label">Sort</label>
 		<div class="col-sm-8">
-			{{ Form::number('sort', old('sort'), ['class' => 'form-control', 'required' ]) }}
+			{{ Form::number('sort', old('sort'), ['class' => 'form-control' ]) }}
 		<span class='text-danger'>{{ $errors->first('sort') }}</span>
 		</div>
 	</div>
@@ -33,9 +33,18 @@
 </div>
 <div class="box-body">
 	<div class="form-group">
-		<label for="inputEmail3" class="col-sm-4 control-label">Status</label>
+		<label for="inputEmail3" class="col-sm-4 control-label">Select Option</label>
 		<div class="col-sm-8">
-		<input type="checkbox" class="checkbox" value="1" name="status" {{ old('status') }} />
+			{{ Form::select('option_ids[]', $masterOptions, old('option_ids[]'), ['class' => 'form-control select2', 'data-placeholder' => 'Select Option', 'multiple' => 'multiple' ]) }}
+		<span class='text-danger'>{{ $errors->first('option_ids[]') }}</span>
+		</div>
+	</div>
+</div>
+<div class="box-body">
+	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-4 control-label">Status</label>
+		<div class="col-sm-8" style="padding-top: 10px;">
+		{{ Form::checkbox('status', old('status')) }}
 		<span class='text-danger'>{{ $errors->first('sort') }}</span>
 		</div>
 	</div>
