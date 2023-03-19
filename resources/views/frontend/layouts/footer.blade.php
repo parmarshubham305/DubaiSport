@@ -1,3 +1,34 @@
+<div class="subscribe-section border-top spacing-y">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 border-end">
+                <div class="page-header">
+                    <h2 class="mb-0 text-center">Contact <span class="text-primary">Us</span></h2>
+                </div>
+                <ul class="list-unstyled d-flex align-items-center justify-content-center mb-0">
+                    <li class="border-end"><a href="#" class="d-inline-block px-4 d-flex align-items-center"><span
+                                class="email d-flex align-items-center justify-content-center me-2"><i
+                                    class="fa-solid fa-envelope"></i></span> any@gmail.com</a></li>
+                    <li class="border-end"><a href="#" class="d-inline-block px-4 d-flex align-items-center"><span
+                                class="phone d-flex align-items-center justify-content-center me-2"><i
+                                    class="fa-solid fa-phone"></i></span>+1 123 456 7896</a></li>
+                    <li><a href="#" class="d-inline-block px-4 d-flex align-items-center"><span
+                        class="phone d-flex align-items-center justify-content-center me-2"><i class="fa-brands fa-whatsapp fa-lg"></i></span>+1 123 456 7896</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="page-header">
+                    <h2 class="mb-0 text-center">Subscribe <span class="text-primary">Now</span></h2>
+                </div>
+                <div class="d-flex subscribe-bar py-2 justify-content-center" role="subscribe">
+                    <input class="form-control border-end-0 border-primary rounded-0 w-50" type="search"
+                        placeholder="Email Address" aria-label="Search">
+                    <button class="btn btn-primary rounded-0" type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
 <div id="footer" class="footer-content spacing-y pb-0 bg-light-gray border-top">
     <div class="footer_top text-center text-md-start">
         <div class="container">

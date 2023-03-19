@@ -25,7 +25,7 @@
 	</div>
 </section>
 @stop
-@section('js')
+<!-- @section('js')
 {{ Html::script("backend/bower_components/ckeditor/ckeditor.js") }}
 <script type="text/javascript">
 	$(function () {
@@ -38,5 +38,5 @@
     // $('.textarea').wysihtml5()
   })
 </script>
-@stop
+@stop -->
 

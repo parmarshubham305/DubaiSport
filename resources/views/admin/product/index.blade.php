@@ -29,6 +29,8 @@
 	                  <th><div class="animated-checkbox"><label><input type="checkbox" class="selectall" /><span class="label-text"></span></label></div></th>
 	                  <th>Title</th>
 	                  <th>Image</th>
+	                  <th>Price</th>
+	                  <th>Category</th>
 	                  <th>Status</th>
 	                  <th>Action</th>
 	                </tr>
@@ -39,6 +41,8 @@
 	                  <th><div class="animated-checkbox"><label><input type="checkbox" class="selectall" /><span class="label-text"></span></label></div></th>
 	                  <th>Title</th>
 	                  <th>Image</th>
+					  <th>Price</th>
+	                  <th>Category</th>
 	                  <th>Status</th>
 	                  <th>Action</th>
 	                </tr>
@@ -117,19 +121,21 @@
 	            }
 	        },
 	        { "mData": "title",sWidth: "10%",bSortable: true,},
-	        { "mData": "images",
+	        { "mData": "main_image",
 				sWidth: "10%",
 				bSortable: false,
 				mRender: function(v, t, o) {
 					var img = '';
-					if(o['image'] != '') {
-						img = '<img src="'+o['image']+'" width="40" height="40" style="margin-left: 20px; margin-right: 10px"/>';
+					if(o['main_image'] != '') {
+						img = '<img src="'+o['main_image']+'" width="40" height="40" style="margin-left: 20px; margin-right: 10px"/>';
 					}
 					
 					return img;
 				}
 
 			},
+	        { "mData": "price",sWidth: "10%",bSortable: false,},
+	        { "mData": "category_title",sWidth: "10%",bSortable: false,},
 	        { "mData": "status",sWidth: "10%",bSortable: false,},
 	        {
 	            mData: null,

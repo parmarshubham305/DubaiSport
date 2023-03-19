@@ -20,9 +20,12 @@ class CreateProductsTable extends Migration
             $table->text('details')->nullable();
             $table->text('description')->nullable();
             $table->text('description_2')->nullable();
-            $table->text('images');
+            $table->string('main_image');
+            $table->text('other_images')->nullable();
             $table->double('price', [10,2])->default(0);
             $table->enum('status',['0','1'])->default('1');
+            $table->tinyInteger('sort')->nullable();
+            $table->string('image_prefix_folder')->nullable();
             $table->timestamps();
         });
     }

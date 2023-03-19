@@ -23,18 +23,27 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        case 'POST':
-            {
-                return [
-                    'title' => 'required',
-                ];
-            }
-        case 'PATCH':
-            {
-                return [
-                    'title' => 'required',
-                ];
-            }
-        default:break;
+        switch ($this->method()) {
+            case 'POST':
+                {
+                    return [
+                        'title' => 'required',
+                        'category_id' => 'required',
+                        'price' => 'required',
+                        'main_image' => 'required',
+                        'description' => 'required'
+                    ];
+                }
+            case 'PATCH':
+                {
+                    return [
+                        'title' => 'required',
+                        'category_id' => 'required',
+                        'price' => 'required',
+                        'description' => 'required'
+                    ];
+                }
+            default:break;
+        }
     }
 }

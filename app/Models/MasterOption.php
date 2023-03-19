@@ -14,4 +14,9 @@ class MasterOption extends Model
         'status',
         'sort'
     ];
+
+    public function attributeValues()
+    {
+        return $this->hasMany('App\Models\MasterOptionAttribute');
+    }
 }

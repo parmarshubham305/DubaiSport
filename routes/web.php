@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['as' => 'front.', 'namespace' => 'Front'], function () {
+    Route::post('products/delete', 'ProductController@delete')->name('products.delete');
+    Route::resource('/products', 'ProductController');
+});

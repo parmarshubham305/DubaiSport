@@ -4,19 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\ProductSpecification;
-use App\Http\Requests\Backend\ProductRequest;
-use App\Jobs\Backend\ProductJob;
+use App\Models\User;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         if ($request->ajax()) {
             
@@ -25,20 +22,18 @@ class ProductController extends Controller
 
             if ($request->has('sSearch')) {
                 $search = $request->get('sSearch');
-                $where_str .= " and ( products.title like \"%{$search}%\""
+                $where_str .= " and ( title like \"%{$search}%\""
                     . ")";
             }
             
-            $data = Product::select('products.id', 'products.title', 'main_image', 'price', 'categories.title as category_title', 'products.status')
-                ->leftjoin('categories', 'categories.id', '=', 'products.category_id')
+            $data = User::select('id', 'title', 'images', 'status')
                 ->whereRaw($where_str, $where_params);
                 
-            $data_count = Product::select('products.id')
+            $data_count = User::select('id')
                 ->whereRaw($where_str, $where_params)
-                ->leftjoin('categories', 'categories.id', '=', 'products.category_id')
                 ->count();
 
-            $columns = ['id', 'title', 'main_image', 'price', 'category_title', 'status'];
+            $columns = ['id', 'title', 'images', 'status'];
 
             if ($request->has('iDisplayStart') && $request->get('iDisplayLength') != '-1') {
                 $data = $data->take($request->get('iDisplayLength'))->skip($request->get('iDisplayStart'));
@@ -65,7 +60,7 @@ class ProductController extends Controller
             return $response;
         }
 
-        return view('admin.product.index');
+        return view('admin.user.index');
     }
 
     /**
@@ -75,7 +70,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        //
     }
 
     /**
@@ -84,14 +79,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        $params = $request->all();
-        
-        dispatch(new ProductJob($params));
- 
-        return redirect()->back()->with('message', 'Record Saved Successfully.')
-            ->with('type', 'success');
+        //
     }
 
     /**
@@ -113,15 +103,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $data = Product::find($id);
-
-        $optionAttributes = ProductSpecification::where('product_id', $id)->get()->toArray();
-
-        foreach ($optionAttributes as $key => $optionAttribute) {
-            $data['option_'.$optionAttribute['option_id']] = $optionAttribute['option_id'].'_'.$optionAttribute['option_attribute_id'];
-        }
-
-        return view('admin.product.edit', compact('data'));
+        //
     }
 
     /**
@@ -131,14 +113,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $params = $request->all();
-        
-        dispatch(new ProductJob($params));
- 
-        return redirect()->back()->with('message', 'Record Saved Successfully.')
-            ->with('type', 'success');
+        //
     }
 
     /**
@@ -150,24 +127,5 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function delete(Request $request, $id)
-    {
-        $id = $request->get('id');
-        
-        if(!is_array($id)){
-            $id = array($id);
-        }
-        
-        Product::whereIn('id',$id)->delete();
-
-        return redirect()->back()->with('message', 'Record Deleted Successfully.')
-            ->with('type', 'success');
     }
 }
