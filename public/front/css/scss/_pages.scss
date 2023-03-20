@@ -83,6 +83,9 @@
                     .form-control,.form-select{
                         height: 50px;
                         @include radius(0px 7px 7px 0px);
+                        &.parsley-error{
+                            background: rgba($primary,0.1);
+                        }
                     }
                 }
                 .content {
@@ -90,14 +93,15 @@
                     background: $info;
                     @include radius(0px 0px 7px 7px);
                 }
+                .parsley-errors-list{list-style-type: none;padding: 0;position: absolute;bottom: -7px;width: 100%;margin: 0;text-align: left;color:$primary;}
             }
             .sign-up-form.locationdetails {
-                height: 310px;
+                height: 350px;
             }
             .sign-up-form.Completed {
                 height: 380px;
             }
-            .sign-up-form.active {
+            .sign-up-form.current {
                 transform: translate(0);
                 opacity: 1;
                 visibility: visible;
@@ -209,7 +213,7 @@
             display: inline-block;
         }
     }
-    #product_images{top:160px;
+    #product_images{top:160px;overflow:hidden;
         .carousel-inner{border: 1px solid #d3d3d3;@include radius(7px);
             .carousel-item{
                 width:100%;height:500px;background:#f1f1f1;padding:1.5rem;@include radius(7px);
@@ -224,35 +228,42 @@
 
             }
         }
-    }
-    .carousel-control-prev,.carousel-control-next{position: absolute;width: 40px;
-        height: 40px;
-        border: 1px solid $primary;
-        background:$primary;
-        border-radius: 100%;
-        top: 38%;
-        bottom: auto;
-        margin: auto;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color:#ffffff;
-        @include transition(0.5s all ease);
-        cursor:pointer;
-        &.prev-arrow{left: 20px;right:auto;}
-        &.next-arrow{left:auto;right: 20px;}
-        &:hover,&:active,&:focus{
-            background:$primary;
+        &:hover{
+            .carousel-control-prev,.carousel-control-next{
+                &.prev-arrow{left: 20px;right:auto;}
+                &.next-arrow{left:auto;right: 20px;}
+            }
+        }
+        .carousel-control-prev,.carousel-control-next{position: absolute;width: 40px;
+            height: 40px;
+            border: 1px solid $info;
+            background:$info;
+            border-radius: 100%;
+            top: 38%;
+            bottom: auto;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color:#ffffff;
-        }
-      }
-    .carousel-thumbs{
-        .thumb-box{ width: 100px;height: 100px; padding: 0.4rem;border: 1px solid #d3d3d3; margin-right: 0.5rem;@include radius(7px);background:#f1f1f1;
-            &.active,&:hover{border-color:$primary;}
-            img{width:100%;height:100%;object-fit: contain;@include radius(7px);}
+            @include transition(0.5s all ease);
+            cursor:pointer;
+            &.prev-arrow{left: -60px;right:auto;}
+            &.next-arrow{left:auto;right: -60px;}
+            &:hover,&:active,&:focus{
+                background:$info;
+                color:#ffffff;
+            }
+          }
+        .carousel-thumbs{
+            .thumb-box{ width: 100px;height: 100px; padding: 0.4rem;border: 1px solid #d3d3d3; margin-right: 0.5rem;@include radius(7px);background:#f1f1f1;
+                &.active,&:hover{border-color:$info;}
+                img{width:100%;height:100%;object-fit: contain;@include radius(7px);}
+            }
         }
     }
+
     .price-calculator{
         .qty {
             .btn-info{

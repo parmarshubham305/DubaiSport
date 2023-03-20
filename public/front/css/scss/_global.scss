@@ -181,10 +181,11 @@ a {
   align-items: center;
   justify-content: center;
   color: $primary;
+  z-index: 9;
   @include transition(0.5s all ease);
   cursor:pointer;
-  &.prev-arrow{left: -40px;right:Auto;}
-  &.next-arrow{left:auto;right: -40px;}
+  &.prev-arrow{left: 0px;right:Auto; @include mq("large-container"){left: -40px; }}
+  &.next-arrow{left:auto;right: 0px; @include mq("large-container"){ right: -40px;}}
   &:hover,&:active,&:focus{
       background:$primary;
       color:#ffffff;

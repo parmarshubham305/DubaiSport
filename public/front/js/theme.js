@@ -95,44 +95,44 @@ $(function () {
 });
 
 // registration Js
-$(document).ready(function () {
-    var navListItems = $('ul.setup-panel li a'),
-            allWells = $('.setup-content'),
-            allNextBtn = $('.nextBtn');
-    allWells.hide();
+$(function () {
+    var $sections = $('.form-section');
 
-    navListItems.click(function (e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-                $item = $(this);
+    function navigateTo(index) {
+      // Mark the current section with the class 'current'
+      $sections
+        .removeClass('current')
+        .eq(index)
+          .addClass('current');
+      // Show only the navigation buttons that make sense for the current section:
+      $('.form-navigation .previous').toggle(index > 0);
+      var atTheEnd = index >= $sections.length - 1;
+      $('.form-navigation .next').toggle(!atTheEnd);
+      $('.form-navigation [type=submit]').toggle(atTheEnd);
+    }
 
-        if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-select').addClass('btn-default');
-            $item.addClass('btn-select').parent().addClass("active");
-            allWells.hide();
-            $target.show().addClass("active");
-            $target.find('input:eq(0)').focus();
-        }
+    function curIndex() {
+      // Return the current index by looking at which section has the class 'current'
+      return $sections.index($sections.filter('.current'));
+    }
+
+    // Previous button is easy, just go back
+    $('.form-navigation .previous').click(function() {
+      navigateTo(curIndex() - 1);
     });
 
-    allNextBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            nextStepWizard = $('ul.setup-panel li a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            curInputs = curStep.find("input[type='text'],input[type='url']"),
-            isValid = true;
-
-        $(".form-group").removeClass("has-error");
-        for(var i=0; i<curInputs.length; i++){
-            if (!curInputs[i].validity.valid){
-                isValid = false;
-                $(curInputs[i]).closest(".form-group").addClass("has-error");
-            }
-        }
-
-        if (isValid)
-            nextStepWizard.removeAttr('disabled').trigger('click');
+    // Next button goes forward iff current block validates
+    $('.form-navigation .next').click(function() {
+      $('.demo-form').parsley().whenValidate({
+        group: 'block-' + curIndex()
+      }).done(function() {
+        navigateTo(curIndex() + 1);
+      });
     });
 
-    $('ul.setup-panel li a.btn-select').trigger('click');
+    // Prepare sections by setting the `data-parsley-group` attribute to 'block-0', 'block-1', etc.
+    $sections.each(function(index, section) {
+      $(section).find(':input').attr('data-parsley-group', 'block-' + index);
     });
+    navigateTo(0); // Start at the beginning
+  });
