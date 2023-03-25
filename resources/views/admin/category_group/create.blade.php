@@ -12,7 +12,7 @@
 </section>
 <section class="content">
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-8">
           <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Create</h3>

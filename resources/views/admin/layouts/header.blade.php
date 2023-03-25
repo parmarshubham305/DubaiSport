@@ -15,6 +15,11 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <li>
+            <a href="{{ env('APP_URL') }}" target="_blank">
+              <i class="fa fa-tv" style="font-size: 20px;"></i>
+            </a>
+          </li>
           <!-- Messages: style can be found in dropdown.less-->
          {{--  <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

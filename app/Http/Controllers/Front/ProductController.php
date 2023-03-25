@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -13,11 +14,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $categorySlug = null)
     {
-        $products = Product::with(['category'])->get()->toArray();
-        
-        return view('frontend.product.list', compact('products'));
+        $categoryId = Category::where('slug', $categorySlug)->value('id');
+
+        return view('frontend.product.list', compact('categoryId'));
     }
 
     /**

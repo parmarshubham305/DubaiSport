@@ -16,7 +16,7 @@ class CreateCategoryGroupsTable extends Migration
         Schema::create('category_groups', function (Blueprint $table) {
             $table->id();
             $table->text('title',200);
-            $table->text('icon');
+            $table->text('icon')->nullable();
             $table->enum('status',['0','1'])->default('1');
             $table->enum('include_in_header',['0','1'])->default('0');
             $table->tinyInteger('sort')->nullable();

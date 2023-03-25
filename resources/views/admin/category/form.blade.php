@@ -1,5 +1,14 @@
 <div class="box-body">
 	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-4 control-label">Select Option</label>
+		<div class="col-sm-8">
+			{{ Form::select('category_group_id', $categoryGroups, old('category_group_id'), ['class' => 'form-control', 'placeholder' => 'Select Category Group' ]) }}
+		<span class='text-danger'>{{ $errors->first('category_group_id') }}</span>
+		</div>
+	</div>
+</div>
+<div class="box-body">
+	<div class="form-group">
 		<label for="inputEmail3" class="col-sm-4 control-label">Title</label>
 		<div class="col-sm-8">
 			{{ Form::text('title', old('title'), ['class' => 'form-control', 'required' ]) }}

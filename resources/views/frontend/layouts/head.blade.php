@@ -13,5 +13,6 @@
     {{ Html::script("front/thirdparty/js/all.min.js") }}
     {{ Html::script("front/thirdparty/js/slick.min.js") }}
     {{ Html::script("front/js/theme.js") }}
+    <script type="text/javascript" src="https://parsleyjs.org/dist/parsley.min.js"></script>
     @livewireStyles
 </head>

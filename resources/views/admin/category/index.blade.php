@@ -27,7 +27,8 @@
                 <thead>
 	                <tr class="btn-primary">
 	                  <th><div class="animated-checkbox"><label><input type="checkbox" class="selectall" /><span class="label-text"></span></label></div></th>
-	                  <th>Title</th>
+	                  <th>Category Group</th>
+					  <th>Title</th>
 	                  <th>Image</th>
 	                  <th>Status</th>
 	                  <th>Action</th>
@@ -37,7 +38,8 @@
                 <tfoot>
 	                <tr class="btn-primary">
 	                  <th><div class="animated-checkbox"><label><input type="checkbox" class="selectall" /><span class="label-text"></span></label></div></th>
-	                  <th>Title</th>
+	                  <th>Category Group</th>
+					  <th>Title</th>
 	                  <th>Image</th>
 	                  <th>Status</th>
 	                  <th>Action</th>
@@ -119,6 +121,7 @@
 	                            +'<span class="label-text"></span></label></div>';
 	            }
 	        },
+	        { "mData": "category_group_title",sWidth: "10%",bSortable: true,},
 	        { "mData": "title",sWidth: "10%",bSortable: true,},
 	        { "mData": "image",
 				sWidth: "10%",

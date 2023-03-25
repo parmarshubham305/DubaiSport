@@ -23,10 +23,10 @@
 			{{ Form::file('icon', old('icon'), ['class' => 'form-control' ]) }}
 			<span class='text-danger'>{{ $errors->first('icon') }}</span>
 			@if(isset($data) && $data['icon'])
-				<div class="icon-area">
-					<img src="{{ $data['icon'] }}" height="100" width="100" alt="Preview">
-					<!-- <a onclick="removeProfile({{ $data['icon'] }})" class="remove-image" href="#" style="display: inline;">&#215;</a> -->
-				</div>
+			<div class="icon-area">
+				<img src="{{ $data['icon'] }}" height="100" width="100" alt="Preview">
+			</div>
+			<!-- <a onclick="removeProfile({{ $data['icon'] }})" class="remove-image" href="#" style="display: inline; height:20px; width: 20px;">&#215;</a> -->
 			@endif
 		</div>
 	</div>

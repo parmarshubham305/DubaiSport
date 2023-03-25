@@ -28,7 +28,7 @@ class CategoryGroupRequest extends FormRequest
                 {
                     return [
                         'title' => 'required',
-                        'icon' => 'required',
+                        // 'icon' => 'required',
                     ];
                 }
             case 'PATCH':

@@ -19,6 +19,11 @@ class CategoryGroup extends Model
 
     public function getIconAttribute($value)
     {
-        return env('APP_URL').$value;
+        return $value != '' ? env('APP_URL').$value : '';
+    }
+
+    public function categories()
+    {
+        return $this->hasMany('App\Models\Category')->where('status', '1')->orderBy('sort', 'ASC');
     }
 }

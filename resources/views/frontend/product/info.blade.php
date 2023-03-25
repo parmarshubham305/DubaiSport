@@ -107,12 +107,12 @@
                                 class="fa-brands fa-whatsapp fa-lg me-2"></i> WHATSAPP</a>
                     </div>
                     <div class="services border-top border-bottom py-3 bg-light-gray">
-                        <h5 class="mb-3">Services
+                        <!-- <h5 class="mb-3">Services
                             <a href="javascript:void()" class="text-primary" data-bs-toggle="popover"
                                 data-bs-trigger="focus" data-bs-content="Quntity is here">
                                 <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
                             </a>
-                        </h5>
+                        </h5> -->
                         <div class="container">
                             <livewire:service-offer />
                         </div>

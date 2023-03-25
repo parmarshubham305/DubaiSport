@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CategoryGroup;
 use App\Models\Category;
 use App\Models\MasterOption;
 use App\Http\Requests\Backend\CategoryRequest;
@@ -25,18 +26,20 @@ class CategoryController extends Controller
 
             if ($request->has('sSearch')) {
                 $search = $request->get('sSearch');
-                $where_str .= " and ( title like \"%{$search}%\""
+                $where_str .= " and ( categories.title like \"%{$search}%\""
                     . ")";
             }
             
-            $data = Category::select('id', 'title', 'image', 'sort', 'status')
+            $data = Category::select('categories.id', 'category_groups.title as category_group_title', 'categories.title',  'image', 'categories.sort', 'categories.status')
+                ->leftjoin('category_groups', 'category_groups.id', '=', 'categories.category_group_id')
                 ->whereRaw($where_str, $where_params);
                 
-            $data_count = Category::select('id')
+            $data_count = Category::select('categories.id')
+                ->leftjoin('category_groups', 'category_groups.id', '=', 'categories.category_group_id')
                 ->whereRaw($where_str, $where_params)
                 ->count();
 
-            $columns = ['id', 'title', 'image', 'sort', 'status'];
+            $columns = ['id', 'category_group_title', 'title', 'image', 'sort', 'status'];
 
             if ($request->has('iDisplayStart') && $request->get('iDisplayLength') != '-1') {
                 $data = $data->take($request->get('iDisplayLength'))->skip($request->get('iDisplayStart'));
@@ -73,9 +76,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $categoryGroups = CategoryGroup::pluck('title', 'id')->toArray();
+
         $masterOptions = MasterOption::pluck('name', 'id')->toArray();
 
-        return view('admin.category.create', compact('masterOptions'));
+        return view('admin.category.create', compact('masterOptions', 'categoryGroups'));
     }
 
     /**
@@ -115,9 +120,11 @@ class CategoryController extends Controller
     {
         $data = Category::find($id);
 
+        $categoryGroups = CategoryGroup::pluck('title', 'id')->toArray();
+
         $masterOptions = MasterOption::pluck('name', 'id')->toArray();
 
-        return view('admin.category.edit', compact('data', 'masterOptions'));
+        return view('admin.category.edit', compact('data', 'masterOptions', 'categoryGroups'));
     }
 
     /**
