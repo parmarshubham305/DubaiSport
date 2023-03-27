@@ -312,3 +312,32 @@
         td,th{padding:0.6rem 1.3rem;}
     }
 }
+.qty {
+    .btn-info{
+        padding :0.3rem 0.7rem !important;
+    }
+    .form-control {
+        max-width:70px;width: 80px;;
+    }
+}
+
+.shopping-cart{
+    .shopping-box{@include radius(6px);border:1px solid #d2d2d2;
+        .shopping-img{
+            max-width:150px;padding:0.5rem;background:#f8f8f8;
+        }
+        .shopping-header{
+            background:#f8f8f8;@include radius(6px 6px 0px 0px);border-bottom:1px solid #d2d2d2;
+        }
+        >.row{border-bottom:1px solid #d2d2d2;
+            &:last-child{border:none;}
+        }
+    }
+    .order-summery{position:sticky;top:160px;
+        .checkout-btn{
+            .btn-info,.btn-primary{
+                padding:0.8rem 0.6rem;
+            }
+        }
+    }
+}

@@ -81,7 +81,7 @@ nav{
                 font-weight:600;
                 @include mq("desktop"){padding: 0.8rem 0.2rem;@include fontSize(13px);}
                 @include mq("desktop-wide"){padding: 0.8rem 0.4rem;@include fontSize(13px);}
-                @include mq("large-container"){ padding: 0.8rem;@include fontSize(15px);}
+                @include mq("large-container"){ padding: 0.8rem 1rem;@include fontSize(15px);}
                 &:before{
                     content: '';
                     display: block;

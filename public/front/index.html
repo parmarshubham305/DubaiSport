@@ -22,28 +22,41 @@
     <header id="header" class="sticky-top border-bottom">
         <div class="top-header bg-white">
             <div class="container-fluid">
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center justify-content-between py-xl-0 py-4">
+                    <button class="navbar-toggler p-2 border d-xl-none d-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars fa-lg"></i>
+                </button>
                     <a href="#" class="site-logo"> <img src="images/site_logo.png" alt="site logo" width="300"
                             height="36"></a>
-                    <div class="d-flex search-bar" role="search">
+                    <div class="d-xl-flex d-none search-bar" role="search">
                         <input class="form-control border-end-0" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-primary" type="submit"><span class="custom-icon custom-search"><span
                                     class="path1"></span><span class="path2"></span></span></button>
                     </div>
                     <ul class="user-link d-flex align-items-center list-unstyled mb-0">
+                        <li class="d-xl-none d-inline-block"><a href="#"
+                                class="d-flex position-relative border-end border-secondary"><span
+                                    class="custom-icon custom-search"><span class="path1"></span><span
+                                        class="path2"></span></span></a></li>
                         <li><a href="#" class="d-flex position-relative border-end border-secondary"><span
                                     class="custom-icon custom-telephone me-2"><span class="path1"></span><span
-                                        class="path2"></span></span><span class="link-content"> +971 4
+                                        class="path2"></span></span><span class="link-content d-xl-inline-block d-none">
+                                    +971 4
                                     2678618</span></a></li>
-                        <li><a href="../front/pages/login.html" class="d-flex position-relative border-end border-secondary"><span
+                        <li><a href="../front/pages/login.html"
+                                class="d-flex position-relative border-end border-secondary"><span
                                     class="custom-icon custom-account me-2"><span class="path1"></span><span
-                                        class="path2"></span></span><span class="link-content">Sign Up</span></a></li>
+                                        class="path2"></span></span><span
+                                    class="link-content d-xl-inline-block d-none">Sign Up</span></a></li>
                         <li> <a href="#" class="d-flex position-relative border-end border-secondary"><span
                                     class="custom-icon custom-wishlistsvg me-2"><span class="path1"></span><span
-                                        class="path2"></span></span><span class="link-content">Wishlist</span></a></li>
+                                        class="path2"></span></span><span
+                                    class="link-content d-xl-inline-block d-none">Wishlist</span></a></li>
                         <li> <a href="#" class="d-flex position-relative border-end border-secondary me-3"><span
                                     class="custom-icon custom-cart me-2"><span class="path1"></span><span
-                                        class="path2"></span></span><span class="link-content">Cart</span>
+                                        class="path2"></span></span><span
+                                    class="link-content d-xl-inline-block d-none">Cart</span>
                                 <span class="badge rounded-pill bg-primary ms-1 cart-badge">1</span>
 
                             </a></li>
@@ -59,12 +72,9 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg py-0 bg-white position-relative">
+        <nav class="navbar navbar-expand-xl py-0 bg-white position-relative">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
@@ -73,37 +83,42 @@
                                     class="fa-solid fa-bars me-1"></i> All</a>
                         </li>
                         <li class="nav-item dropdown position-static">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Cardio</a>
-                            <div class="dropdown-menu bg-light">
-                                <div class="container">
-                                    <div class="row align-items-center justify-content-center">
-                                        <div class="col-md-auto">
-                                            <a class="dropdown-item border" href="#">
-                                                <img src="images/products/product_1.jpg" alt="product_1" class="img-fluid">
-                                                <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-auto">
-                                            <a class="dropdown-item border" href="#">
-                                                <img src="images/products/product_1.jpg" alt="product_1" class="img-fluid">
-                                                <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-auto">
-                                            <a class="dropdown-item border" href="#">
-                                                <img src="images/products/product_1.jpg" alt="product_1" class="img-fluid">
-                                                <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-auto">
-                                            <a class="dropdown-item border" href="#">
-                                                <img src="images/products/product_1.jpg" alt="product_1" class="img-fluid">
-                                                <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
-                                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                aria-expanded="false">Cardio</a>
+                                <div class="dropdown-menu bg-light">
+                                    <div class="container">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-md-auto">
+                                                <a class="dropdown-item border" href="#">
+                                                    <img src="images/products/product_1.jpg" alt="product_1"
+                                                        class="img-fluid">
+                                                    <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-auto">
+                                                <a class="dropdown-item border" href="#">
+                                                    <img src="images/products/product_1.jpg" alt="product_1"
+                                                        class="img-fluid">
+                                                    <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-auto">
+                                                <a class="dropdown-item border" href="#">
+                                                    <img src="images/products/product_1.jpg" alt="product_1"
+                                                        class="img-fluid">
+                                                    <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-auto">
+                                                <a class="dropdown-item border" href="#">
+                                                    <img src="images/products/product_1.jpg" alt="product_1"
+                                                        class="img-fluid">
+                                                    <span class="d-block p-2 bg-white border-top text-center">Bikes</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                              </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Strengh & Free weights</a>
@@ -143,7 +158,8 @@
     <div class="services border-top border-bottom py-3 bg-light-gray">
         <div class="container">
             <h5 class="mb-3">Services
-                <a href="javascript:void()" class="text-primary" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="Quntity is here">
+                <a href="javascript:void()" class="text-primary" data-bs-toggle="popover" data-bs-trigger="focus"
+                    data-bs-content="Quntity is here">
                     <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
                 </a>
             </h5>
@@ -519,7 +535,7 @@
                 <h2 class="mb-0 text-center">Shop By <span class="text-primary">Brands</span></h2>
             </div>
             <div class="row">
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -533,7 +549,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -547,7 +563,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -560,7 +576,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -573,7 +589,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -586,7 +602,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -600,7 +616,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -614,7 +630,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="box-brand bg-white border text-center">
                         <a href="#" class="d-block text-center">
                             <span class="brand position-relative d-block">
@@ -732,22 +748,25 @@
         <div class="subscribe-section border-top spacing-y">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 border-end">
+                    <div class="col-lg-6 border-end mb-lg-0 mb-4">
                         <div class="page-header">
                             <h2 class="mb-0 text-center">Contact <span class="text-primary">Us</span></h2>
                         </div>
-                        <ul class="list-unstyled d-flex align-items-center justify-content-center mb-0">
-                            <li class="border-end"><a href="#" class="d-inline-block px-4 d-flex align-items-center"><span
+                        <ul class="list-unstyled d-block d-md-flex align-items-center justify-content-center mb-0">
+                            <li class="border-end"><a href="#"
+                                    class="d-inline-block px-4 d-flex align-items-center"><span
                                         class="email d-flex align-items-center justify-content-center me-2"><i
                                             class="fa-solid fa-envelope"></i></span> any@gmail.com</a></li>
-                            <li class="border-end"><a href="#" class="d-inline-block px-4 d-flex align-items-center"><span
+                            <li class="border-end"><a href="#"
+                                    class="d-inline-block px-4 d-flex align-items-center"><span
                                         class="phone d-flex align-items-center justify-content-center me-2"><i
                                             class="fa-solid fa-phone"></i></span>+1 123 456 7896</a></li>
                             <li><a href="#" class="d-inline-block px-4 d-flex align-items-center"><span
-                                class="phone d-flex align-items-center justify-content-center me-2"><i class="fa-brands fa-whatsapp fa-lg"></i></span>+1 123 456 7896</a></li>
+                                        class="phone d-flex align-items-center justify-content-center me-2"><i
+                                            class="fa-brands fa-whatsapp fa-lg"></i></span>+1 123 456 7896</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-6">
                         <div class="page-header">
                             <h2 class="mb-0 text-center">Subscribe <span class="text-primary">Now</span></h2>
                         </div>
@@ -760,7 +779,7 @@
                 </div>
             </div>
         </div>
-        <div  class="footer-content spacing-y pb-0 bg-light-gray border-top">
+        <div class="footer-content spacing-y pb-0 bg-light-gray border-top">
             <div class="footer_top text-center text-md-start">
                 <div class="container">
                     <div class="row">
@@ -870,9 +889,12 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="list-unstyled d-flex align-items-center justify-content-md-end mb-0">
-                                <li class="ms-3 rounded d-inline-block"><img src="images/mastercard.jpg" alt="mastercard" width="" height="50" class="img-fluid border rounded"></li>
-                                <li class="ms-3 rounded d-inline-block"><img src="images/paypal.jpg" alt="paypal" height="50" class="img-fluid border rounded"></li>
-                                <li class="ms-3 rounded d-inline-block"><img src="images/visa.jpg" alt="visa" height="50"  class="img-fluid border rounded"></li>
+                                <li class="ms-3 rounded d-inline-block"><img src="images/mastercard.jpg"
+                                        alt="mastercard" width="" height="50" class="img-fluid border rounded"></li>
+                                <li class="ms-3 rounded d-inline-block"><img src="images/paypal.jpg" alt="paypal"
+                                        height="50" class="img-fluid border rounded"></li>
+                                <li class="ms-3 rounded d-inline-block"><img src="images/visa.jpg" alt="visa"
+                                        height="50" class="img-fluid border rounded"></li>
                             </ul>
                         </div>
                     </div>
