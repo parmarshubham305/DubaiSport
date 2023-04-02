@@ -142,7 +142,7 @@ $(function () {
       $('.form-navigation .previous').toggle(index > 0);
       var atTheEnd = index >= $sections.length - 1;
       $('.form-navigation .next').toggle(!atTheEnd);
-      $('.form-navigation [type=submit]').toggle(atTheEnd);
+      $('.form-navigation [type="submit"]').toggle(atTheEnd);
     }
 
     function curIndex() {
