@@ -334,6 +334,9 @@
         }
     }
     .order-summery{position:sticky;top:160px;
+        .progress-bar{
+            background:$secondary;
+        }
         .checkout-btn{
             .btn-info,.btn-primary{
                 padding:0.8rem 0.6rem;

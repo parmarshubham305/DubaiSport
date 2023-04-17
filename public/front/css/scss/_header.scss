@@ -24,7 +24,9 @@
                     }
                 }
             }
-
+            .search-item{z-index:99;@include radius(0px 0px 5px 5px);
+                box-shadow: 0px 2px 7px -1px #979797;
+            }
         }
         .site-logo{
             img{ width: 180px;

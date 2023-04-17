@@ -149,123 +149,28 @@
     <div class="shopping-cart spacing-y">
         <div class="container">
             <div class="page-header">
-                <h2 class="mb-0 text-center">Shopping <span class="text-primary">Cart</span></h2>
+                <h2 class="mb-0 text-center">Checkout</h2>
             </div>
             <div class="row">
-                <div class="col-md-9 shopping-box">
-                    <div class="row shopping-header d-md-flex d-none p-3">
-                        <div class="col-md-2">
-                            <h5 class="mb-0">Product Images</h5>
+                <div class="col-md-9 checkout-box border p-3">
+                    <h5 class="mb-4">Billing Information</h5>
+                    <form action="" class="mb-md-4 mb-3">
+                        <div class="d-flex ">
+                            <input type="text" class="form-control me-3" placeholder="First Name">
+                            <input type="number" class="form-control me-3" placeholder="Mobile Number">
+                            <input type="email" class="form-control" placeholder="Email Address">
                         </div>
-                        <div class="col-md-5">
-                            <h5 class="mb-0">Product Details</h5>
+                    </form>
+                    <nav>
+                        <div class="nav nav-tabs address-tab nav-justified" id="nav-tab" role="tablist">
+                          <a href="javascript:void(0)" class="nav-link active" id="myaddress-tab" data-bs-toggle="tab" data-bs-target="#myaddress" type="button" role="tab" aria-controls="myaddress" aria-selected="true"><i class="fa-solid fa-truck me-2"></i>  Deliver to my address </a>
+                          <a href="javascript:void(0)" class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#myself" type="button" role="tab" aria-controls="myself" aria-selected="false"><i class="fa-solid fa-location-dot me-2"></i> I will pick it up myself</a>
                         </div>
-                        <div class="col-md-3">
-                            <h5 class="mb-0">Quantity</h5>
-                        </div>
-                        <div class="col-md-2 text-end">
-                            <h5 class="mb-0">Price</h5>
-                        </div>
-                    </div>
-                    <div class="row py-4 px-3">
-                        <div class="col-md-2 mb-md-0 mb-4">
-                            <a href="#" data-src="../images/products/product_1.jpg"
-                                class="fancybox-img shopping-img d-inline-block border rounded" data-fancybox="product">
-                                <img src="../images/products/product_1.jpg" alt="produsct"
-                                    class="card-img-top img-fluid rounded">
-                            </a>
-                        </div>
-                        <div class="col-md-5 mb-md-0 mb-4">
-                            <a href="#" class="fw-semibold fs-5 text-primary mb-2">Merrithew V2 Max PlusReformer</a>
-                            <span class="d-block w-100">Brand : <strong>Super Gym</strong></span>
-                            <span class="d-block w-100">Model Number : <strong>ICON-PETL-38817</strong></span>
-                            <div class="mt-2">
-                                <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
-                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-md-0 mb-4">
-                            <div class="qty d-flex">
-                                <button type="button" value="+" id="add" class="add btn btn-info me-2"> <i
-                                        class="fa-solid fa-plus"></i> </button>
-                                <input type="text" id="qty1" value="1"
-                                    class="form-control text-center fw-bold border border-secondary qty">
-                                <button type="button" value="-" id="minus" class="minus btn btn-info ms-2"><i
-                                        class="fa-solid fa-minus"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-md-2 mb-md-0 mb-4 text-md-end">
-                            <div class="price d-flex align-items-center justify-content-end mb-3">
-                                <h4 class="mb-0 fw-semibold text-primary">AED 1,500 </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row py-4 px-3">
-                        <div class="col-md-2">
-                            <a href="#" data-src="../images/products/product_1.jpg"
-                                class="fancybox-img shopping-img d-inline-block border rounded" data-fancybox="product">
-                                <img src="../images/products/product_1.jpg" alt="produsct"
-                                    class="card-img-top img-fluid rounded">
-                            </a>
-                        </div>
-                        <div class="col-md-5">
-                            <a href="#" class="fw-semibold fs-5 text-primary mb-2">Merrithew V2 Max PlusReformer</a>
-                            <span class="d-block w-100">Brand : <strong>Super Gym</strong></span>
-                            <span class="d-block w-100">Model Number : <strong>ICON-PETL-38817</strong></span>
-                            <div class="mt-2">
-                                <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
-                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="qty d-flex">
-                                <button type="button" value="+" id="add" class="add btn btn-info me-2"> <i
-                                        class="fa-solid fa-plus"></i> </button>
-                                <input type="text" id="qty1" value="1"
-                                    class="form-control text-center fw-bold border border-secondary qty">
-                                <button type="button" value="-" id="minus" class="minus btn btn-info ms-2"><i
-                                        class="fa-solid fa-minus"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-end">
-                            <div class="price d-flex align-items-center justify-content-end mb-3">
-                                <h4 class="mb-0 fw-semibold text-primary">AED 1,500 </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row py-4 px-3">
-                        <div class="col-md-2">
-                            <a href="#" data-src="../images/products/product_1.jpg"
-                                class="fancybox-img shopping-img d-inline-block border rounded" data-fancybox="product">
-                                <img src="../images/products/product_1.jpg" alt="produsct"
-                                    class="card-img-top img-fluid rounded">
-                            </a>
-                        </div>
-                        <div class="col-md-5">
-                            <a href="#" class="fw-semibold fs-5 text-primary mb-2">Merrithew V2 Max PlusReformer</a>
-                            <span class="d-block w-100">Brand : <strong>Super Gym</strong></span>
-                            <span class="d-block w-100">Model Number : <strong>ICON-PETL-38817</strong></span>
-                            <div class="mt-2">
-                                <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
-                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="qty d-flex">
-                                <button type="button" value="+" id="add" class="add btn btn-info me-2"> <i
-                                        class="fa-solid fa-plus"></i> </button>
-                                <input type="text" id="qty1" value="1"
-                                    class="form-control text-center fw-bold border border-secondary qty">
-                                <button type="button" value="-" id="minus add" class="minus btn btn-info ms-2"><i
-                                        class="fa-solid fa-minus"></i></button>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-end">
-                            <div class="price d-flex align-items-center justify-content-end mb-3">
-                                <h4 class="mb-0 fw-semibold text-primary">AED 1,500 </h4>
-                            </div>
-                        </div>
-                    </div>
+                      </nav>
+                      <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="myaddress" aria-labelledby="myaddress-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="myself" aria-labelledby="myself-tab" tabindex="0">..aaa.</div>
+                      </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card order-summery">
@@ -273,33 +178,21 @@
                             <h5 class="mb-0">Order summary</h5>
                         </div>
                         <div class="card-body">
-                            <p class="mb-1">Add 25AED for <strong>FREE DELIVERY</strong> </p>
-                            <div class="progress mb-md-4">
-                                <div class="progress-bar w-75" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            <h6>Coupon Code</h6>
-                            <div class="d-flex coupon mb-4">
-                                <input class="form-control flex-grow-1 w-auto border-end-0" type="text" placeholder="coupon" aria-label="coupon">
-                                <button class="btn btn-primary" type="submit">Apply</button>
-                            </div>
                             <ul class="list-unstyled">
                                 <li class="d-flex justify-content-between mb-1"><span>Sub-Total</span> <span class="fw-semibold">AED 4,500 </span></li>
                                 <li class="d-flex justify-content-between mb-1"><span>Delivery Charge</span> <span class="fw-semibold">AED 200</span></li>
                                 <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED 75</span></li>
                                 <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold">AED 5,601</span></li>
                             </ul>
-                            <div class="checkout-btn">
-                                <a href="#" class="btn btn-info mb-3 w-100">
-                                    Continue Shopping</a>
-                                <a href="#" class="btn btn-primary  w-100">
-                                    Proceed to Secure Checkout</a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
     <div id="footer">
         <div class="subscribe-section border-top spacing-y">
             <div class="container">
@@ -459,5 +352,4 @@
         </div>
     </div>
 </body>
-
 </html>
