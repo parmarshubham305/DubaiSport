@@ -194,7 +194,8 @@
         }
         .social-media{
             li{
-                a{display:inline-block;width:45px;height:45px;display:flex;align-items: center;justify-content: center;background: $dark;color:#ffffff;@include radius(100%);
+                a{display:inline-block;width:45px;height:45px;display:flex;align-items: center;justify-content: center;background: $dark;color:#ffffff;
+                    @include radius(100%);
                     &:hover,&:active,&:focus{background:darken($dark,10%);color:#ffffff;}
                 }
             }
