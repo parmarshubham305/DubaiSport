@@ -31,13 +31,21 @@ $( document ).ready(function() {
         nextArrow: '<div class="slick-nav slick-btn next-arrow"><i class="fa-solid fa-chevron-right"></i></div>',
         responsive: [
             {
-              breakpoint: 1024,
+              breakpoint: 1025,
               settings: {
-                slidesToShow: 2,
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 infinite: true,
               }
             },
+            {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  infinite: true,
+                }
+              },
             {
               breakpoint: 575,
               settings: {

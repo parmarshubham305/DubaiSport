@@ -34,7 +34,7 @@
                         <input class="form-control border-end-0" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-primary" type="submit"><span class="custom-icon custom-search"><span
                                     class="path1"></span><span class="path2"></span></span></button>
-                        <div class="search-item position-absolute top-100 bg-white left-0">
+                        <div class="search-item position-absolute top-100 bg-white left-0 d-none">
                             <div class="row g-0">
                                 <div class="col-md-5">
                                     <div class="p-3">
@@ -122,21 +122,21 @@
                                 class="d-flex position-relative border-end border-secondary"><span
                                     class="custom-icon custom-search"><span class="path1"></span><span
                                         class="path2"></span></span></a></li>
-                        <li><a href="#" class="d-flex position-relative border-end border-secondary"><span
+                        <li class="d-xl-inline-block d-none"><a href="#" class="d-flex position-relative border-end border-secondary"><span
                                     class="custom-icon custom-telephone me-2"><span class="path1"></span><span
                                         class="path2"></span></span><span class="link-content d-xl-inline-block d-none">
                                     +971 4
                                     2678618</span></a></li>
-                        <li><a href="../front/pages/login.html"
+                        <li class="d-xl-inline-block d-none"><a href="../front/pages/login.html"
                                 class="d-flex position-relative border-end border-secondary"><span
                                     class="custom-icon custom-account me-2"><span class="path1"></span><span
                                         class="path2"></span></span><span
                                     class="link-content d-xl-inline-block d-none">Sign Up</span></a></li>
-                        <li> <a href="#" class="d-flex position-relative border-end border-secondary"><span
+                        <li class="d-xl-inline-block d-none"> <a href="#" class="d-flex position-relative border-end border-secondary"><span
                                     class="custom-icon custom-wishlistsvg me-2"><span class="path1"></span><span
                                         class="path2"></span></span><span
                                     class="link-content d-xl-inline-block d-none">Wishlist</span></a></li>
-                        <li> <a href="#" class="d-flex position-relative border-end border-secondary me-3"><span
+                        <li > <a href="#" class="d-flex position-relative border-end border-secondary me-3"><span
                                     class="custom-icon custom-cart me-2"><span class="path1"></span><span
                                         class="path2"></span></span><span
                                     class="link-content d-xl-inline-block d-none">Cart</span>
@@ -163,7 +163,7 @@
                         <li class="nav-item">
                             <a class="nav-link" class="btn btn-primary" data-bs-toggle="offcanvas"
                                 href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i
-                                    class="fa-solid fa-bars me-1"></i> All</a>
+                                    class="fa-solid fa-bars me-1"></i> <span class="d-xl-inline-block d-none">All</span> </a>
                         </li>
                         <li class="nav-item dropdown position-static">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
@@ -239,96 +239,97 @@
             </div>
         </nav>
     </header>
-    <div class="services border-top border-bottom py-3 bg-light-gray">
-        <div class="container">
-            <h5 class="mb-3">Services
-                <a href="javascript:void()" class="text-primary" data-bs-toggle="popover" data-bs-trigger="focus"
-                    data-bs-content="Quntity is here">
-                    <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
-                </a>
-            </h5>
-            <ul class="list-unstyled d-flex flex-wrap align-items-center justify-content-between mb-0">
-                <li class="d-flex align-items-center">
-                    <span class="service-icon me-3"><span class="custom-icon custom-fast-delivery"></span></span>
-                    <span>
-                        <span class="d-block fw-semibold lh-2 text-primary">Fastest Delivery </span>
-                        <small>Next day delivery available</small>
-                    </span>
-                </li>
-                <li class="d-flex align-items-center">
-                    <span class="service-icon me-3"><span class="custom-icon custom-secure-shopping"></span></span>
-                    <span>
-                        <span class="d-block fw-semibold lh-2 text-primary">Secure Shopping </span>
-                        <small>Safe and Secure Checkout</small>
-                    </span>
-                </li>
-                <li class="d-flex align-items-center">
-                    <span class="service-icon me-3"><span class="custom-icon custom-free-installation"></span></span>
-                    <span>
-                        <span class="d-block fw-semibold lh-2 text-primary">Free Installation </span>
-                        <small>On all fitness & sports equipment</small>
-                    </span>
-                </li>
-                <li class="d-flex align-items-center">
-                    <span class="service-icon me-3"><span class="custom-icon custom-product-warranty"></span></span>
-                    <span>
-                        <span class="d-block fw-semibold lh-2 text-primary">Product Warranty</span>
-                        <small>1 Year Warranty on Equipments</small>
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="banner__slider">
-        <div class="slider stick-dots">
-            <div class="slide">
-                <div class="slide__img overflow-hidden">
-                    <img src="images/banner1.jpg" class="full-image img-fluid animated"
-                        data-animation-in="zoomInImage" />
-                </div>
-                <div class="slide__content slide__content__left" data-animation-in="fadeInLeft">
-                    <div class="slide__content_details">
-                        <h2 class="animated">Being the Best <span class="d-block"><span
-                                    class="text-primary">Fitness</span> Products</span></h2>
-                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="slide__img overflow-hidden">
-                    <img src="images/banner2.jpg" class="full-image img-fluid animated"
-                        data-animation-in="zoomInImage" />
-                </div>
-                <div class="slide__content slide__content__right" data-animation-in="fadeInRight">
-                    <div class="slide__content_details">
-                        <h2 class="animated">Being the Best <span class="d-block"><span
-                                    class="text-primary">Fitness</span> Products</span></h2>
-                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="slide__img overflow-hidden">
-                    <img src="images/banner3.jpg" class="full-image img-fluid animated"
-                        data-animation-in="zoomInImage" />
-                </div>
-                <div class="slide__content slide__content__right" data-animation-in="fadeInRight">
-                    <div class="slide__content_details">
-                        <h2 class="animated">Being the Best <span class="d-block"><span
-                                    class="text-primary">Fitness</span> Products</span></h2>
-                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
-                    </div>
-                </div>
+    <div class="d-flex flex-column">
+        <div class="services border-top border-bottom py-3 bg-light-gray order-xl-0 order-1">
+            <div class="container">
+                <h5 class="mb-3">Services
+                    <a href="javascript:void()" class="text-primary" data-bs-toggle="popover" data-bs-trigger="focus"
+                        data-bs-content="Quntity is here">
+                        <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
+                    </a>
+                </h5>
+                <ul class="list-unstyled d-flex flex-wrap align-items-center justify-content-between mb-0">
+                    <li class="d-flex align-items-center">
+                        <span class="service-icon me-3"><span class="custom-icon custom-fast-delivery"></span></span>
+                        <span>
+                            <span class="d-block fw-semibold lh-2 text-primary">Fastest Delivery </span>
+                            <small>Next day delivery available</small>
+                        </span>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <span class="service-icon me-3"><span class="custom-icon custom-secure-shopping"></span></span>
+                        <span>
+                            <span class="d-block fw-semibold lh-2 text-primary">Secure Shopping </span>
+                            <small>Safe and Secure Checkout</small>
+                        </span>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <span class="service-icon me-3"><span class="custom-icon custom-free-installation"></span></span>
+                        <span>
+                            <span class="d-block fw-semibold lh-2 text-primary">Free Installation </span>
+                            <small>On all fitness & sports equipment</small>
+                        </span>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <span class="service-icon me-3"><span class="custom-icon custom-product-warranty"></span></span>
+                        <span>
+                            <span class="d-block fw-semibold lh-2 text-primary">Product Warranty</span>
+                            <small>1 Year Warranty on Equipments</small>
+                        </span>
+                    </li>
+                </ul>
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle"
-                fill="none" stroke="currentColor">
-                <circle r="20" cy="22" cx="22" id="test">
-            </symbol>
-        </svg>
+        <div class="banner__slider">
+            <div class="slider stick-dots">
+                <div class="slide">
+                    <div class="slide__img overflow-hidden">
+                        <img src="images/banner1.jpg" class="full-image img-fluid animated"
+                            data-animation-in="zoomInImage" />
+                    </div>
+                    <div class="slide__content slide__content__left" data-animation-in="fadeInLeft">
+                        <div class="slide__content_details">
+                            <h2 class="animated">Being the Best <span class="d-block"><span
+                                        class="text-primary">Fitness</span> Products</span></h2>
+                            <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide__img overflow-hidden">
+                        <img src="images/banner2.jpg" class="full-image img-fluid animated"
+                            data-animation-in="zoomInImage" />
+                    </div>
+                    <div class="slide__content slide__content__right" data-animation-in="fadeInRight">
+                        <div class="slide__content_details">
+                            <h2 class="animated">Being the Best <span class="d-block"><span
+                                        class="text-primary">Fitness</span> Products</span></h2>
+                            <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide__img overflow-hidden">
+                        <img src="images/banner3.jpg" class="full-image img-fluid animated"
+                            data-animation-in="zoomInImage" />
+                    </div>
+                    <div class="slide__content slide__content__right" data-animation-in="fadeInRight">
+                        <div class="slide__content_details">
+                            <h2 class="animated">Being the Best <span class="d-block"><span
+                                        class="text-primary">Fitness</span> Products</span></h2>
+                            <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle"
+                    fill="none" stroke="currentColor">
+                    <circle r="20" cy="22" cx="22" id="test">
+                </symbol>
+            </svg>
+        </div>
     </div>
-
     <div class="product-list spacing-y" id="#product-list">
         <div class="container">
             <div class="page-header">
@@ -836,16 +837,16 @@
                         <div class="page-header">
                             <h2 class="mb-0 text-center">Contact <span class="text-primary">Us</span></h2>
                         </div>
-                        <ul class="list-unstyled d-block d-md-flex align-items-center justify-content-center mb-0">
-                            <li class="border-end"><a href="#"
-                                    class="d-inline-block px-4 d-flex align-items-center"><span
+                        <ul class="list-unstyled d-block d-md-flex flex-wrap align-items-center justify-content-center mb-0">
+                            <li class="border-end mb-xl-0 mb-3"><a href="#"
+                                    class="d-inline-block px-3 d-flex align-items-center"><span
                                         class="email d-flex align-items-center justify-content-center me-2"><i
                                             class="fa-solid fa-envelope"></i></span> any@gmail.com</a></li>
-                            <li class="border-end"><a href="#"
-                                    class="d-inline-block px-4 d-flex align-items-center"><span
+                            <li class="border-end mb-xl-0 mb-3"><a href="#"
+                                    class="d-inline-block px-3 d-flex align-items-center"><span
                                         class="phone d-flex align-items-center justify-content-center me-2"><i
                                             class="fa-solid fa-phone"></i></span>+1 123 456 7896</a></li>
-                            <li><a href="#" class="d-inline-block px-4 d-flex align-items-center"><span
+                            <li><a href="#" class="d-inline-block px-3 d-flex align-items-center"><span
                                         class="phone d-flex align-items-center justify-content-center me-2"><i
                                             class="fa-brands fa-whatsapp fa-lg"></i></span>+1 123 456 7896</a></li>
                         </ul>
@@ -867,7 +868,7 @@
             <div class="footer_top text-center text-md-start">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-6 col-lg-2 mb-3">
                             <h5>Quick Links</h5>
                             <ul class="list-unstyled">
                                 <li>
@@ -896,7 +897,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-6 col-lg-3 mb-3">
                             <h5 class="mb-2">Contact Us</h5>
                             <ul class="list-unstyled">
                                 <li><a href="#"><i class="fa-solid fa-envelope me-2"></i>any@gmail.com</a></li>
@@ -914,7 +915,7 @@
                                 <li class="me-2"><a href="#"><i class="fa-brands fa-whatsapp fa-lg"></i></a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-6 col-lg-4 mb-3">
                             <h5>Product Category</h5>
                             <ul class="list-unstyled category-list">
                                 <li>
@@ -953,7 +954,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-6 col-lg-3 mb-3">
                             <h5><i class="fa-solid fa-location-dot me-2"></i> Showroom</h5>
                             <p class="text-secondary">task asjdhasd asdkdjhjdsfa sdfkhskdf </p>
                             <div class=" p-1 shadow"><iframe width="100%" height="250" frameborder="0" scrolling="no"

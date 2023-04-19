@@ -9,7 +9,10 @@ $slick-opacity-not-active: 0.25;
 
 .banner__slider {
   .slick-track {
-    height: 500px;
+    height:330px;
+    @include mq("large-container"){
+        height: 500px;
+    }
   }
 
   .slide {
@@ -29,7 +32,8 @@ $slick-opacity-not-active: 0.25;
       top: 0;
       right: 0;
       bottom: 0;
-      width: 850px;
+      @include mq("large-container"){   width: 850px;}
+      width:  600px;
       height: 100%;
       margin: auto 0;
       display: flex;
@@ -39,7 +43,8 @@ $slick-opacity-not-active: 0.25;
         left: 0%;
 
         .slide__content_details {
-          padding: 40px 40px 40px 260px;
+          padding: 30px  30px 30px 100px;
+          @include mq("large-container"){ padding: 40px 40px 40px 260px;}
         }
       }
 
@@ -48,19 +53,22 @@ $slick-opacity-not-active: 0.25;
         left: auto;
 
         .slide__content_details {
-          padding: 40px 260px 40px 40px;
+          padding: 30px 100px 30px 30px;
+          @include mq("large-container"){ padding: 40px 260px 40px 40px;}
         }
       }
 
       .slide__content_details {
         color: #fff;
         margin: auto;
-        padding: 40px 40px 40px 260px;
+        padding: 30px 30px 30px 100px;
+        @include mq("large-container"){ padding: 40px 40px 40px 260px;}
         width: 100%;
         background: #ed21244f;
 
         h2 {
-          @include fontSize(60px);
+            @include fontSize(40px);
+            @include mq("large-container"){  @include fontSize(60px);}
           margin: 10px 0;
         }
 

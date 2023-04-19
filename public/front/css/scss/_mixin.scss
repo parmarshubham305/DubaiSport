@@ -176,7 +176,11 @@
 
 //subscribe section
 .subscribe-section{
-    .email,.phone{width:40px;height:40px;display:flex;align-items:center;background:$primary;color:#ffffff;line-height:30x;@include radius(100%);}
+    .email,.phone{ width:30px;height:30px;
+        @include mq("large-container"){
+            width:40px;height:40px;
+        }
+       display:flex;align-items:center;background:$primary;color:#ffffff;line-height:30x;@include radius(100%);}
 }
 
 .footer-content{
