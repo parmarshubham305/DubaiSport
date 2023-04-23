@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Jobs\Backend\UserJob;
+use App\Http\Requests\Backend\UserRequest;
 
 class UserController extends Controller
 {
@@ -13,7 +15,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if ($request->ajax()) {
             
@@ -22,18 +24,18 @@ class UserController extends Controller
 
             if ($request->has('sSearch')) {
                 $search = $request->get('sSearch');
-                $where_str .= " and ( title like \"%{$search}%\""
+                $where_str .= " and ( first_name like \"%{$search}%\""
                     . ")";
             }
             
-            $data = User::select('id', 'title', 'images', 'status')
+            $data = User::select('id', 'first_name', 'last_name', 'email', 'status')
                 ->whereRaw($where_str, $where_params);
                 
             $data_count = User::select('id')
                 ->whereRaw($where_str, $where_params)
                 ->count();
 
-            $columns = ['id', 'title', 'images', 'status'];
+            $columns = ['id', 'first_name', 'last_name', 'email', 'status'];
 
             if ($request->has('iDisplayStart') && $request->get('iDisplayLength') != '-1') {
                 $data = $data->take($request->get('iDisplayLength'))->skip($request->get('iDisplayStart'));
@@ -70,7 +72,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -79,9 +81,14 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $params = $request->all();
+        
+        dispatch(new UserJob($params));
+ 
+        return redirect()->back()->with('message', 'Record Saved Successfully.')
+            ->with('type', 'success');
     }
 
     /**
@@ -103,7 +110,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::find($id);
+
+        return view('admin.user.edit', compact('data'));
     }
 
     /**
@@ -115,7 +124,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $params = $request->all();
+        
+        dispatch(new UserJob($params));
+ 
+        return redirect()->back()->with('message', 'Record Saved Successfully.')
+            ->with('type', 'success');
     }
 
     /**
@@ -126,6 +140,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = $request->get('id');
+        
+        if(!is_array($id)){
+            $id = array($id);
+        }
+        
+        User::whereIn('id',$id)->delete();
+
+        return redirect()->back()->with('message', 'Record Deleted Successfully.')
+            ->with('type', 'success');
     }
 }

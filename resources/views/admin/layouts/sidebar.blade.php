@@ -67,17 +67,18 @@
             <li class="@if(Request::segment(2) == 'products' && Request::segment(3) == 'create') active @endif"><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i> Create </a></li>
           </ul>
         </li>
-        <!-- <li class="@if(Request::segment(2) == 'users') active @endif treeview">
+        <li class="@if(Request::segment(2) == 'users') active @endif treeview">
           <a href="#">
-            <i class="fa fa-th"></i> <span>User</span>
+            <i class="fa fa-users"></i> <span>User</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
            <ul class="treeview-menu">
             <li class="@if(Request::segment(2) == 'users' && Request::segment(3) == '') active @endif"><a href="{{ route('admin.users.index') }}"><i class="fa fa-circle-o"></i> List </a></li>
+            <li class="@if(Request::segment(2) == 'users' && Request::segment(3) == 'create') active @endif"><a href="{{ route('admin.users.create') }}"><i class="fa fa-circle-o"></i> Create </a></li>
           </ul>
-        </li> -->
+        </li>
       </ul>
     </section>
   </aside>

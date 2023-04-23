@@ -23,7 +23,11 @@ class CreateProductsTable extends Migration
             $table->string('main_image');
             $table->text('other_images')->nullable();
             $table->double('price', [10,2])->default(0);
+            $table->double('discounted_price', [10,2])->default(0);
+            $table->tinyInteger('discount_percentage')->default(0);
             $table->enum('status',['0','1'])->default('1');
+            $table->enum('best_seller',['0','1'])->default('0');
+            $table->enum('popular_product',['0','1'])->default('0');
             $table->tinyInteger('sort')->nullable();
             $table->string('image_prefix_folder')->nullable();
             $table->timestamps();

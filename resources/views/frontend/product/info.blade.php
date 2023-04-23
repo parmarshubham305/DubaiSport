@@ -83,9 +83,9 @@
                             </a>
                         </h5>
                         <div class="price d-flex align-items-center mb-3">
-                            <h3 class="fs-1 mb-0 fw-bold">AED {{ number_format($product['price'],2) }} </h3> <del class="text-primary fs-5 ms-3">AED
-                                2,995</del>
-                            <span class="ms-4 fw-semibold fs-5 text-success">(15% OFF)</span>
+                            <h3 class="fs-1 mb-0 fw-bold">AED {{ number_format($product['discounted_price'],2) }} </h3> 
+                            <del class="text-primary fs-5 ms-3">AED {{ number_format($product['price'],2) }}</del>
+                            <span class="ms-4 fw-semibold fs-5 text-success">({{ $product['discount_percentage'] }}% OFF)</span>
                         </div>
                     </div>
                     <p class="mb-2"><strong>Note:</strong> Next Day Delivery is only available for Dubai and Abu
@@ -183,4 +183,10 @@
 
     </div>
 </div>
+@stop
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+@stop
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 @stop

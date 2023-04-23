@@ -43,13 +43,13 @@ class MasterOptionJob
         $keepAtributes = [];
         if(isset($this->data['attributes'])) {
             foreach ($this->data['attributes']['attributes'] as $key => $value) {
-                $keepAtributes[] = $value['master_option_attribute_id'];
-                MasterOptionAttribute::updateOrCreate([
+                $updated = MasterOptionAttribute::updateOrCreate([
                     'id' => $value['master_option_attribute_id']
                 ], [
                     'value' => $value['value'],
                     'master_option_id' => $data['id'],
                 ]);
+                $keepAtributes[] = $updated['id'];
             }
         }
         if(isset($this->data['id'])) {

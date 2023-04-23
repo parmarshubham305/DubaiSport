@@ -53,18 +53,15 @@
         <div class="card position-relative">
             <a href="{{ route('front.products.show',$product['id']) }}" class="product-img"><img src="{{ $product['main_image'] }}"
                     alt="produsct" class="card-img-top img-fluid"></a>
-            <a href="#" class="wishlist-icon"><span class="custom-icon custom-wishlistsvg"><span
-                        class="path1"></span><span class="path2"></span></span></a>
+            <livewire:front.wishlist :page="'product_list'" :productId="$product['id']"/>
             <div class="card-body bg-light-gray border-top">
                 <span class="d-block mb-1">{{ $product['category']['title'] }}</span>
                 <p class="fw-semibold mb-1 product-heading"><a href="#">{{ $product['title'] }}</a>
                 </p>
-                <p class="text-primary fw-bold product-price d-flex align-items-center">AED {{ number_format($product['price'],2) }}
-                    <del class="text-secondary ms-1">AED 7536</del><small
-                        class="badge ms-1 bg-primary px-2">20%
-                        OFF</small>
+                <p class="text-primary fw-bold product-price d-flex align-items-center">AED {{ number_format($product['discounted_price'],2) }} 
+                    <del class="text-secondary ms-1">AED {{ number_format($product['price'],2) }}</del>
+                    <small class="badge ms-1 bg-primary px-2">{{ $product['discount_percentage'] }}% OFF</small>
                 </p>
-
             </div>
         </div>
     </div>

@@ -47,6 +47,15 @@
 		</div>
 	</div>
 </div>
+<div class="box-body">
+	<div class="form-group">
+		<label for="" class="col-sm-2 control-label">Discount Price <span class="text-danger">*</span></label>
+		<div class="col-sm-8">
+			{{ Form::number('discounted_price', old('discounted_price'), ['class' => 'form-control', 'required' ]) }}
+		<span class='text-danger'>{{ $errors->first('discounted_price') }}</span>
+		</div>
+	</div>
+</div>
 <div class="box-body pad">
 	<div class="form-group">
 		<label for="" class="col-sm-2 control-label">Product Details</label>
@@ -80,6 +89,24 @@
 		<div class="col-sm-8" style="padding-top: 10px;">
 		{{ Form::checkbox('status', old('status')) }}
 		<span class='text-danger'>{{ $errors->first('sort') }}</span>
+		</div>
+	</div>
+</div>
+<div class="box-body">
+	<div class="form-group">
+		<label for="" class="col-sm-2 control-label">Best Seller</label>
+		<div class="col-sm-8" style="padding-top: 10px;">
+		{{ Form::checkbox('best_seller', old('best_seller')) }}
+		<span class='text-danger'>{{ $errors->first('best_seller') }}</span>
+		</div>
+	</div>
+</div>
+<div class="box-body">
+	<div class="form-group">
+		<label for="" class="col-sm-2 control-label">Popular Product</label>
+		<div class="col-sm-8" style="padding-top: 10px;">
+		{{ Form::checkbox('popular_product', old('popular_product')) }}
+		<span class='text-danger'>{{ $errors->first('popular_product') }}</span>
 		</div>
 	</div>
 </div>

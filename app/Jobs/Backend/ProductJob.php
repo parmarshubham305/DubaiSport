@@ -44,6 +44,13 @@ class ProductJob
             $folderName = $data->image_prefix_folder;
         }
         
+        if(isset($this->data['discounted_price']) && $this->data['discounted_price'] != '0') {
+            $data->discount_percentage = ( 100 * $this->data['discounted_price'] ) / $this->data['price'];
+        } else {
+            $data->discounted_price = $this->data['price'];
+            $data->discount_percentage = 0;
+        }
+
         if(isset($this->data['main_image'])) {
             if($this->data['main_image'] && !empty($this->data['_method']) && $this->data['_method'] == 'PATCH') {
                 if(file_exists(public_path(str_replace(env('APP_URL'),'',$oldMainImage)))) {

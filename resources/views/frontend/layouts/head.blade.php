@@ -14,5 +14,6 @@
     {{ Html::script("front/thirdparty/js/slick.min.js") }}
     {{ Html::script("front/js/theme.js") }}
     <script type="text/javascript" src="https://parsleyjs.org/dist/parsley.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @livewireStyles
 </head>
