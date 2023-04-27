@@ -1,9 +1,5 @@
-<nav class="navbar navbar-expand-lg py-0 bg-white position-relative">
+<nav class="navbar navbar-expand-xl py-0 bg-white position-relative">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
@@ -19,9 +15,9 @@
                             <div class="row align-items-center justify-content-center">
                                 @foreach($categoryGroup['categories'] as $category)
                                 <div class="col-md-auto">
-                                    <a class="dropdown-item border" href="#">
-                                        <img src="{{ $category['image'] }}" alt="product_1" class="img-fluid">
-                                        <a href="{{ route('front.category.products', $category['slug']) }}"><span class="d-block p-2 bg-white border-top text-center">{{ $category['title'] }}</span></a>
+                                    <a class="dropdown-item border"href="{{ route('front.category.products', $category['slug']) }}">
+                                        <img src="{{ $category['image'] }}" alt="product_1" class="img-fluid p-2">
+                                        <span class="d-block p-2 bg-white border-top text-center">{{ $category['title'] }}</span>
                                     </a>
                                 </div>
                                 @endforeach

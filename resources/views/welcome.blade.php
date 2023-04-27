@@ -1,7 +1,8 @@
 @extends('frontend.layouts.layout')
 @section('content')
+<div class="d-flex flex-column">
 <livewire:service-offer/>
-<div class="banner__slider">
+<div class="banner__slider order-md-last order-first">
     <div class="slider stick-dots">
         <div class="slide">
             <div class="slide__img overflow-hidden">
@@ -50,7 +51,7 @@
         </symbol>
     </svg>
 </div>
-
+</div>
 <div class="product-list spacing-y" id="#product-list">
     <div class="container">
         <div class="page-header">
@@ -83,7 +84,7 @@
             <h2 class="mb-0 text-center">Shop By <span class="text-primary">Brands</span></h2>
         </div>
         <div class="row">
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -95,7 +96,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -107,7 +108,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -118,7 +119,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -129,7 +130,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -140,7 +141,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -152,7 +153,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -164,7 +165,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4">
                 <div class="box-brand bg-white border text-center">
                     <a href="#" class="d-block text-center">
                         <span class="brand position-relative d-block">
@@ -185,7 +186,7 @@
 <div id="Distributors" class="distributors-logo bg-light pb-0 spacing-y">
     <div class="container">
         <div class="page-header">
-            <h2 class="mb-0 text-center">Authorized <span class="text-primary">Distributors</span></h2>
+            <h2 class="mb-0 text-center">Our <span class="text-primary">Clients</span></h2>
         </div>
         <div class="distributors-slider">
             <div class="client-logo">
@@ -231,27 +232,49 @@
     </div>
 </div>
 <div class="commercial bg-light spacing-y">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="commercial-box">
-                    <img src="{{ env('APP_URL').'front/images/subscription.jpg' }}" alt="subscription">
-                    <div class="commercial-content">
-                        <h4 class="text-white d-block"><span class="text-primary d-block">COMMERCIAL</span> FITNESS SOLUTIONS</h4>
-                        <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="commercial-box">
+                        <img src="{{ env('APP_URL').'front/images/subscription.jpg' }}" class="img-fluid w-100" alt="subscription">
+                        <div class="commercial-content">
+                            <h4 class="text-white d-block"><span class="text-primary d-block">COMMERCIAL</span> FITNESS
+                                SOLUTIONS</h4>
+                            <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="commercial-box">
-                    <img src="{{ env('APP_URL').'front/images/service.jpg' }}" alt="service">
-                    <div class="commercial-content">
-                        <h4 class="text-white d-block"><span class="text-primary d-block">EQUIPMENT</span> SERVICE</h4>
-                        <a href="#" class="btn btn-primary fw-semibold">BOOK AN APPOINMENTS</a>
+                <div class="col-md-6 mb-4">
+                    <div class="commercial-box">
+                        <img src="{{ env('APP_URL').'front/images/service.jpg' }}" class="img-fluid w-100" alt="service">
+                        <div class="commercial-content">
+                            <h4 class="text-white d-block"><span class="text-primary d-block">EQUIPMENT</span> SERVICE
+                            </h4>
+                            <a href="#" class="btn btn-primary fw-semibold">BOOK AN APPOINMENTS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="commercial-box">
+                        <img src="{{ env('APP_URL').'front/images/black_body.jpg' }}" class="img-fluid w-100" alt="black_body">
+                        <div class="commercial-content">
+                            <h4 class="text-white d-block"><span class="text-primary d-block">COMMERCIAL</span> FITNESS
+                                SOLUTIONS</h4>
+                            <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="commercial-box">
+                        <img src="{{ env('APP_URL').'front/images/body_image.jpg' }}" class="img-fluid w-100" alt="body_image">
+                        <div class="commercial-content">
+                            <h4 class="text-white d-block"><span class="text-primary d-block">COMMERCIAL</span> FITNESS
+                                SOLUTIONS</h4>
+                            <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @stop
