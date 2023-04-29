@@ -78,7 +78,7 @@
           <img src="{{ env('APP_URL').'front/images/site_logo.png' }}" alt="site_logo" class="my-4 img-fluid">
           <div class="d-flex form-group mb-3">
             <span class="square-icon"><i class="fas fa-user"></i></span>
-            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <input id="email" type="email" placeholder="Username" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
           </div>
         @error('email')
             <span class="" role="alert">
@@ -87,7 +87,7 @@
         @enderror
           <div class="d-flex form-group mb-3">
            <span class="square-icon"> <i class="fas fa-lock"></i></span>
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

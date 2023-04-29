@@ -1,6 +1,6 @@
 <div>
 <div class="top-product-list d-flex align-items-center justify-content-between pb-3">
-    <div class="d-flex flex-wrap search-bar" role="search">
+    <div class="d-flex search-bar" role="search">
         <input class="form-control border-end-0  border border-primary" wire:model="keyword" wire:change="searchProducts($event.target.value)" type="text"
             placeholder="Search" aria-label="Search">
         <button class="btn btn-primary text-white border border-primary px-3" type="submit"><i
@@ -49,16 +49,16 @@
 </ul> -->
 <div class="row listing-product">
     @foreach($products as $product)
-    <div class="col-md-4 mb-4">
+    <div class="col-md-6 col-lg-4 mb-4">
         <div class="card position-relative">
             <a href="{{ route('front.products.show',$product['id']) }}" class="product-img"><img src="{{ $product['main_image'] }}"
                     alt="produsct" class="card-img-top img-fluid"></a>
             <livewire:front.wishlist :page="'product_list'" :productId="$product['id']"/>
             <div class="card-body bg-light-gray border-top">
                 <span class="d-block mb-1">{{ $product['category']['title'] }}</span>
-                <p class="fw-semibold mb-1 product-heading"><a href="#">{{ $product['title'] }}</a>
+                <p class="fw-semibold mb-1 product-heading"><a href="{{ route('front.products.show',$product['id']) }}">{{ $product['title'] }}</a>
                 </p>
-                <p class="text-primary fw-bold product-price d-flex align-items-center">AED {{ number_format($product['discounted_price'],2) }} 
+                <p class="text-primary fw-bold product-price d-flex align-items-center flex-wrap">AED {{ number_format($product['discounted_price'],2) }}
                     <del class="text-secondary ms-1">AED {{ number_format($product['price'],2) }}</del>
                     <small class="badge ms-1 bg-primary px-2">{{ $product['discount_percentage'] }}% OFF</small>
                 </p>

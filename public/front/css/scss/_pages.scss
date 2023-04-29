@@ -4,7 +4,7 @@
     height: 100vh;
     background-size: 100%;
     position: relative;
-
+    background-size:cover;
     &:after {
         content: '';
         position: absolute;
@@ -59,7 +59,6 @@
     background-size: 100%;
     background-size: cover;
     height: 100vh;
-
     .signup {
         height: 100vh;
         overflow: hidden;
@@ -221,7 +220,7 @@
 }
 
 // product list
-.product-list {
+.product-list  {
     .top-product-list {
         .search-bar {
             .form-control {
@@ -259,7 +258,7 @@
 
             a {
                 display: inline-block;
-                padding: .5rem .8rem;
+                padding: 1rem .8rem;
                 line-height: 30px;
                 text-align: center;
                 color: $primary;

@@ -3,7 +3,7 @@
 <div id="products" class="spacing-y">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-md-0 mb-4">
                 <div id="product_images" class="carousel slide inner_slider mb-4 position-sticky">
                     <div class="carousel-inner text-center">
                         <div class="carousel-item active">
@@ -38,11 +38,10 @@
 
             </div>
             <div class="col-md-6">
-                <div
-                    class="page-header mb-0 pb-0 pb-1 border-bottom border-2 d-flex align-items-center justify-content-between mb-4">
-                    <h2 class="product-heading mb-0">{{ $product['title'] }} </h2> 
+                <div class="page-header mb-0 pb-0 pb-1 border-bottom border-2 d-flex align-items-start align-items-lg-center justify-content-md-between mb-4 flex-lg-row flex-column-reverse">
+                    <h2 class="product-heading mb-0">{{ $product['title'] }} </h2>
                     <!-- <span class="text-primary">Treadmill</span> -->
-                    <div class="brands">
+                    <div class="brands mb-lg-0 mb-2">
                         <span class="badge bg-dark d-inline-block p-2 mr-2"><i class="fas fa-check-circle me-1"
                                 aria-hidden="true"></i> {{ $product['category']['title'] }} </span>
                         <span class="badge bg-success d-inline-block p-2"><i class="fas fa-check-circle me-1"
@@ -82,8 +81,8 @@
                                 <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
                             </a>
                         </h5>
-                        <div class="price d-flex align-items-center mb-3">
-                            <h3 class="fs-1 mb-0 fw-bold">AED {{ number_format($product['discounted_price'],2) }} </h3> 
+                        <div class="price d-flex align-items-center mb-3 flex-wrap">
+                            <h3 class="fs-1 mb-0 fw-bold">AED {{ number_format($product['discounted_price'],2) }} </h3>
                             <del class="text-primary fs-5 ms-3">AED {{ number_format($product['price'],2) }}</del>
                             <span class="ms-4 fw-semibold fs-5 text-success">({{ $product['discount_percentage'] }}% OFF)</span>
                         </div>
@@ -94,16 +93,16 @@
                         plans. Pay as low as AED 249.50 for 6 months.
                         <a href="#" class="text-primary"> <u>Learn More </u> </a>
                     </p>
-                    <div class="shopping-now my-4 d-flex">
-                        <a href="#" class="btn btn-primary w-50 px-4 py-3 fw-semibold me-3"><i
+                    <div class="shopping-now my-lg-4 d-lg-flex d-md-flex d-block">
+                        <a href="#" class="btn btn-primary w-50 sd-w-100 px-lg-4 px-2 py-3 fw-semibold mb-lg-0 mb-3 me-3"><i
                                 class="fa-solid fa-cart-shopping fa-lg me-2"></i> ADD TO CART</a>
-                        <a href="#" class="btn btn-secondary w-50 px-4 py-3 fw-semibold me-3"><i
+                        <a href="#" class="btn btn-secondary w-50 sd-w-100  px-lg-4 px-2 py-3 fw-semibold mb-lg-0 mb-3 me-3"><i
                                 class="fa-solid fa-heart fa-lg me-2"></i> FAVOURITE</a>
                     </div>
-                    <div class="shopping-now my-4 d-flex">
-                        <a href="#" class="btn btn-info px-4 py-3 w-50 fw-semibold me-3"><i
+                    <div class="shopping-now my-lg-4 d-lg-flex d-md-flex d-block">
+                        <a href="#" class="btn btn-info px-lg-4 px-2 py-3 w-50 sd-w-100 fw-semibold mb-lg-0 mb-3 me-3"><i
                                 class="fa-solid fa-phone me-2"></i> CONTACT US</a>
-                        <a href="#" class="btn btn-success px-4 py-3 w-50 fw-semibold me-3"><i
+                        <a href="#" class="btn btn-success px-lg-4 px-2 py-3 w-50  sd-w-100  fw-semibold mb-lg-0 mb-3 me-3"><i
                                 class="fa-brands fa-whatsapp fa-lg me-2"></i> WHATSAPP</a>
                     </div>
                     <div class="services border-top border-bottom py-3 bg-light-gray">

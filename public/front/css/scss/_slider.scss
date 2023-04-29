@@ -9,7 +9,7 @@ $slick-opacity-not-active: 0.25;
 
 .banner__slider {
   .slick-track {
-    height:330px;
+    height:330px; padding-bottom:0;
     @include mq("large-container"){
         height: 500px;
     }
