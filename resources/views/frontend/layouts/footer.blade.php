@@ -16,16 +16,7 @@
                         class="phone d-flex align-items-center justify-content-center me-2"><i class="fa-brands fa-whatsapp fa-lg"></i></span>+1 123 456 7896</a></li>
                 </ul>
             </div>
-            <div class="col-lg-6">
-                <div class="page-header">
-                    <h2 class="mb-0 text-center">Subscribe <span class="text-primary">Now</span></h2>
-                </div>
-                <div class="d-flex subscribe-bar py-2 justify-content-center" role="subscribe">
-                    <input class="form-control border-end-0 border-primary rounded-0 w-50" type="search"
-                        placeholder="Email Address" aria-label="Search">
-                    <button class="btn btn-primary rounded-0" type="submit">Subscribe</button>
-                </div>
-            </div>
+            <livewire:front.email-subscribe />
         </div>
     </div>
 </div>

@@ -2,11 +2,11 @@
 @include('frontend.layouts.head')
 @yield('css')
 <body>
-    @if(Request::route()->getName() != 'login' && Request::route()->getName() != 'register')
+    @if(Request::route()->getName() != 'login' && Request::route()->getName() != 'register' && Request::route()->getName() != 'password.request')
         @include('frontend.layouts.header')
     @endif
         @yield('content')
-    @if(Request::route()->getName() != 'login' && Request::route()->getName() != 'register')
+    @if(Request::route()->getName() != 'login' && Request::route()->getName() != 'register' && Request::route()->getName() != 'password.request')
         @include('frontend.layouts.footer')
     @endif
     @yield('js')

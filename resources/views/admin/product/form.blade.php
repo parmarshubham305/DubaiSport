@@ -49,10 +49,10 @@
 </div>
 <div class="box-body">
 	<div class="form-group">
-		<label for="" class="col-sm-2 control-label">Discount Price <span class="text-danger">*</span></label>
+		<label for="" class="col-sm-2 control-label">Discount Percentage <span class="text-danger">*</span></label>
 		<div class="col-sm-8">
-			{{ Form::number('discounted_price', old('discounted_price'), ['class' => 'form-control', 'required' ]) }}
-		<span class='text-danger'>{{ $errors->first('discounted_price') }}</span>
+			{{ Form::number('discount_percentage', old('discount_percentage'), ['class' => 'form-control', 'required' ]) }}
+		<span class='text-danger'>{{ $errors->first('discount_percentage') }}</span>
 		</div>
 	</div>
 </div>

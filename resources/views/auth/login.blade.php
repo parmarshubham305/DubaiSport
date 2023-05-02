@@ -95,7 +95,7 @@
             @enderror
           </div>
           <button type="submit" class="btn btn-info mt-3 px-4">Login </button>
-          <a href="#" class="btn btn-link d-block text-center mb-2">Forget Password</a>
+          <a href="{{ route('password.request') }}" class="btn btn-link d-block text-center mb-2">Forget Password</a>
         </form>
         <div class="content text-center">
           <h4 class="text-white">New Here ?</h4>
