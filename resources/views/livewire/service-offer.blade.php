@@ -6,14 +6,14 @@
                 </a>
             </h5>
             <ul class="list-unstyled d-flex flex-wrap align-items-end align-items-lg-center justify-content-between mb-0">
-                <li class="d-lg-flex d-block align-items-center text-lg-start text-center mb-3 px-1">
+                <li class="d-lg-flex d-block align-items-center text-lg-start text-center px-1">
                     <span class="service-icon me-3"><span class="custom-icon custom-fast-delivery m-auto"></span></span>
                     <span>
                         <span class="d-block fw-semibold lh-2 text-primary">Fastest Delivery </span>
                         <small>Next day delivery available</small>
                     </span>
                 </li>
-                <li class="d-lg-flex d-block align-items-center text-lg-start text-center mb-3 px-1">
+                <li class="d-lg-flex d-block align-items-center text-lg-start text-center px-1">
                     <span class="service-icon me-3"><span class="custom-icon custom-secure-shopping m-auto"></span></span>
                     <span>
                         <span class="d-block fw-semibold lh-2 text-primary">Secure Shopping </span>

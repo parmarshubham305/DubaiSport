@@ -19,7 +19,8 @@
                         <del class="text-secondary ms-1">AED {{ number_format($product['price'],2) }}</del>
                         <small class="badge ms-1 bg-primary px-2">{{ $product['discount_percentage'] }}% OFF</small>
                     </p>
-                    <a href="#" class="btn btn-info btn-sm px-3 fw-semibold">Add to Cart</a>
+                    <a href="#" class="btn btn-info btn-sm px-3 d-inline-block fw-semibold">Add to Cart</a>
+                    <a href="#" class="btn btn-outline-primary d-inline-block fw-semibold ms-2 px-2 py-3"><i class="fa-solid fa-trash fa-lg"></i></a>
                 </div>
             </div>
         </div>

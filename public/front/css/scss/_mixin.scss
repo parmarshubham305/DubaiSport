@@ -108,6 +108,11 @@
         }
     }
 }
+.product-slider{
+    &:not(.slick-initialized){
+        display:none;
+    }
+}
 
 // Shop By Brands
 .shop-by-brand{

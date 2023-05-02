@@ -445,7 +445,6 @@
         ul {
             li {
                 margin-bottom: 1rem;
-
                 @include mq("tablet") {
                     width: 50%;
                     flex: 0 0 50%;

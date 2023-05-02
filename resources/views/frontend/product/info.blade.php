@@ -42,9 +42,9 @@
                     <h2 class="product-heading mb-0">{{ $product['title'] }} </h2>
                     <!-- <span class="text-primary">Treadmill</span> -->
                     <div class="brands mb-lg-0 mb-2">
-                        <span class="badge bg-dark d-inline-block p-2 mr-2"><i class="fas fa-check-circle me-1"
+                        <span class="badge bg-dark d-inline-block p-2 mr-2 mb-1"><i class="fas fa-check-circle me-1"
                                 aria-hidden="true"></i> {{ $product['category']['title'] }} </span>
-                        <span class="badge bg-success d-inline-block p-2"><i class="fas fa-check-circle me-1"
+                        <span class="badge bg-success d-inline-block p-2 mb-1"><i class="fas fa-check-circle me-1"
                                 aria-hidden="true"></i> In stock</span>
                     </div>
                 </div>
