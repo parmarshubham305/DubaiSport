@@ -7,10 +7,29 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\MasterOption;
 use App\Models\MasterOptionAttribute;
+use App\Models\Cart;
 
 class HeaderSearch extends Component
 {
-    public $keyword, $brands, $categories, $products;
+    public $keyword, $brands, $categories, $products, $cart = [];
+
+    protected $listeners = ['addToCartEventFire'];
+
+    public function mount()
+    {
+        $this->addToCartEventFire();
+    }
+
+    public function addToCartEventFire()
+    {
+        if(!\Auth::user()) {
+            $this->cart = \Session::get('cart');
+        } else {
+            $cart = Cart::where('user_id', \Auth::user()->id)->first();
+
+            $this->cart = json_decode($cart['products'], true);
+        }
+    }
 
     public function updated()
     {

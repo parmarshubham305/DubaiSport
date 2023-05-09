@@ -122,7 +122,7 @@
 <div class="box-body">
 </div>
 <div class="box-footer text-center">
-	<a type="button" href="{{ route('admin.categories.index') }}" class="btn btn-flat btn-default">Cancel</a>
+	<a type="button" href="{{ route('admin.products.index') }}" class="btn btn-flat btn-default">Cancel</a>
 	<button type="submit" class="btn btn-flat btn-primary">Save</button>
 </div>
 

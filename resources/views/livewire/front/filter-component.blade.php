@@ -5,7 +5,7 @@
                 <h4 class="mb-0 text-white fs-5">Filter</h4>
             </div>
             <div class="card-body border">
-                <div class="accordion border-bottom py-2" id="accordion_for_sidebar_first">
+                <!-- <div class="accordion border-bottom py-2" id="accordion_for_sidebar_first">
                     <div class="accordion-item bg-transparent border-0">
                         <h2 class="accordion-header" id="headingOne">
                             <button aria-controls="categoriesgrp" aria-expanded="true"
@@ -107,126 +107,63 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- Product List Container -->
+                </div> -->
+                <!-- Product List Container -->
                 <div class="accordion border-bottom py-2" id="accordion_for_sidebar_second">
                     <div class="accordion-item bg-transparent border-0">
                         <h2 class="accordion-header" id="headingTwo">
                             <button aria-controls="Category_accordion" aria-expanded="false"
                                 class="accordion-button p-2 fw-semibold collaps bg-transparent text-dark"
                                 data-bs-target="#Category_accordion" data-bs-toggle="collapse"
-                                type="button">Categories list</button>
+                                type="button">{{ \Str::upper('Categories') }}</button>
                         </h2>
                         <div aria-labelledby="headingTwo" class="accordion-collapse collapse show"
                             data-bs-parent="#Categorylistgroup" id="Category_accordion">
                             <div class="accordion-body p-0">
                                 <ul class="list-unstyled">
+                                    @foreach($categories as $category)
                                     <li class="pt-2 ps-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Tredmil"
-                                                checked>
-                                            <label for="Tredmil"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Tredmil</label>
+                                            <input class="form-check-input" type="checkbox" wire:model="selectedCategories" value="{{ $category['id'] }}" id="{{ $category['title'] }}">
+                                            <label for="{{ $category['title'] }}"
+                                                class="form-check-label ps-1 cursor-pointer categorie_label">{{ $category['title'] }}</label>
                                         </div>
                                     </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="Elipstical">
-                                            <label for="Elipstical"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">
-                                                Elipstical</label>
-                                        </div>
-                                    </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="Benches">
-                                            <label for="Benches"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Benches
-                                            </label>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion border-bottom py-2" id="accordion_for_sidebar_three">
-                    <div class="accordion-item bg-transparent  border-0">
-                        <h2 class="accordion-header" id="headingthree_Power">
-                            <button aria-controls="Power" aria-expanded="false"
-                                class="accordion-button p-2 fw-semibold  collaps bg-transparent text-dark"
-                                data-bs-target="#Power" data-bs-toggle="collapse"
-                                type="button">Brands</button>
+                @foreach($masterOptions as $masterOption)
+                <div class="accordion border-bottom py-2" id="accordion_for_sidebar_second">
+                    <div class="accordion-item bg-transparent border-0">
+                        <h2 class="accordion-header" id="{{ $masterOption['id'] }}_{{ \Str::snake($masterOption['name']) }}">
+                            <button aria-controls="{{ $masterOption['id'] }}_{{ \Str::snake($masterOption['name']) }}_accordion" aria-expanded="false"
+                                class="accordion-button p-2 fw-semibold collaps bg-transparent text-dark"
+                                data-bs-target="#{{ $masterOption['id'] }}_{{ \Str::snake($masterOption['name']) }}_accordion" data-bs-toggle="collapse"
+                                type="button">{{ \Str::upper($masterOption['name']) }}</button>
                         </h2>
-                        <div aria-labelledby="headingthree_Power"
-                            class="accordian-main-filter accordion-collapse collapse show"
-                            data-bs-parent="#productlistgroup" id="Power">
+                        <div aria-labelledby="{{ $masterOption['id'] }}_{{ \Str::snake($masterOption['name']) }}" class="accordion-collapse collapse show"
+                            data-bs-parent="#Categorylistgroup" id="{{ $masterOption['id'] }}_{{ \Str::snake($masterOption['name']) }}_accordion">
                             <div class="accordion-body p-0">
                                 <ul class="list-unstyled">
+                                    @foreach($masterOption['attribute_values'] as $attribute_value)
                                     <li class="pt-2 ps-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Fit"
-                                                checked>
-                                            <label for="Fit"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Fit
-                                                Plus</label>
+                                            <input class="form-check-input" type="checkbox" wire:model="selectedOptions.{{ $masterOption['id'] }}" value="{{ $attribute_value['id'] }}" id="{{ $attribute_value['value'] }}">
+                                            <label for="{{ $attribute_value['value'] }}"
+                                                class="form-check-label ps-1 cursor-pointer categorie_label">{{ $attribute_value['value'] }}</label>
                                         </div>
                                     </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Super">
-                                            <label for="Super"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">
-                                                Super Gym </label>
-                                        </div>
-                                    </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Ivanko">
-                                            <label for="Ivanko"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Ivanko
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Florex">
-                                            <label for="Florex"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Florex
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Spirit">
-                                            <label for="Spirit"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Spirit
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Swao">
-                                            <label for="Swao"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Swao
-                                                Sanspa </label>
-                                        </div>
-                                    </li>
-                                    <li class="pt-2 ps-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="Florex">
-                                            <label for="Florex"
-                                                class="form-check-label ps-1 cursor-pointer categorie_label">Eood
-                                                Pack </label>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion border-bottom py-2" id="accordion_for_sidebar_four">
+                @endforeach
+                <!-- <div class="accordion border-bottom py-2" id="accordion_for_sidebar_four">
                     <div class="accordion-item bg-transparent  border-0">
                         <h2 class="accordion-header" id="headingthree_Weight">
                             <button aria-controls="Weight" aria-expanded="false"
@@ -343,7 +280,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="accordion position-relative" id="accordion_for_sidebar_five">
                     <div class="accordion-item bg-transparent  border-0">
                         <h2 class="accordion-header" id="headingsix"><button aria-controls="Price"
@@ -354,8 +291,7 @@
                         </h2>
                         <div aria-labelledby="headingsix" class="accordion-collapse collapse show"
                             data-bs-parent="#productlistgroup" id="Price">
-                            <div class="accordion-body p-0 my-2
-                px-2">
+                            <div class="accordion-body p-0 my-2 px-2">
                                 <div class="price-range-slider">
                                     <p class="range-value"><input id="filter_min_price"
                                             name="filter.price[]" readonly="readonly" type="hidden"

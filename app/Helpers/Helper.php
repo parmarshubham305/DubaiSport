@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 use App\Models\Product;
+use App\Models\MasterOption;
 
 class Helper
 {
@@ -19,5 +20,21 @@ class Helper
         $html .='</p>';
 
         return $html;
+    }
+
+    public static function getProductBrand($productId)
+    {
+        $masterOptionId = MasterOption::where('name', 'LIKE','%Brand%')->value('id');
+        
+        $product = Product::where('id', $productId)->with('productSpecification', function($query) use ($masterOptionId)
+        {
+            $query->where('option_id', $masterOptionId);
+        })->first();
+
+        if($product['productSpecification'] && isset($product['productSpecification'][0])) {
+            return $product['productSpecification'][0]['optionAttribute']['value'];
+        } else {
+            return '';
+        }
     }
 }

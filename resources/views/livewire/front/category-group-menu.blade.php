@@ -15,7 +15,7 @@
                             <div class="row align-items-center justify-content-center">
                                 @foreach($categoryGroup['categories'] as $category)
                                 <div class="col-md-auto">
-                                    <a class="dropdown-item border"href="{{ route('front.category.products', $category['slug']) }}">
+                                    <a class="dropdown-item border"href="{{ route('front.category.products', [$categoryGroup['slug'], $category['slug']]) }}">
                                         <img src="{{ $category['image'] }}" alt="product_1" class="img-fluid p-2">
                                         <span class="d-block p-2 bg-white border-top text-center">{{ $category['title'] }}</span>
                                     </a>

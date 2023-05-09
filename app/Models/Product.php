@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Str;
 
 class Product extends Model
 {
@@ -11,6 +12,7 @@ class Product extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'category_id',
         'details',
         'description',
@@ -35,6 +37,12 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = Str::title($value);
+        $this->attributes['slug'] = Str::slug($value, '-');
     }
 
     public function productSpecification()

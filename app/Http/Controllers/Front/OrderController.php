@@ -4,24 +4,17 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Category;
-use App\Models\CategoryGroup;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $categoryGroupSlug, $categorySlug)
+    public function index()
     {
-        $categoryGroupId = CategoryGroup::where('slug', $categoryGroupSlug)->value('id');
-
-        $categoryId = Category::where('category_group_id', $categoryGroupId)->where('slug', $categorySlug)->value('id');
-
-        return view('frontend.product.list', compact('categoryGroupId', 'categoryId'));
+        //
     }
 
     /**
@@ -53,13 +46,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['category', 'productSpecification'])->where('slug', $id)->first();
-        
-        if(!empty($product['other_images'])) {
-            $product['other_images'] = json_decode($product['other_images'], true);
-        }
-        
-        return view('frontend.product.info', compact('product'));
+        //
     }
 
     /**

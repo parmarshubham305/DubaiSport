@@ -17,6 +17,6 @@ class MasterOption extends Model
 
     public function attributeValues()
     {
-        return $this->hasMany('App\Models\MasterOptionAttribute');
+        return $this->hasMany('App\Models\MasterOptionAttribute')->orderBy('value', 'ASC');
     }
 }

@@ -12,41 +12,21 @@
         <li> <a href="#" class="list-view"><i class="fa-solid fa-list fa-lg"></i></a></li>
     </ul>
 </div>
-<!-- <ul class="filter-list flex-wrap list-unstyled d-flex align-items-center">
+<ul class="filter-list flex-wrap list-unstyled d-flex align-items-center">
+    @if($optionAttributes)
+    @foreach($optionAttributes as $optionAttribute)
     <li class="me-3 mb-1">
         <span class="d-flex align-items-center bg-light rounded p-2">
-            <badge class="badge text-info p-0 fw-semibold">Cardio </badge>
-            <a href="javascript:void(0);" href="#" class="ps-2"><i class="fa-solid fa-xmark fa-sm"></i></a>
+            <badge class="badge text-info p-0 fw-semibold">{{ $optionAttribute['value'] }} </badge>
+            <a wire:click="removeSelection({{ $optionAttribute['id'] }})" class="ps-2"><i class="fa-solid fa-xmark fa-sm"></i></a>
         </span>
     </li>
+    @endforeach
     <li class="me-3 mb-1">
-        <span class="d-flex align-items-center bg-light rounded p-2">
-            <badge class="badge text-info p-0 fw-semibold">Benches </badge>
-            <a href="javascript:void(0);" href="#" class="ps-2"><i class="fa-solid fa-xmark fa-sm"></i></a>
-        </span>
+        <a wire:click="clearFilters" class="btn btn-info btn-sm py-1 px-2"><i class="fa-solid fa-trash  fa-sm"></i> Clear</a>
     </li>
-    <li class="me-3 mb-1">
-        <span class="d-flex align-items-center bg-light rounded p-2">
-            <badge class="badge text-info p-0 fw-semibold">Tredmil </badge>
-            <a href="javascript:void(0);" href="#" class="ps-2"><i class="fa-solid fa-xmark fa-sm"></i></a>
-        </span>
-    </li>
-    <li class="me-3 mb-1">
-        <span class="d-flex align-items-center bg-light rounded p-2">
-            <badge class="badge text-info p-0 fw-semibold">Strengh & Free Weights </badge>
-            <a href="javascript:void(0);" href="#" class="ps-2"><i class="fa-solid fa-xmark fa-sm"></i></a>
-        </span>
-    </li>
-    <li class="me-3 mb-1">
-        <span class="d-flex align-items-center bg-light rounded p-2">
-            <badge class="badge text-info p-0 fw-semibold">Fit Plus </badge>
-            <a href="javascript:void(0);" href="#" class="ps-2"><i class="fa-solid fa-xmark fa-sm"></i></a>
-        </span>
-    </li>
-    <li class="me-3 mb-1">
-        <a href="#" class="btn btn-info btn-sm py-1 px-2"><i class="fa-solid fa-trash  fa-sm"></i> Clear</a>
-    </li>
-</ul> -->
+    @endif
+</ul>
 <div class="row listing-product">
     @foreach($products as $product)
     <div class="col-md-6 col-lg-4 mb-4">
@@ -55,8 +35,8 @@
                     alt="produsct" class="card-img-top img-fluid"></a>
             <livewire:front.wishlist :page="'product_list'" :productId="$product['id']"/>
             <div class="card-body bg-light-gray border-top">
-                <span class="d-block mb-1">{{ $product['category']['title'] }}</span>
-                <p class="fw-semibold mb-1 product-heading"><a href="{{ route('front.products.show',$product['id']) }}">{{ $product['title'] }}</a>
+                <span class="d-block mb-1">{!! Helper::getProductBrand($product['id']) !!}</span>
+                <p class="fw-semibold mb-1 product-heading"><a href="{{ route('front.products.show',$product['slug']) }}">{{ $product['title'] }}</a>
                 </p>
                 {!! Helper::priceRender($product['id']) !!}
             </div>

@@ -24,5 +24,8 @@ Route::get('/wishlist', [App\Http\Controllers\HomeController::class, 'wishlist']
 Route::group(['as' => 'front.', 'namespace' => 'Front'], function () {
     Route::post('products/delete', 'ProductController@delete')->name('products.delete');
     Route::resource('/products', 'ProductController');
-    Route::get('/{category_slug}', 'ProductController@index')->name('category.products');
+    Route::get('/{category_group_slug}/{category_slug}', 'ProductController@index')->name('category.products');
+
+    Route::resource('/cart', 'CartController');
+    Route::resource('/checkout', 'CheckoutController');
 });
