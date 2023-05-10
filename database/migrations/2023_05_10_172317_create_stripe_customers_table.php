@@ -4,22 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaymentsTable extends Migration
+class CreateStripeCustomersTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     */ 
+     */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('stripe_customers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('order_id');
-            $table->string('txn_id');
-            $table->enum('payment_type', ['Credit Card', 'COD', 'Apple Pay'])->nullable();
-            $table->double('price', [10,2]);
+            $table->string('stripe_customer_id');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('stripe_customers');
     }
 }

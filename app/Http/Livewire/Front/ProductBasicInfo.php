@@ -51,8 +51,9 @@ class ProductBasicInfo extends Component
             \Session::put('cart', $cart);
         } else {
             $cart = Cart::where('user_id', \Auth::user()->id)->first();
-
-            $jsonDecodedProducts = json_decode($cart['products']);
+            if($cart) {
+                $jsonDecodedProducts = json_decode($cart['products'], true);
+            }
 
             $jsonDecodedProducts[$this->product['id']] = [
                 'product' => $this->product,

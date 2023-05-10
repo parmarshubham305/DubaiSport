@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
@@ -14,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::where('user_id', \Auth::user()->id)->get()->toArray();
+
+        return view('frontend.orders', compact('orders'));
     }
 
     /**

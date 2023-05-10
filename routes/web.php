@@ -28,4 +28,5 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function () {
 
     Route::resource('/cart', 'CartController');
     Route::resource('/checkout', 'CheckoutController');
+    Route::resource('/orders', 'OrderController');
 });

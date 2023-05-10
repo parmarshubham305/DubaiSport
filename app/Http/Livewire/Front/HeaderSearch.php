@@ -26,8 +26,9 @@ class HeaderSearch extends Component
             $this->cart = \Session::get('cart');
         } else {
             $cart = Cart::where('user_id', \Auth::user()->id)->first();
-
-            $this->cart = json_decode($cart['products'], true);
+            if($cart) {
+                $this->cart = json_decode($cart['products'], true);
+            }
         }
     }
 
