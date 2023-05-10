@@ -599,6 +599,49 @@
         }
     }
 
+    .tabbing-box{
+        display:flex; flex-wrap:wrap;
+        input[type="radio"]{
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+        }
+        label {
+            background: #ffffff;
+            border: 1px solid $secondary !important;
+            padding:.8rem 1rem;
+            @include radius(6px);
+            color: $secondary;
+            margin-right:0.4rem;
+            cursor: pointer;
+        }
+        .tab-content{
+            display: none;order:3; width:100%; padding:2rem 0rem;
+        }
+        input[type="radio"]:checked {
+            + label {background: $secondary;color: #ffffff;
+                + .tab-content {
+                    display: block;
+                }
+            }
+        }
+    }
+    .shipping-data{
+        label {
+            background: #f1f1f1;
+            border: none !important;
+            padding:.8rem 1rem;
+            @include radius(6px);
+            color: $secondary;
+            margin-right:0.4rem;
+            cursor: pointer;
+            width:49%;
+            text-align:center;
+        }
+        input[type="radio"]:checked {
+            + label {background: $primary;color: #ffffff;}
+        }
+    }
     .payment_methods {
         .nav-tabs {
             a {

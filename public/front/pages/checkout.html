@@ -163,52 +163,57 @@
                             </div>
                         </form>
                     </div>
-                    <div class="nav nav-tabs address-tab nav-justified border-0 mb-4" id="nav-tab" role="tablist">
-                        <a href="javascript:void(0)" class="nav-link me-3 active" id="myaddress-tab" data-bs-toggle="tab" data-bs-target="#myaddress" aria-controls="myaddress"><i class="fa-solid fa-truck me-2"></i>  Deliver to my address </a>
-                        <a href="javascript:void(0)" class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#myself" aria-controls="myself"><i class="fa-solid fa-location-dot me-2"></i> I will pick it up myself</a>
-                    </div>
-                    <div class="tab-content border p-3 mt-2 mb-4" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="myaddress" aria-labelledby="myaddress-tab" tabindex="0">
-                        <h5 class="mb-4">Shipping Address</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="d-flex form-group mb-4 position-relative">
-                                    <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                    <input type="text" class="form-control" placeholder="Address" required="">
+
+                    <div class="tabbing-box shipping-data border p-3 mt-2 mb-4">
+                        <input class="form-check-input" type="radio" name="shippingdetails" id="flexRadioDefault11" checked>
+                        <label class="form-check-label" for="flexRadioDefault11">
+                            <i class="fa-solid fa-truck me-2"></i>  Deliver to my address
+                        </label>
+                        <div class="tab-content" id="myaddress" aria-labelledby="myaddress-tab" tabindex="0">
+                            <h5 class="mb-4">Shipping Address</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="d-flex form-group mb-4 position-relative">
+                                        <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                        <input type="text" class="form-control" placeholder="Address" required="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex form-group mb-4 position-relative">
-                                    <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                    <input type="text" class="form-control" placeholder="Street Name" required="">
+                                <div class="col-md-6">
+                                    <div class="d-flex form-group mb-4 position-relative">
+                                        <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                        <input type="text" class="form-control" placeholder="Street Name" required="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex form-group mb-4 position-relative">
-                                    <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Select State</option>
-                                        <option value="1">Dubai</option>
-                                        <option value="2">AbuDhabi</option>
-                                        <option value="3">Ajman</option>
-                                        </select>
+                                <div class="col-md-6">
+                                    <div class="d-flex form-group mb-4 position-relative">
+                                        <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Select State</option>
+                                            <option value="1">Dubai</option>
+                                            <option value="2">AbuDhabi</option>
+                                            <option value="3">Ajman</option>
+                                            </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex form-group mb-4 position-relative">
-                                    <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                    <input type="text" class="form-control" placeholder="City" required="">
+                                <div class="col-md-6">
+                                    <div class="d-flex form-group mb-4 position-relative">
+                                        <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                        <input type="text" class="form-control" placeholder="City" required="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="d-flex form-group mb-4 position-relative">
-                                    <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                    <input type="text" class="form-control" placeholder="Shipping Information" required="">
+                                <div class="col-12">
+                                    <div class="d-flex form-group mb-4 position-relative">
+                                        <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
+                                        <input type="text" class="form-control" placeholder="Shipping Information" required="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="myself" aria-labelledby="myself-tab" tabindex="0">
+                        <input class="form-check-input" type="radio" name="shippingdetails" id="flexRadioDefault12">
+                        <label class="form-check-label" for="flexRadioDefault12">
+                            <i class="fa-solid fa-location-dot me-2"></i> I will pick it up myself
+                        </label>
+                        <div class="tab-content" id="myself" aria-labelledby="myself-tab" tabindex="0">
                         <h5 class="mb-4">Select one of our stores</h5>
                         <div class="row">
                             <div class="col-md-6">
@@ -233,17 +238,12 @@
                     </div>
                     <div class="border p-3 mb-4 payment_methods">
                         <h5 class="mb-4">Payment Methods</h5>
-                        <div class="nav nav-tabs address-tab border-0 mb-4" id="nav-tab" role="tablist">
-                            <a href="javascript:void(0)" class="nav-link me-3 active" id="Card-tab" data-bs-toggle="tab" data-bs-target="#Card" aria-controls="Card"><i class="fa-solid fa-credit-card me-2 fa-lg"></i>Pay With Card</a>
-                            <a href="javascript:void(0)" class="nav-link me-3" id="Cash-tab" data-bs-toggle="tab" data-bs-target="#Cash" aria-controls="Cash">
-                                <i class="fa-solid fa-hand-holding-dollar fa-lg me-2"></i> Cash On Delivery
-                            </a>
-                            <a href="javascript:void(0)" class="nav-link" id="apple-tab" data-bs-toggle="tab" data-bs-target="#apple" aria-controls="apple">
-                                <i class="fa-brands fa-apple fa-lg me-2"></i> Apple Pay
-                            </a>
-                        </div>
-                        <div class="tab-content py-3 px-0" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="Card" aria-labelledby="Card-tab" tabindex="0">
+                        <div class="tabbing-box">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                <i class="fa-solid fa-credit-card me-2 fa-lg"></i>Pay With Card
+                            </label>
+                            <div class="tab-content" id="flexRadioDefaultContent" aria-labelledby="Card-tab" tabindex="0">
                                 <ul class="list-unstyled d-flex align-items-center">
                                     <li class="me-3 rounded d-inline-block">
                                         <img src="../images/mastercard.jpg" alt="mastercard" height="50" class="img-fluid border rounded">
@@ -282,6 +282,17 @@
                                       </ul>
                                 </form>
                             </div>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                <i class="fa-solid fa-hand-holding-dollar fa-lg me-2"></i> Cash On Delivery
+                            </label>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                <i class="fa-brands fa-apple fa-lg me-2"></i> Apple Pay
+                            </label>
+                        </div>
+                        <div class="tab-content py-3 px-0" id="nav-tabContent">
+
                         </div>
                         <div class="Order-now">
                             <a href="#" class="btn btn-primary w-100 py-3 fs-5 fw-semibold">PLACE ORDER</a>
