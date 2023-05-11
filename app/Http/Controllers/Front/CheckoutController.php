@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Address;
 use App\Models\Payment;
+use App\Models\BillingInfo;
 use App\Models\StripeCustomer;
 
 class CheckoutController extends Controller
@@ -64,7 +65,7 @@ class CheckoutController extends Controller
     {
         $validated = $request->validate([
                 'first_name' => 'required|max:255',
-                'phone' => 'required|max:10',
+                'phone' => 'required|numeric|digits:10',
                 'email' => 'required|max:255', //unique:users
             ]);
             
@@ -85,39 +86,38 @@ class CheckoutController extends Controller
                 'cvv' => 'required',
             ]);
         }
-
-        $user = User::where('email', $data['email'])->first();
-
+        
         if(!\Auth::user()) {
+            $user = User::where('email', $data['email'])->first();
+            if(!$user) {
+                $user = User::create([
+                    'first_name' => $data['first_name'],
+                    'last_name' => $data['first_name'],
+                    'phone' => $data['phone'],
+                    'email' => $data['email'],
+                    'password' => \Hash::make('123456'),
+                ]);
+            }
             $cart = \Session::get('cart');
         } else {
+            $user = \Auth::user();
             $cart = Cart::where('user_id', \Auth::user()->id)->first();
             $cart = json_decode($cart['products'], true);
         }
         
         $cartTotalAmount = array_sum(array_column($cart, 'price'));
         
-        if(!$user) {
-            $user = User::create([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['first_name'],
-                'phone' => $data['phone'],
-                'email' => $data['email'],
-                'password' => \Hash::make('123456'),
+        if($user && $data['delivery_type'] == 'Delivery') {
+            Address::create([
+                'user_id' => $user['id'],
+                'address_line_1' => $data['address_line_1'],
+                'address_line_2' => $data['address_line_2'],
+                'country_id' => $data['country_id'],
+                'state_id' => $data['state_id'],
+                'city' => $data['city'],
             ]);
-            
-            if($user && $data['delivery_type'] == 'Delivery') {
-                Address::create([
-                    'user_id' => $user['id'],
-                    'address_line_1' => $data['address_line_1'],
-                    'address_line_2' => $data['address_line_2'],
-                    'country_id' => $data['country_id'],
-                    'state_id' => $data['state_id'],
-                    'city' => $data['city'],
-                ]);
-            }
         }
-
+        
         if($data['payment_type'] == 'Credit Card') {
             
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -136,7 +136,7 @@ class CheckoutController extends Controller
                 $stripeCustomer = \Stripe\Customer::create(array(
                     "email" => $user['email'],
                     "name" => $user['first_name'] .' '.$user['last_name'],
-                    "source" => $cardToken->id
+                    // "source" => $cardToken->id
                 ));
                 $customer_token = $stripeCustomer->id;
 
@@ -186,7 +186,6 @@ class CheckoutController extends Controller
                 'delivery_type' => $data['delivery_type'],
                 'shipping_note' => $data['shipping_information']
             ]);
-
             Payment::create([
                 'user_id' => $user['id'],
                 'order_id' => $order['id'],
@@ -195,6 +194,15 @@ class CheckoutController extends Controller
                 'price' => $cartTotalAmount
             ]);
         }
+        BillingInfo::create([
+            'order_id' => $order['id'],
+            'name' => $data['first_name'],
+            'phone' => $data['phone'],
+            'email' => $data['email'],
+        ]);
+
+        Cart::where('user_id', \Auth::user()->id)->delete();
+        \Session::forget('cart');
         return redirect()->route('front.orders.index');
     }
 

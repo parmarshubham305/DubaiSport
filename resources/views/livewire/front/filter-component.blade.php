@@ -124,7 +124,7 @@
                                     @foreach($categories as $category)
                                     <li class="pt-2 ps-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" wire:model="selectedCategories" value="{{ $category['id'] }}" id="{{ $category['title'] }}">
+                                            <input class="form-check-input" type="checkbox" wire:model="selectedCategories" wire:change="categoryUpdate()" value="{{ $category['id'] }}" id="{{ $category['title'] }}">
                                             <label for="{{ $category['title'] }}"
                                                 class="form-check-label ps-1 cursor-pointer categorie_label">{{ $category['title'] }}</label>
                                         </div>

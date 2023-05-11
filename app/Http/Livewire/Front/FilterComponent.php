@@ -9,13 +9,13 @@ use App\Models\MasterOptionAttribute;
 
 class FilterComponent extends Component
 {
-    public $categories, $categoryGroupId, $categoryId, $selectedCategories, $masterOptions, $selectedOptions = [];
+    public $categories, $categoryGroupId, $categoryId, $selectedCategories = [], $masterOptions, $selectedOptions = [];
 
     protected $listeners = ['removeFilters'];
 
     public function mount()
     {
-        $this->selectedCategories[] = $this->categoryId;
+        // $this->selectedCategories[] = $this->categoryId;
 
         $this->categories = Category::where('category_group_id', $this->categoryGroupId)->get()->toArray();
 
@@ -39,9 +39,9 @@ class FilterComponent extends Component
     public function removeFilters($params = null)
     {
         if(!empty($params))
-        {
+        { 
             foreach ($this->selectedOptions as $key => $attributes) {
-                if(($key = array_search($params, $this->optionAttributeIds)) !== false) {
+                if(($key = array_search($params, $attributes)) !== false) {
                     unset($attributes[$key]);
                     $this->selectedOptions[$key] = $attributes;
                 }
@@ -54,6 +54,11 @@ class FilterComponent extends Component
     }
 
     public function updated()
+    {
+        $this->emit('filterProducts', [ $this->selectedCategories, $this->selectedOptions ]);
+    }
+
+    public function categoryUpdate()
     {
         $this->emit('filterProducts', [ $this->selectedCategories, $this->selectedOptions ]);
     }

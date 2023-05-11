@@ -27,15 +27,15 @@
                     </div>
                     <div class="p-md-5 p-4">
                         <ul class="order_status list-unstyled d-flex align-items-center justify-content-between">
-                            <li class="text-center  position-relative checked">
+                            <li class="text-center  position-relative @if($order['status'] == 'In Process') checked @endif">
                                 <i class="fa-solid fa-check fa-2x bg-white rounded-circle"></i>
                                 <h4 class="my-4 fs-5 fw-semibold">Order conformed</h4>
                             </li>
-                            <li  class="text-center  position-relative">
+                            <li  class="text-center  position-relative @if($order['status'] == 'Shipped') checked @endif">
                                 <i class="fa-solid fa-dolly fa-2x bg-white rounded-circle"></i>
                                 <h4 class="my-4 fs-5 fw-semibold">Order Shipping </h4>
                             </li>
-                            <li  class="text-center  position-relative">
+                            <li  class="text-center  position-relative @if($order['status'] == 'Delivered') checked @endif">
                                 <i class="fa-solid fa-truck-fast fa-2x bg-white rounded-circle"></i>
                                 <h4 class="my-4 fs-5 fw-semibold">Order Deliverd</h4>
                             </li>

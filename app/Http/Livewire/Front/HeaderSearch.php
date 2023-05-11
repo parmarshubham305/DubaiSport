@@ -35,11 +35,11 @@ class HeaderSearch extends Component
     public function updated()
     {
         if($this->keyword != '') {
-            $this->categories = Category::where('title', 'like', '%'.$this->keyword.'%')->get()->toArray();
+            $this->categories = Category::where('title', 'like', '%'.$this->keyword.'%')->with('categoryGroup')->get()->toArray();
             $optionId = MasterOption::where('name', 'like', '%'.'brand'.'%')->value('id');
             $this->brands = MasterOptionAttribute::where('master_option_id', $optionId)->get()->toArray();
             $categoryIds = Category::where('title', 'like', '%'.$this->keyword.'%')->pluck('id', 'id')->toArray();
-            $this->products = Product::where('title', 'like', '%'.$this->keyword.'%')->orWhere('category_id', $categoryIds)->with('category')->get()->toArray();
+            $this->products = Product::where('title', 'like', '%'.$this->keyword.'%')->orWhere('category_id', $categoryIds)->with('category')->take(3)->get()->toArray();
         } else {
             $this->products = [];
             $this->categories = [];

@@ -21,10 +21,12 @@
                         </div>
                         @endforeach
                     </div>
+                    @if($product['other_images'])
                     <a href="#product_images" class="carousel-control-prev prev-arrow" data-bs-slide="prev"><i
                             class="fa-solid fa-angle-left"></i></a>
                     <a href="#product_images" class="carousel-control-next next-arrow" data-bs-slide="next"><i
                             class="fa-solid fa-chevron-right"></i></a>
+                    @endif
                     <div
                         class="carousel-thumbs position-relative w-100 mt-4 carousel-indicators d-none d-md-flex m-0">
                         @foreach($product['other_images'] as $otherImage)

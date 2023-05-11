@@ -1,7 +1,7 @@
 <div class="product-slider">
     @foreach($products as $product)
     <div class="card mx-3 position-relative">
-        <a href="{{ route('front.products.show', $product['id']) }}" class="product-img"><img src="{{ $product['main_image'] }}" alt="produsct"
+        <a href="{{ route('front.products.show', $product['slug']) }}" class="product-img"><img src="{{ $product['main_image'] }}" alt="produsct"
                 class="card-img-top img-fluid"></a>
         <livewire:front.wishlist :page="'product_list'" :productId="$product['id']"/>
         <div class="card-body bg-light-gray border-top">

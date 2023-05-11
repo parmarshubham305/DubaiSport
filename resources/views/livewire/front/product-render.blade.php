@@ -1,10 +1,9 @@
 <div>
 <div class="top-product-list d-flex align-items-center justify-content-between pb-3">
     <div class="d-flex search-bar" role="search">
-        <input class="form-control border-end-0  border border-primary" wire:model="keyword" wire:change="searchProducts($event.target.value)" type="text"
-            placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary text-white border border-primary px-3" type="submit"><i
-                class="fa-solid fa-magnifying-glass"></i></button>
+        <input class="form-control border-end-0" wire:model="keyword" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit"><span class="custom-icon custom-search"><span
+                    class="path1"></span><span class="path2"></span></span></button>
     </div>
     <ul class="viewport border border-primary list-unstyled mb-0 d-flex">
         <li><a href="#" class="grid-view active"><i class="fa-solid fa-table-cells-large fa-lg"></i></a>
@@ -31,7 +30,7 @@
     @foreach($products as $product)
     <div class="col-md-6 col-lg-4 mb-4">
         <div class="card position-relative">
-            <a href="{{ route('front.products.show',$product['id']) }}" class="product-img"><img src="{{ $product['main_image'] }}"
+            <a href="{{ route('front.products.show',$product['slug']) }}" class="product-img"><img src="{{ $product['main_image'] }}"
                     alt="produsct" class="card-img-top img-fluid"></a>
             <livewire:front.wishlist :page="'product_list'" :productId="$product['id']"/>
             <div class="card-body bg-light-gray border-top">

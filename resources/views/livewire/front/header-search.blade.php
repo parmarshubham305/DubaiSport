@@ -19,7 +19,7 @@
                         <ul class="list-unstyled ">
                             @if($categories)
                                 @foreach($categories as $category)
-                                <li><a href="#">
+                                <li><a href="{{ route('front.category.products', [$category['category_group']['slug'], $category['slug']]) }}">
                                         <span class="suggestion-name">{{ $category['title'] }}</span>
                                     </a>
                                 </li>
@@ -44,7 +44,7 @@
                         <h6 class="mb-2">Recommeded Product</h6>
                         @if($products)
                         @foreach($products as $product)
-                        <a href="{{ route('front.products.show',$product['id']) }}" tabindex="0">
+                        <a href="{{ route('front.products.show',$product['slug']) }}" tabindex="0">
                         <div class="row mb-3">
                             <div class="col-md-3">
                                 <img src="{{ $product['main_image'] }}" alt="product_1" class="img-fluid">
@@ -52,8 +52,12 @@
                             <div class="col-md-9">
                                 <span class="d-block mb-1">{{ $product['category']['title'] }}</span>
                                 <p class="fw-semibold mb-1 product-heading">{{ $product['title'] }}</p>
-                                <p class="text-primary fw-bold product-price d-flex align-items-center flex-wrap">AED {{ number_format($product['discounted_price'],2) }} <del class="text-secondary ms-1">AED {{ number_format($product['price'],2) }}</del>
-                                <small class="badge ms-1 bg-primary px-2">({{ $product['discount_percentage'] }}% OFF)</small></p>
+                                <p class="text-primary fw-bold product-price d-flex align-items-center flex-wrap">AED {{ number_format($product['discounted_price'],2) }} 
+                                    @if($product['discount_percentage'] > 0)
+                                        <del class="text-secondary ms-1">AED {{ number_format($product['price'],2) }}</del>
+                                        <small class="badge ms-1 bg-primary px-2">({{ $product['discount_percentage'] }}% OFF)</small>
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         </a>

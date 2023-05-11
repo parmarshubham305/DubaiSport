@@ -20,14 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/wishlist', [App\Http\Controllers\HomeController::class, 'wishlist'])->name('wishlist');
-if (!\Request::is('admin/*')) {
-    Route::group(['as' => 'front.', 'namespace' => 'Front'], function () {
-        Route::post('products/delete', 'ProductController@delete')->name('products.delete');
-        Route::resource('/products', 'ProductController');
-        Route::get('/{category_group_slug}/{category_slug}', 'ProductController@index')->name('category.products');
-    
-        Route::resource('/cart', 'CartController');
-        Route::resource('/checkout', 'CheckoutController');
-        Route::resource('/orders', 'OrderController');
-    });
-}
+Route::get('/wishlist/delete/{productId}', [App\Http\Controllers\HomeController::class, 'removeWishlistItem'])->name('removeWishlistItem');
+Route::get('/add-to-cart/{productId}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('addToCart');
+Route::group(['as' => 'front.', 'namespace' => 'Front'], function () {
+    Route::post('products/delete', 'ProductController@delete')->name('products.delete');
+    Route::resource('/products', 'ProductController');
+    Route::get('/{category_group_slug}/{category_slug}', 'ProductController@index')->name('category.products');
+
+    Route::resource('/cart', 'CartController');
+    Route::resource('/checkout', 'CheckoutController');
+    Route::resource('/orders', 'OrderController');
+});

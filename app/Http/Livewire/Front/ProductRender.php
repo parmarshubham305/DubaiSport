@@ -77,6 +77,11 @@ class ProductRender extends Component
 
     }
 
+    public function updated()
+    {
+        $this->searchProducts();
+    }
+
     public function render()
     {
         return view('livewire.front.product-render');

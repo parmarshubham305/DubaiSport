@@ -38,4 +38,9 @@ class Category extends Model
     public function getOptionIdsAttribute($value) {
         return explode(',', $value);
     }
+
+    public function categoryGroup()
+    {
+        return $this->belongsTo('App\Models\CategoryGroup');
+    }
 }

@@ -35,7 +35,7 @@
                         <!-- <span class="d-block w-100">Model Number : <strong>ICON-PETL-38817</strong></span> -->
                         <div class="mt-2">
                             <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
-                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
+                            <a wire:click="removeProduct({{ $key }})" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
                         </div>
                     </div>
                     <div class="col-md-3 mb-md-0 mb-4">

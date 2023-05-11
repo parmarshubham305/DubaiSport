@@ -7,7 +7,7 @@ use App\Models\Cart;
 
 class ShoppingCart extends Component
 {
-    public $carts, $totalAmount, $subTotal, $deliveryCharge = 0, $tax = 0;
+    public $carts = [], $totalAmount, $subTotal, $deliveryCharge = 0, $tax = 0;
 
     public function mount()
     {
@@ -47,13 +47,35 @@ class ShoppingCart extends Component
     public function priceSummary()
     {
         $amountSummary = 0;
-        foreach ($this->carts as $key => $cart) {
-            $amountSummary += $cart['price'];
+        if($this->carts) {
+            foreach ($this->carts as $key => $cart) {
+                $amountSummary += $cart['price'];
+            }
+            $this->subTotal = $amountSummary;
+            $this->totalAmount = $amountSummary;
+            if(!\Auth::user()) {
+                \Session::put('cart', $this->carts);
+            } else {
+                Cart::where('user_id', \Auth::user()->id)->update(['products' => json_encode($this->carts)]);
+            }
         }
-        $this->subTotal = $amountSummary;
-        $this->totalAmount = $amountSummary;
+    }
 
-        \Session::put('cart', $this->carts);
+    public function removeProduct($key)
+    {
+        if(!\Auth::user()) {
+            $carts = \Session::get('cart');
+            array_splice($carts, $key, 1);
+            $this->carts = $carts;
+            \Session::put('cart', $carts);
+        } else {
+            $userCart = Cart::where('user_id', \Auth::user()->id)->first();
+            $carts = json_decode($userCart['products'], true);
+            array_splice($carts, $key, 1);
+            $this->carts = $carts;
+            Cart::where('user_id', \Auth::user()->id)->update(['products' => json_encode($carts)]);
+        }
+        $this->emit('addToCartEventFire');
     }
 
     public function render()

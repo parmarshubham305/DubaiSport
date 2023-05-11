@@ -139,21 +139,3 @@
         </div>
     </div>
 </div>
-<div class="offcanvas offcanvas-start py-4" tabindex="-1" id="offcanvasExample"
-    aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header border-bottom pb-1">
-        <h5 class="mb-0 offcanvas-title fs-6" id="offcanvasExampleLabel"><a href="#">Shop By Category</a></h5>
-        <button type="button" class="btn-close close-btn position-absolute bg-primary" data-bs-dismiss="offcanvas"
-            aria-label="Close"><i class="fa-solid fa-xmark fs-2x text-white"></i></button>
-    </div>
-    <div class="offcanvas-body p-0">
-        <ul class="list-unstyled">
-            <li>
-                <a href="#" class="py-2 px-4 border-bottom d-block">Hello</a>
-            </li>
-            <li>
-                <a href="#" class="py-2 px-4 border-bottom d-block">Hello</a>
-            </li>
-        </ul>
-    </div>
-</div>
