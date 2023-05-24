@@ -82,8 +82,12 @@ $slick-opacity-not-active: 0.25;
   .slick-nav {
     --active: #fff;
     --border: rgba(255, 255, 255, .12);
-    width: 55px;
-    height: 55px;
+    width: 35px;
+    height: 35px;
+    @include mq("tablet"){
+        width: 55px;
+        height: 55px;
+    }
     position: absolute;
     @include transition(0.5s all ease);
     cursor: pointer;
@@ -97,12 +101,18 @@ $slick-opacity-not-active: 0.25;
     }
 
     &:hover {
-      width: 45px;
-      height: 45px;
-
+        width: 35px;
+      height: 35px;
+      @include mq("tablet"){
+        width: 45px;
+        height: 45px;
+      }
       .long-arrow-right,
       .long-arrow-left {
-        left: 50px;
+        left: 20px;
+        @include mq("tablet"){
+            left: 50px;
+        }
       }
     }
 
@@ -158,8 +168,12 @@ $slick-opacity-not-active: 0.25;
     }
 
     svg {
-      width: 44px;
-      height: 44px;
+      width: 35px;
+      height: 35px;
+      @include mq("tablet"){
+        width: 44px;
+        height: 44px;
+      }
       display: block;
       position: relative;
       z-index: 1;
@@ -176,11 +190,17 @@ $slick-opacity-not-active: 0.25;
   .long-arrow-left {
     @include transition(0.5s all ease);
     display: block;
-    width: 13px;
-    height: 13px;
+    width: 9px;
+    height: 9px;
+    left: 10px;
+    @include mq("tablet"){
+        width: 13px;
+        height: 13px;
+        left: 20px;
+    }
     border-top: 2px solid #fff;
     border-left: 2px solid #fff;
-    left: 20px;
+
     position: absolute;
     top: 0;
     bottom: 0;

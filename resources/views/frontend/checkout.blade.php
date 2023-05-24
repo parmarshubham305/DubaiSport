@@ -8,11 +8,11 @@
         <form action="{{ route('front.checkout.store') }}" method="post">
         @csrf
         <div class="row">
-            <div class="col-md-9 checkout-box">
+            <div class="col-lg-9 checkout-box order-lg-0 order-1">
                 <div class="border p-3 mb-4">
                     <h5 class="mb-4">Billing Information</h5>
-                    <div class="d-flex">
-                        <div class="col-md-4 me-1 py-2">
+                    <div class="row">
+                        <div class="col-md-4 py-2">
                         <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" placeholder="First Name" autofocus>
                             @error('first_name')
                             <span class="" role="alert">
@@ -20,7 +20,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="col-md-4 me-1 py-2">
+                        <div class="col-md-4 py-2">
                             <input type="number" name="phone" value="{{ old('phone') }}" class="form-control" placeholder="Mobile Number">
                             @error('phone')
                             <span class="" role="alert">
@@ -28,7 +28,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="col-md-4 me-1 py-2">
+                        <div class="col-md-4 py-2">
                             <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email Address" autocomplete="email">
                             @error('email')
                             <span class="" role="alert">
@@ -104,7 +104,7 @@
                                     </span>
                                     @enderror
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <div class="d-flex form-group mb-4 position-relative">
                                         <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
                                         <input type="text" name="shipping_information" value="{{ old('shipping_information') }}" class="form-control" placeholder="Shipping Information">
@@ -119,7 +119,7 @@
                         <div class="tab-content" id="myself" aria-labelledby="myself-tab" tabindex="0">
                             <h5 class="mb-4">Select one of our stores</h5>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-md-0 mb-3">
                                     <div class="store-address border border-gray-800 p-4 h-100 position-relative">
                                         <p class="fw-semibold">Dubai</p>
                                         <p class="mb-0">Shop No 1, abc abcd abc</p>
@@ -200,7 +200,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 mb-lg-0 mb-3">
                 @guest
                 <a href="{{ route('register') }}" class="btn btn-info fs-5 mb-4 w-100"> Existing User/ Sign In</a>
                 @endguest

@@ -46,7 +46,7 @@
                 <h3 class="fs-1 mb-0 fw-bold">AED {{ number_format($productPrice,2) }} </h3>
                 @if($product['discount_percentage'] > 0)
                     <del class="text-primary fs-5 ms-3">AED {{ number_format($product['price'],2) }}</del>
-                    <span class="ms-4 fw-semibold fs-5 text-success">({{ $product['discount_percentage'] }}% OFF)</span>
+                    <span class="ms-md-4 ms-0 fw-semibold fs-5 text-success">({{ $product['discount_percentage'] }}% OFF)</span>
                 @endif
             </div>
         </div>
@@ -56,27 +56,26 @@
             plans. Pay as low as AED 249.50 for 6 months.
             <a href="#" class="text-primary"> <u>Learn More </u> </a>
         </p>
-        <div class="shopping-now my-lg-4 d-lg-flex d-md-flex d-block">
-            <a wire:click="addToCart" class="btn btn-primary w-50 sd-w-100 px-lg-4 px-2 py-3 fw-semibold mb-lg-0 mb-3 me-3"><i
+        <div class="shopping-now mobile-sticky my-lg-4 d-flex">
+        <h3 class="fs-4 mb-0 fw-bold d-md-none d-inline-block w-100 me-2 align-self-center">AED {{ number_format($productPrice,2) }} </h3>
+            <a wire:click="addToCart" class="btn btn-primary w-50 sd-w-100 px-lg-4 px-2 py-3 fw-semibold mb-lg-0 mb-md-3 me-md-3"><i
                     class="fa-solid fa-cart-shopping fa-lg me-2"></i> ADD TO CART</a>
             <livewire:front.wishlist :page="'product_info'" :productId="$product['id']"/>
         </div>
         <div class="shopping-now my-lg-4 d-lg-flex d-md-flex d-block">
-            <a href="#" class="btn btn-info px-lg-4 px-2 py-3 w-50 sd-w-100 fw-semibold mb-lg-0 mb-3 me-3"><i
+            <a href="#" class="btn btn-info px-lg-4 px-2 py-3 w-50 sd-w-100 fw-semibold mb-lg-0 mb-3 me-md-3"><i
                     class="fa-solid fa-phone me-2"></i> CONTACT US</a>
-            <a href="#" class="btn btn-success px-lg-4 px-2 py-3 w-50  sd-w-100  fw-semibold mb-lg-0 mb-3 me-3"><i
+            <a href="#" class="btn btn-success px-lg-4 px-2 py-3 w-50  sd-w-100  fw-semibold mb-lg-0 mb-3 me-md-3"><i
                     class="fa-brands fa-whatsapp fa-lg me-2"></i> WHATSAPP</a>
         </div>
-        <div class="services border-top border-bottom py-3 bg-light-gray">
+
             <!-- <h5 class="mb-3">Services
                 <a href="javascript:void()" class="text-primary" data-bs-toggle="popover"
                     data-bs-trigger="focus" data-bs-content="Quntity is here">
                     <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
                 </a>
             </h5> -->
-            <div class="container">
                 <livewire:service-offer />
-            </div>
-        </div>
+
     </div>
 </div>

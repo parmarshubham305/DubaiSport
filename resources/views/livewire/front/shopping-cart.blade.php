@@ -4,8 +4,8 @@
         <div class="page-header">
             <h2 class="mb-0 text-center">Shopping <span class="text-primary">Cart</span></h2>
         </div>
-        <div class="row">
-            <div class="col-md-9 shopping-box">
+        <div class="row g-md-4 g-0">
+            <div class="col-md-9 shopping-box mb-md-0 mb-4">
                 <div class="row shopping-header d-md-flex d-none p-3">
                     <div class="col-md-2">
                         <h5 class="mb-0">Product Images</h5>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 @foreach($carts as $key => $cart)
-                <div class="row py-4 px-3">
+                <div class="row py-4 px-3 text-md-start text-center">
                     <div class="col-md-2 mb-md-0 mb-4">
                         <a href="#" data-src="{{ $cart['product']['main_image'] }}"
                             class="fancybox-img shopping-img d-inline-block border rounded" data-fancybox="product">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 mb-md-0 mb-4">
-                        <div class="qty d-flex">
+                        <div class="qty d-flex justify-content-center justify-content-md-start">
                             <button type="button" wire:click="incrementQty({{ $key }})" class="btn btn-info me-2"> <i
                                     class="fa-solid fa-plus"></i> </button>
                             <input type="text" value="{{ $cart['quantity'] }}"
@@ -48,14 +48,14 @@
                                     class="fa-solid fa-minus"></i></button>
                         </div>
                     </div>
-                    <div class="col-md-2 mb-md-0 mb-4 text-md-end">
-                        <div class="price d-flex align-items-center justify-content-end mb-3">
+                    <div class="col-md-2 mb-md-0 text-md-end">
+                        <div class="price d-flex align-items-center justify-content-md-end justify-content-center mb-3">
                             <h4 class="mb-0 fw-semibold text-primary">AED {{ number_format($cart['price'],2) }}</h4>
                         </div>
                     </div>
                 </div>
                 @endforeach
-            </div> 
+            </div>
             <div class="col-md-3">
                 <div class="card order-summery">
                     <div class="card-header py-3">
@@ -63,7 +63,7 @@
                     </div>
                     <div class="card-body">
                         <p class="mb-1">Add 25AED for <strong>FREE DELIVERY</strong> </p>
-                        <div class="progress mb-md-4">
+                        <div class="progress mb-4">
                             <div class="progress-bar w-75" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         <h6>Coupon Code</h6>

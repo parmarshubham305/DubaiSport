@@ -282,13 +282,23 @@
 
 #products {
     .page-header {
-
         &:before,
         &:after {
             content: none;
         }
     }
-
+    .mobile-sticky{
+        @include mq-max("tablet"){
+            position:fixed;
+            bottom:0;
+            padding:1rem;
+            width:100%;
+            background:#ffffff;
+            z-index:99;
+            left:0;
+            box-shadow: 3px 1px 5px 3px #a8a8a8;
+        }
+    }
     .stock {
         .badge {
             padding: 0.4rem 0.8rem;
@@ -478,7 +488,10 @@
 }
 
 .product-tab {
-    .nav-tabs {
+    .nav-tabs { flex-wrap: nowrap;
+        @include mq-max("tablet"){
+            align-items: end;white-space: nowrap;overflow-x: auto;overflow-y: hidden;
+        }
         .nav-item {
             margin-right: 1.5rem;
 
@@ -551,18 +564,28 @@
     }
 
     .order-summery {
-        position: sticky;
-        top: 160px;
-
+        @include mq("tablet"){
+            position: sticky;
+            top: 160px;
+        }
         .progress-bar {
             background: $secondary;
         }
 
         .checkout-btn {
-
             .btn-info,
             .btn-primary {
                 padding: 0.8rem 0.6rem;
+            }
+            @include mq-max("tablet"){
+                position:fixed;
+                bottom:0;
+                padding:1rem;
+                width:100%;
+                background:#ffffff;
+                z-index:99;
+                left:0;
+                box-shadow: 3px 1px 5px 3px #a8a8a8;
             }
         }
     }
@@ -613,6 +636,9 @@
             @include radius(6px);
             color: $secondary;
             margin-right:0.4rem;
+            @include mq-max("tablet"){
+                margin-bottom: 0.7rem;
+            }
             cursor: pointer;
         }
         .tab-content{
@@ -633,9 +659,12 @@
             padding:.8rem 1rem;
             @include radius(6px);
             color: $secondary;
-            margin-right:0.4rem;
+            margin:0rem .3rem ;
             cursor: pointer;
-            width:49%;
+            width:46%;
+            @include mq("desktop"){
+                width:49%;
+            }
             text-align:center;
         }
         input[type="radio"]:checked {
