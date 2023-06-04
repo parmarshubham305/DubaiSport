@@ -50,6 +50,7 @@ input,select,
 a {
     @include transition(0.4s all ease);
     text-decoration: none;
+    outline: none;
 }
 
 .form-control ,.form-select{
@@ -156,7 +157,11 @@ a {
     }
   }
 // Spacing
-.spacing-y{padding:3.5rem 0rem;}
+.spacing-y{
+    padding:2rem 0rem;
+    @include mq("tablet"){
+        padding:3.5rem 0rem;}
+    }
 
 
 // slick
@@ -261,3 +266,18 @@ a {
     }
 }
 
+
+.fancybox__content{
+    @include mq-max("tablet"){width:100% !important;height:100% !important;}
+    img{width:100%;max-width:100%;height:auto;}
+}
+
+.shoppingcart-icon{
+    .badge {
+        @include mq-max("tablet"){
+            position: absolute;
+            top: -8px;
+            right: -4px;
+        }
+    }
+}

@@ -52,7 +52,7 @@
                             <div class="col-md-9">
                                 <span class="d-block mb-1">{{ $product['category']['title'] }}</span>
                                 <p class="fw-semibold mb-1 product-heading">{{ $product['title'] }}</p>
-                                <p class="text-primary fw-bold product-price d-flex align-items-center flex-wrap">AED {{ number_format($product['discounted_price'],2) }} 
+                                <p class="text-primary fw-bold product-price d-flex align-items-center flex-wrap">AED {{ number_format($product['discounted_price'],2) }}
                                     @if($product['discount_percentage'] > 0)
                                         <del class="text-secondary ms-1">AED {{ number_format($product['price'],2) }}</del>
                                         <small class="badge ms-1 bg-primary px-2">({{ $product['discount_percentage'] }}% OFF)</small>
@@ -74,10 +74,9 @@
                     class="d-flex position-relative border-0 border-secondary px-lg-3 px-0"><span
                         class="custom-icon custom-search"><span class="path1"></span><span
                             class="path2"></span></span></a></li>
-        <li class="d-lg-inline-block d-none"><a href="#" class="d-flex position-relative border-end border-secondary"><span
+        <li class="d-lg-inline-block d-none"><a href="tel:+97142678618" class="d-flex position-relative border-end border-secondary"><span
                     class="custom-icon custom-telephone me-2"><span class="path1"></span><span
-                        class="path2"></span></span><span class="link-content d-xl-inline-block d-none"> +971 4
-                    2678618</span></a></li>
+                        class="path2"></span></span><span class="link-content d-xl-inline-block d-none"> + 9 714 267 8618</span></a></li>
         <li class="d-lg-inline-block d-none position-realtive">
             @guest
             <a href="{{ route('login') }}" class="d-flex position-relative border-end border-secondary"><span
@@ -107,7 +106,7 @@
         </li>
 
         @endauth
-        <li class="d-block"> <a href="{{ route('front.cart.index') }}" class="d-flex position-relative border-lg-end border-0 border-secondary me-lg-3 me-0 px-lg-3 px-2"><span
+        <li class="d-block"> <a href="{{ route('front.cart.index') }}" class="d-flex position-relative shoppingcart-icon border-lg-end border-0 border-secondary me-lg-3 me-0 px-lg-3 ps-3 pe-0"><span
                     class="custom-icon custom-cart me-2"><span class="path1"></span><span
                         class="path2"></span></span><span class="link-content d-xl-inline-block d-none">Cart</span>
                 @if(isset($cart) && sizeof($cart) > 0)
