@@ -11,6 +11,11 @@
             <span class="square-icon"><i class="fas fa-user"></i></span>
             <input id="email" type="email" placeholder="Email address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
           </div>
+        @if(session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         @error('email')
             <span class="" role="alert">
                 <strong>{{ $message }}</strong>

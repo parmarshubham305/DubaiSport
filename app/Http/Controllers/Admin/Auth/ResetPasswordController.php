@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Str;
 
 class ResetPasswordController extends Controller
 {
@@ -34,6 +35,16 @@ class ResetPasswordController extends Controller
         $email = $request->get('email');
         
         return view('admin.auth.passwords.reset', compact('email', 'token'));
+    }
+
+    protected function resetPassword($user, $password)
+    {
+        $user->forceFill([
+            'password' => bcrypt($password),
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        //$this->guard()->login($user);
     }
 
     protected function broker()

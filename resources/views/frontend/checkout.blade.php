@@ -13,7 +13,7 @@
                     <h5 class="mb-4">Billing Information</h5>
                     <div class="d-flex">
                         <div class="col-md-4 me-1 py-2">
-                        <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" placeholder="First Name" autofocus>
+                        <input type="text" class="form-control" name="first_name" value="{{ old('first_name') ?: auth()->user()->first_name }}" placeholder="First Name" autofocus>
                             @error('first_name')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -21,7 +21,7 @@
                             @enderror
                         </div>
                         <div class="col-md-4 me-1 py-2">
-                            <input type="number" name="phone" value="{{ old('phone') }}" class="form-control" placeholder="Mobile Number">
+                            <input type="number" name="phone" value="{{ old('phone') ?: auth()->user()->phone }}" class="form-control" placeholder="Mobile Number">
                             @error('phone')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                             @enderror
                         </div>
                         <div class="col-md-4 me-1 py-2">
-                            <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email Address" autocomplete="email">
+                            <input type="email" class="form-control" name="email" value="{{ old('email') ?: auth()->user()->email }}" placeholder="Email Address" autocomplete="email">
                             @error('email')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -159,14 +159,19 @@
                                 </li>
                             </ul>
                             <div class="mb-3">
-                                <input type="number" name="card_number" value="{{ old('card_number') }}" class="form-control py-3 rounded-0" id="cardno" placeholder="Card Number">
+                                <input type="text" name="card_number" id="card-number" value="{{ old('card_number') }}" class="form-control py-3 rounded-0" placeholder="Card Number" maxlength="19">
                             </div>
+                            @error('card_number')
+                            <span class="" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                             <div class="mb-3 d-flex">
-                                <input type="number" name="expiry_date" class="form-control py-3 rounded-0" id="date" placeholder="MM/YYYYY" aria-describedby="emailHelp">
-                                <input type="number" name="cvv" class="form-control py-3 rounded-0" id="cvv" placeholder="CVV" aria-describedby="emailHelp">
+                                <input type="text" name="expiry_date" class="form-control py-3 rounded-0" value="{{ old('expiry_date') }}" id="card-exp" placeholder="MM/YYYY" maxlength="7">
+                                <input type="text" name="cvv" class="form-control py-3 rounded-0" id="cvv" value="{{ old('cvv') }}" placeholder="CVV" aria-describedby="emailHelp" maxlength="4">
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="card_holder_name" class="form-control py-3 rounded-0" id="Cardholder" placeholder="Card Holder Name">
+                                <input type="text" name="card_holder_name" value="{{ old('card_holder_name') }}" class="form-control py-3 rounded-0" id="Cardholder" placeholder="Card Holder Name">
                             </div>
                             <div class="services mb-4">
                                 <div class="d-flex align-items-center">
@@ -183,7 +188,7 @@
                                     <li> Your personal details and payment information is fully encrypted and processed.</li>
                                 </ul>
                             </div>
-                        <input class="form-check-input" type="radio" name="payment_type" value="COD" id="flexRadioDefault2" @if(old('payment_type') == 'COD' || old('payment_type') == '') checked @endif>
+                        <input class="form-check-input" type="radio" name="payment_type" value="COD" id="flexRadioDefault2" @if(old('payment_type') == 'COD') checked @endif>
                         <label class="form-check-label" for="flexRadioDefault2">
                             <i class="fa-solid fa-hand-holding-dollar fa-lg me-2"></i> Cash On Delivery
                         </label>
@@ -224,6 +229,9 @@
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex justify-content-between mb-1"><span>Sub-Total</span> <span class="fw-semibold">AED {{ number_format($subTotal, 2) }} </span></li>
                             <li class="d-flex justify-content-between mb-1"><span>Delivery Charge</span> <span class="fw-semibold">AED 0</span></li>
+                            @if($discountDetails)
+                            <li class="d-flex justify-content-between mb-1 text-danger"><span>Coupon Discount</span> <span class="fw-semibold">AED - {{ $discountDetails['discount'] }}</span></li>
+                            @endif
                             <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED 0</span></li>
                             <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold">AED {{ number_format($totalAmount, 2) }}</span></li>
                         </ul>
@@ -234,4 +242,31 @@
         </form>
     </div>
 </div>
+@stop
+@section('js')
+<script type="text/javascript">
+    $('#card-number').on('keypress change blur', function () {
+        $(this).val(function (index, value) {
+            return value.replace(/[^a-z0-9]+/gi, '').replace(/(.{4})/g, '$1 ');
+        });
+    });
+
+    $('#card-number').on('copy cut paste', function () {
+        setTimeout(function () {
+            $('#card-number').trigger("change");
+        });
+    });
+
+    $('#card-exp').on('input',function(){
+        var curLength = $(this).val().length;
+        if(curLength === 2){
+        var newInput = $(this).val();
+            newInput += '/';
+            $(this).val(newInput);
+        }
+
+
+    });
+
+</script>
 @stop

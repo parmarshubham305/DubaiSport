@@ -1,6 +1,18 @@
 <div class="shopping-cart spacing-y">
     <div class="container">
-        @if($carts)
+        <div wire:loading wire:target="removeProduct">
+            <div style="display: flex; justify-content: center; align-items: center; background-color: black; position: fixed;
+                top: 0px; left: 0px; z-index: 9999; width: 100%; height: 100%; opacity: .75;
+            ">
+                <div class="la-square-jelly-box">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        @if($carts) 
         <div class="page-header">
             <h2 class="mb-0 text-center">Shopping <span class="text-primary">Cart</span></h2>
         </div>
@@ -34,10 +46,10 @@
                         <span class="d-block w-100">Brand : <strong>{!! Helper::getProductBrand($cart['product']['id']) !!}</strong></span>
                         <!-- <span class="d-block w-100">Model Number : <strong>ICON-PETL-38817</strong></span> -->
                         <div class="mt-2">
-                            <a href="#" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
+                            <a href="{{ route('front.products.show', $cart['product']['slug']) }}" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
                             <a wire:click="removeProduct({{ $key }})" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
                         </div>
-                    </div>
+                    </div> 
                     <div class="col-md-3 mb-md-0 mb-4">
                         <div class="qty d-flex">
                             <button type="button" wire:click="incrementQty({{ $key }})" class="btn btn-info me-2"> <i
@@ -68,12 +80,15 @@
                             </div>
                         <h6>Coupon Code</h6>
                         <div class="d-flex coupon mb-4">
-                            <input class="form-control flex-grow-1 w-auto border-end-0" type="text" placeholder="coupon" aria-label="coupon">
-                            <button class="btn btn-primary" type="submit">Apply</button>
+                            <input class="form-control flex-grow-1 w-auto border-end-0" type="text" wire:model="couponCode" placeholder="coupon" aria-label="coupon">
+                            <button class="btn btn-primary" wire:click="applyDiscount()">Apply</button>
                         </div>
                         <ul class="list-unstyled">
                             <li class="d-flex justify-content-between mb-1"><span>Sub-Total</span> <span class="fw-semibold">AED {{ number_format($subTotal, 2) }} </span></li>
                             <li class="d-flex justify-content-between mb-1"><span>Delivery Charge</span> <span class="fw-semibold">AED {{ $deliveryCharge }}</span></li>
+                            @if($discount > 0)
+                            <li class="d-flex justify-content-between mb-1 text-danger"><span>Coupon Discount</span> <span class="fw-semibold"> - AED {{ $discount }}</span></li>
+                            @endif
                             <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED {{ $tax }}</span></li>
                             <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold">AED {{ number_format($totalAmount, 2) }}</span></li>
                         </ul>

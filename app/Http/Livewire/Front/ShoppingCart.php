@@ -4,10 +4,11 @@ namespace App\Http\Livewire\Front;
 
 use Livewire\Component;
 use App\Models\Cart;
+use App\Models\Coupon;
 
 class ShoppingCart extends Component
 {
-    public $carts = [], $totalAmount, $subTotal, $deliveryCharge = 0, $tax = 0;
+    public $carts = [], $totalAmount, $subTotal, $deliveryCharge = 0, $tax = 0, $discount = 0, $couponCode = '';
 
     public function mount()
     {
@@ -76,6 +77,33 @@ class ShoppingCart extends Component
             Cart::where('user_id', \Auth::user()->id)->update(['products' => json_encode($carts)]);
         }
         $this->emit('addToCartEventFire');
+    }
+
+    public function applyDiscount()
+    {
+        if($this->discount <= 0) {
+            $couponInfo = Coupon::where('coupon_code', $this->couponCode)
+                            ->where('start_date', '<=', date('Y-m-d'))
+                            ->whereDate('end_date', '>=', date('Y-m-d'))
+                            ->first();
+            if($couponInfo) {
+                $this->discount = round(($this->subTotal * $couponInfo['percentage']) / 100, 2);
+                $this->totalAmount -= $this->discount; 
+
+                $discountSession = [
+                    'coupon_code' => $this->couponCode,
+                    'discount' => $this->discount
+                ];
+                \Session::put('cart_discount', json_encode($discountSession));
+
+                $this->dispatchBrowserEvent('swal:modal', [
+                    'type' => 'success',  
+                    'message' => 'Discount Applied!', 
+                ]);
+            }
+        } else {
+            \Session::forget('cart_discount');
+        }
     }
 
     public function render()

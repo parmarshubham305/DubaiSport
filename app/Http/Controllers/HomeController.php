@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Wishlist;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Banner;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
     }
 
     /**
@@ -26,7 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $banners = Banner::all();
+
+        return view('welcome', compact('banners'));
     }
 
     /**

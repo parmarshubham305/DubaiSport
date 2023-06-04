@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-md-3">
                             <p class="fw-bold product-price d-flex fs-5 mb-1 justify-content-end align-items-center"><span class="fw-semibold me-2">Total </span></p>
-                            <p class="fw-bold product-price d-flex fs-5 mb-1 justify-content-end align-items-center">  <span class="text-primary fs-4 fw-semibold">AED {{ number_format($products[array_key_first($products)]['price'], 2) }}</span></p>
+                            <p class="fw-bold product-price d-flex fs-5 mb-1 justify-content-end align-items-center">  <span class="text-primary fs-4 fw-semibold">AED {{ number_format($order['get_payment']['price'], 2) }}</span></p>
                         </div>
                     </div>
                     <div class="p-md-5 p-4">

@@ -4,7 +4,7 @@
                 aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars fa-lg"></i>
             </button>
-        <a href="{{ route('home') }}" class="site-logo"> <img src="{{ env('APP_URL').'front/images/site_logo.png' }}" alt="site logo" width="300"
+        <a href="{{ route('home') }}" class="site-logo"> <img src="{{ asset('front/images/site_logo.png') }}" alt="site logo" width="300"
                 height="36"></a>
     <div class="d-xl-flex d-none search-bar" role="search">
         <input class="form-control border-end-0" wire:model="keyword" type="search" placeholder="Search" aria-label="Search">

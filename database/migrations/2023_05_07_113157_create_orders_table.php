@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->enum('status', ['In Process', 'Shipped', 'Delivered'])->default('In Process');
             $table->enum('delivery_type', ['Delivery', 'Pickup'])->nullable();
             $table->string('shipping_note')->nullable();
+            $table->string('discount')->nullable();
             $table->timestamps();
         });
     }

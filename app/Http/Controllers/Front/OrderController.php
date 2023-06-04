@@ -15,8 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('user_id', \Auth::user()->id)->get()->toArray();
-
+        $orders = Order::where('user_id', \Auth::user()->id)->with('getPayment')->orderBy('id', 'DESC')->get()->toArray();
+        
         return view('frontend.orders', compact('orders'));
     }
 

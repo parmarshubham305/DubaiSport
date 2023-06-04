@@ -4,20 +4,24 @@
 <livewire:service-offer/>
 <div class="banner__slider order-lg-last order-first">
     <div class="slider stick-dots">
-        <div class="slide">
-            <div class="slide__img overflow-hidden">
-                <img src="{{ env('APP_URL').'front/images/banner1.jpg' }}" class="full-image img-fluid animated"
-                    data-animation-in="zoomInImage" />
-            </div>
-            <div class="slide__content slide__content__left" data-animation-in="fadeInLeft">
-                <div class="slide__content_details text-xl-start text-lg-start text-center">
-                    <h2 class="animated">Being the Best <span class="d-block"><span
-                                class="text-primary">Fitness</span> Products</span></h2>
-                    <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+        @if($banners)
+            @foreach($banners as $banner)
+            <div class="slide">
+                <div class="slide__img overflow-hidden">
+                    <img src="{{ $banner['image'] }}" class="full-image img-fluid animated"
+                        data-animation-in="zoomInImage" />
+                </div>
+                <div class="slide__content slide__content__left" data-animation-in="fadeInLeft">
+                    <div class="slide__content_details text-xl-start text-lg-start text-center">
+                        <h2 class="animated">Being the Best <span class="d-block"><span
+                                    class="text-primary">Fitness</span> Products</span></h2>
+                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="slide">
+            @endforeach
+        @endif
+        <!-- <div class="slide">
             <div class="slide__img overflow-hidden">
                 <img src="{{ env('APP_URL').'front/images/banner2.jpg' }}" class="full-image img-fluid animated"
                     data-animation-in="zoomInImage" />
@@ -42,7 +46,7 @@
                     <h5 class="animated">Best Quality Equipments and Range of Products</h5>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle"

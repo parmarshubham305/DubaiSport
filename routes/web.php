@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
 Auth::routes();
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/wishlist', [App\Http\Controllers\HomeController::class, 'wishlist'])->name('wishlist');
 Route::get('/wishlist/delete/{productId}', [App\Http\Controllers\HomeController::class, 'removeWishlistItem'])->name('removeWishlistItem');
 Route::get('/add-to-cart/{productId}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('addToCart');

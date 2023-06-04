@@ -3,6 +3,7 @@
 namespace App\Helpers;
 use App\Models\Product;
 use App\Models\MasterOption;
+use App\Models\CategoryGroup;
 
 class Helper
 {
@@ -36,5 +37,10 @@ class Helper
         } else {
             return '';
         }
+    }
+
+    public function categoryGroups()
+    {
+        return CategoryGroup::with('categories')->orderBy('sort', 'ASC')->get()->toArray();
     }
 }

@@ -48,5 +48,11 @@ Route::group(['as' => 'admin.'], function () {
 		
 		Route::post('orders/delete', 'OrderController@delete')->name('orders.delete');
 		Route::resource('/orders', 'OrderController');
+
+		Route::post('banners/delete', 'BannerController@delete')->name('banners.delete');
+		Route::resource('/banners', 'BannerController');
+
+		Route::post('coupons/delete', 'CouponController@delete')->name('coupons.delete');
+		Route::resource('/coupons', 'CouponController');
 	});
 });

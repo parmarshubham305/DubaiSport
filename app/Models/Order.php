@@ -14,6 +14,12 @@ class Order extends Model
         'products',
         'status',
         'delivery_type',
-        'shipping_note'
+        'shipping_note',
+        'discount'
     ];
+
+    public function getPayment()
+    {
+        return $this->hasOne('App\Models\Payment');
+    }
 }

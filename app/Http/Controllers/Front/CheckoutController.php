@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use App\Models\Cart;
 use App\Models\Country;
 use App\Models\State;
@@ -13,6 +14,7 @@ use App\Models\Address;
 use App\Models\Payment;
 use App\Models\BillingInfo;
 use App\Models\StripeCustomer;
+
 
 class CheckoutController extends Controller
 {
@@ -27,6 +29,8 @@ class CheckoutController extends Controller
 
         $states = State::where('country_id', $country['id'])->get()->toArray();
 
+        $discountDetails = json_decode(\Session::get('cart_discount'), true);
+        
         if(!\Auth::user()) {
             $cart = \Session::get('cart');
         } else {
@@ -36,13 +40,16 @@ class CheckoutController extends Controller
         if($cart) {
             $subTotal = array_sum(array_column($cart, 'price'));
             $totalAmount = array_sum(array_column($cart, 'price'));
+            if($discountDetails) {
+                $totalAmount -= $discountDetails['discount']; 
+            }
         }
 
         if(empty($cart)) {
             return redirect()->route('home');
         }
 
-        return view('frontend.checkout', compact('cart', 'subTotal', 'totalAmount', 'country', 'states'));
+        return view('frontend.checkout', compact('cart', 'subTotal', 'totalAmount', 'country', 'states', 'discountDetails'));
     }
 
     /**
@@ -70,6 +77,9 @@ class CheckoutController extends Controller
             ]);
             
         $data = $request->all();
+
+        $discountDetails = \Session::get('cart_discount');
+
         if($data['delivery_type'] == 'Delivery') {
             $validated = $request->validate([
                 'address_line_1' => 'required|max:10',
@@ -80,10 +90,10 @@ class CheckoutController extends Controller
         }
         if($data['payment_type'] == 'Credit Card') {
             $validated = $request->validate([
-                'card_number' => 'required|max:12',
+                'card_number' => 'required|max:19',
                 'card_holder_name' => 'required',
                 'expiry_date' => 'required',
-                'cvv' => 'required',
+                'cvv' => 'required|max:4',
             ]);
         }
         
@@ -121,15 +131,19 @@ class CheckoutController extends Controller
         if($data['payment_type'] == 'Credit Card') {
             
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-            $cardToken = \Stripe\Token::create(array(
-                'card' => array(
-                    'number' => '4242424242424242',
-                    'exp_month' => '07',
-                    'exp_year' => '2024',
-                    'cvc' => '123'
-                ),
-            ));
+            try {
+                $cardToken = \Stripe\Token::create(array(
+                    'card' => array(
+                        'number' => str_replace(' ', '', $data['card_number']),
+                        'exp_month' => explode('/', $data['expiry_date'])[0],
+                        'exp_year' => explode('/', $data['expiry_date'])[1],
+                        'cvc' => $data['cvv']
+                    ),
+                ));
+            } catch(\Exception $e) {
+                return back()->withErrors(['card_number' => $e->getMessage()]);
+            }
+            
             $stripeCustomer = StripeCustomer::where('user_id', $user['id'])->first();
 
             if(!$stripeCustomer) {
@@ -166,7 +180,8 @@ class CheckoutController extends Controller
                     'user_id' => $user['id'],
                     'products' => json_encode($cart),
                     'delivery_type' => $data['delivery_type'],
-                    'shipping_note' => $data['shipping_information']
+                    'shipping_note' => $data['shipping_information'],
+                    'discount' => $discountDetails
                 ]);
 
                 Payment::create([
@@ -178,13 +193,16 @@ class CheckoutController extends Controller
                 ]);
 
                 \Auth::loginUsingId($user['id']);
+            } else {
+                return redirect()->back();
             }
         } else {
             $order = Order::create([
                 'user_id' => $user['id'],
                 'products' => json_encode($cart),
                 'delivery_type' => $data['delivery_type'],
-                'shipping_note' => $data['shipping_information']
+                'shipping_note' => $data['shipping_information'],
+                'discount' => $discountDetails
             ]);
             Payment::create([
                 'user_id' => $user['id'],

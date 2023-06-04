@@ -73,11 +73,16 @@
                 </div>
                 <div class="col-md-6 col-lg-4 mb-3">
                     <h5>Product Category</h5>
+                    @php
+                      $categoroies = Helper::categoryGroups();
+                    @endphp
                     <ul class="list-unstyled category-list">
+                        @foreach($categoroies as $group)
                         <li>
-                            <a href="#">Cardio</a>
+                            <a href="#">{{ $group['title'] }}</a>
                         </li>
-                        <li>
+                        @endforeach
+                        <!-- <li>
                             <a href="#">Locker & Benches</a>
                         </li>
                         <li>
@@ -107,7 +112,7 @@
                         </li>
                         <li>
                             <a href="#">Multiple Cords</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3 mb-3">
