@@ -18,6 +18,15 @@
 </div>
 <div class="box-body">
 	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-4 control-label">Banner Title Fade In Position</label>
+		<div class="col-sm-8">
+			{{ Form::select('title_fade_in', ['Left' => 'Left', 'Right' => 'Right'], old('title_fade_in'), ['class' => 'form-control' ]) }}
+		<span class='text-danger'>{{ $errors->first('title_fade_in') }}</span>
+		</div>
+	</div>
+</div>
+<div class="box-body">
+	<div class="form-group">
 		<label for="inputEmail3" class="col-sm-4 control-label">Image</label>
 		<div class="col-sm-8">
 			{{ Form::file('image', old('image'), ['class' => 'form-control' ]) }}
