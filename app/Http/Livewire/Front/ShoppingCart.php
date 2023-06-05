@@ -16,7 +16,9 @@ class ShoppingCart extends Component
             $this->carts = \Session::get('cart');
         } else {
             $cart = Cart::where('user_id', \Auth::user()->id)->first();
-            $this->carts = json_decode($cart['products'], true);
+            if($cart) {
+                $this->carts = json_decode($cart['products'], true);
+            }
         }
         $this->priceSummary();
     }

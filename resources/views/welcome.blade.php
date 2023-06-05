@@ -5,17 +5,22 @@
 <div class="banner__slider order-lg-last order-first">
     <div class="slider stick-dots">
         @if($banners)
-            @foreach($banners as $banner)
+            @foreach($banners as $key => $banner)
             <div class="slide">
                 <div class="slide__img overflow-hidden">
                     <img src="{{ $banner['image'] }}" class="full-image img-fluid animated"
                         data-animation-in="zoomInImage" />
                 </div>
+                @if($banner['title_fade_in'] == 'Left')
                 <div class="slide__content slide__content__left" data-animation-in="fadeInLeft">
+                @else
+                <div class="slide__content slide__content__right" data-animation-in="fadeInRight">
+                @endif
                     <div class="slide__content_details text-xl-start text-lg-start text-center">
-                        <h2 class="animated">Being the Best <span class="d-block"><span
+                        {!! $banner['title'] !!}
+                        <!-- <h2 class="animated">Being the Best <span class="d-block"><span
                                     class="text-primary">Fitness</span> Products</span></h2>
-                        <h5 class="animated">Best Quality Equipments and Range of Products</h5>
+                        <h5 class="animated">Best Quality Equipments and Range of Products</h5> -->
                     </div>
                 </div>
             </div>

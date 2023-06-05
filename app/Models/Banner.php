@@ -12,7 +12,8 @@ class Banner extends Model
     protected $fillable = [
         'title',
         'image',
-        'sort'
+        'sort',
+        'title_fade_in'
     ];
 
     public function getImageAttribute($value)

@@ -13,7 +13,7 @@
                     <h5 class="mb-4">Billing Information</h5>
                     <div class="d-flex">
                         <div class="col-md-4 me-1 py-2">
-                        <input type="text" class="form-control" name="first_name" value="{{ old('first_name') ?: auth()->user()->first_name }}" placeholder="First Name" autofocus>
+                        <input type="text" class="form-control" name="first_name" value="{{ old('first_name') ?: (auth()->user() ? auth()->user()->first_name : '') }}" placeholder="First Name" autofocus>
                             @error('first_name')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -21,7 +21,7 @@
                             @enderror
                         </div>
                         <div class="col-md-4 me-1 py-2">
-                            <input type="number" name="phone" value="{{ old('phone') ?: auth()->user()->phone }}" class="form-control" placeholder="Mobile Number">
+                            <input type="number" name="phone" value="{{ old('phone') ?: (auth()->user() ? auth()->user()->phone : '') }}" class="form-control" placeholder="Mobile Number">
                             @error('phone')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                             @enderror
                         </div>
                         <div class="col-md-4 me-1 py-2">
-                            <input type="email" class="form-control" name="email" value="{{ old('email') ?: auth()->user()->email }}" placeholder="Email Address" autocomplete="email">
+                            <input type="email" class="form-control" name="email" value="{{ old('email') ?: (auth()->user() ? auth()->user()->email : '') }}" placeholder="Email Address" autocomplete="email">
                             @error('email')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -80,10 +80,10 @@
                                 <div class="col-md-6">
                                     <div class="d-flex form-group mb-4 position-relative">
                                         <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                        <select name="state_id" class="form-select" value="{{ old('state_id') }}" aria-label="Default select example">
+                                        <select name="state_id" id="state_id" class="form-select" value="{{ old('state_id') }}" aria-label="Default select example">
                                             <option selected>Select State</option>
                                             @foreach($states as $state)
-                                                <option value="{{ $state['id'] }}">{{ $state['name'] }}</option>
+                                                <option value="{{ $state['id'] }}" data-deliveryCharge="{{ $state['delivery_charge'] }}">{{ $state['name'] }}</option>
                                             @endforeach
                                             </select>
                                     </div>
@@ -228,12 +228,14 @@
                         </div>
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex justify-content-between mb-1"><span>Sub-Total</span> <span class="fw-semibold">AED {{ number_format($subTotal, 2) }} </span></li>
-                            <li class="d-flex justify-content-between mb-1"><span>Delivery Charge</span> <span class="fw-semibold">AED 0</span></li>
+                            <li class="d-flex justify-content-between mb-1"><span>Delivery Charge</span> <span class="fw-semibold deliveryCharge">AED 0</span></li>
+                            <input type="hidden" name="delivery_charge_submit" id="delivery_charge_submit"  value="{{ $subTotal }}"/>
                             @if($discountDetails)
                             <li class="d-flex justify-content-between mb-1 text-danger"><span>Coupon Discount</span> <span class="fw-semibold">AED - {{ $discountDetails['discount'] }}</span></li>
                             @endif
-                            <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED 0</span></li>
-                            <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold">AED {{ number_format($totalAmount, 2) }}</span></li>
+                            <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED {{ number_format($discountDetails['vat'], 2) }}</span></li>
+                            <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold totalAmount">AED {{ number_format($totalAmount, 2) }}</span></li>
+                            <input type="hidden" name="total_amount_submit" id="total_amount_submit" value="{{ $totalAmount }}" />
                         </ul>
                     </div>
                 </div>
@@ -267,6 +269,16 @@
 
 
     });
+
+    $('#state_id').on('change', function(){
+        var deliveryCharge = $(this).find(':selected').data('deliverycharge').toFixed(2);
+        $('#delivery_charge_submit').val(deliveryCharge);
+        $('.deliveryCharge').html('AED ' + deliveryCharge);
+        var totalAmount = '{{ $totalAmount }}';
+        totalAmount = (parseFloat(totalAmount) + parseFloat(deliveryCharge)).toFixed(2);
+        $('.totalAmount').html('AED ' + totalAmount);
+        $('#total_amount_submit').val(totalAmount);
+    }).trigger();
 
 </script>
 @stop

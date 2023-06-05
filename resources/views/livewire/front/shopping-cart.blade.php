@@ -1,6 +1,6 @@
 <div class="shopping-cart spacing-y">
     <div class="container">
-        <div wire:loading wire:target="removeProduct">
+        <div wire:loading wire:target="removeProduct, applyDiscount">
             <div style="display: flex; justify-content: center; align-items: center; background-color: black; position: fixed;
                 top: 0px; left: 0px; z-index: 9999; width: 100%; height: 100%; opacity: .75;
             ">
@@ -85,11 +85,9 @@
                         </div>
                         <ul class="list-unstyled">
                             <li class="d-flex justify-content-between mb-1"><span>Sub-Total</span> <span class="fw-semibold">AED {{ number_format($subTotal, 2) }} </span></li>
-                            <li class="d-flex justify-content-between mb-1"><span>Delivery Charge</span> <span class="fw-semibold">AED {{ $deliveryCharge }}</span></li>
                             @if($discount > 0)
                             <li class="d-flex justify-content-between mb-1 text-danger"><span>Coupon Discount</span> <span class="fw-semibold"> - AED {{ $discount }}</span></li>
                             @endif
-                            <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED {{ $tax }}</span></li>
                             <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold">AED {{ number_format($totalAmount, 2) }}</span></li>
                         </ul>
                         <div class="checkout-btn">

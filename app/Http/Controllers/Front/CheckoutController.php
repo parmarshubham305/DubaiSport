@@ -41,7 +41,11 @@ class CheckoutController extends Controller
             $subTotal = array_sum(array_column($cart, 'price'));
             $totalAmount = array_sum(array_column($cart, 'price'));
             if($discountDetails) {
+                $vat = ($totalAmount * 5) / 100;
                 $totalAmount -= $discountDetails['discount']; 
+                $totalAmount += $vat; 
+                $discountDetails['vat'] = $vat;
+                \Session::put('cart_discount', json_encode($discountDetails));
             }
         }
 
@@ -77,8 +81,9 @@ class CheckoutController extends Controller
             ]);
             
         $data = $request->all();
-
         $discountDetails = \Session::get('cart_discount');
+        $discountDetails = json_decode($discountDetails, true);
+        $discountDetails['delivery_charge'] = $data['delivery_charge_submit'];
 
         if($data['delivery_type'] == 'Delivery') {
             $validated = $request->validate([
@@ -115,7 +120,8 @@ class CheckoutController extends Controller
             $cart = json_decode($cart['products'], true);
         }
         
-        $cartTotalAmount = array_sum(array_column($cart, 'price'));
+        // $cartTotalAmount = array_sum(array_column($cart, 'price'));
+        $cartTotalAmount = $data['total_amount_submit'];
         
         if($user && $data['delivery_type'] == 'Delivery') {
             Address::create([
@@ -181,7 +187,7 @@ class CheckoutController extends Controller
                     'products' => json_encode($cart),
                     'delivery_type' => $data['delivery_type'],
                     'shipping_note' => $data['shipping_information'],
-                    'discount' => $discountDetails
+                    'discount' => json_encode($discountDetails)
                 ]);
 
                 Payment::create([
@@ -202,7 +208,7 @@ class CheckoutController extends Controller
                 'products' => json_encode($cart),
                 'delivery_type' => $data['delivery_type'],
                 'shipping_note' => $data['shipping_information'],
-                'discount' => $discountDetails
+                'discount' => json_encode($discountDetails)
             ]);
             Payment::create([
                 'user_id' => $user['id'],

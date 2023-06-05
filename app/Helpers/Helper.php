@@ -39,7 +39,7 @@ class Helper
         }
     }
 
-    public function categoryGroups()
+    public static function categoryGroups()
     {
         return CategoryGroup::with('categories')->orderBy('sort', 'ASC')->get()->toArray();
     }

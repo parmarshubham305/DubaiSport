@@ -18,6 +18,7 @@ class CreateBannersTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->tinyInteger('sort')->nullable();
+            $table->enum('title_fade_in', ['Left', 'Right'])->default('Left');
             $table->timestamps();
         });
     }
