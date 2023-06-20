@@ -74,10 +74,10 @@
                         <h5 class="mb-0">Order summary</h5>
                     </div>
                     <div class="card-body">
-                        <p class="mb-1">Add 25AED for <strong>FREE DELIVERY</strong> </p>
-                        <div class="progress mb-4">
+                        <!-- <p class="mb-1">Add 25AED for <strong>FREE DELIVERY</strong> </p> -->
+                        <!-- <div class="progress mb-4">
                             <div class="progress-bar w-75" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            </div> -->
                         <h6>Coupon Code</h6>
                         <div class="d-flex coupon mb-4">
                             <input class="form-control flex-grow-1 w-auto border-end-0" type="text" wire:model="couponCode" placeholder="coupon" aria-label="coupon">

@@ -41,8 +41,8 @@ class CheckoutController extends Controller
             $subTotal = array_sum(array_column($cart, 'price'));
             $totalAmount = array_sum(array_column($cart, 'price'));
             if($discountDetails) {
-                $vat = ($totalAmount * 5) / 100;
                 $totalAmount -= $discountDetails['discount']; 
+                $vat = ($totalAmount * 5) / 100;
                 $totalAmount += $vat; 
                 $discountDetails['vat'] = $vat;
                 \Session::put('cart_discount', json_encode($discountDetails));
