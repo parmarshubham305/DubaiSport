@@ -30,7 +30,7 @@ class CheckoutController extends Controller
         $states = State::where('country_id', $country['id'])->get()->toArray();
 
         $discountDetails = json_decode(\Session::get('cart_discount'), true);
-        
+
         if(!\Auth::user()) {
             $cart = \Session::get('cart');
         } else {
@@ -41,9 +41,9 @@ class CheckoutController extends Controller
             $subTotal = array_sum(array_column($cart, 'price'));
             $totalAmount = array_sum(array_column($cart, 'price'));
             if($discountDetails) {
-                $totalAmount -= $discountDetails['discount']; 
+                $totalAmount -= $discountDetails['discount'];
                 $vat = ($totalAmount * 5) / 100;
-                $totalAmount += $vat; 
+                $totalAmount += $vat;
                 $discountDetails['vat'] = $vat;
                 \Session::put('cart_discount', json_encode($discountDetails));
             }
@@ -79,7 +79,7 @@ class CheckoutController extends Controller
                 'phone' => 'required|numeric|digits:10',
                 'email' => 'required|max:255', //unique:users
             ]);
-            
+
         $data = $request->all();
         $discountDetails = \Session::get('cart_discount');
         $discountDetails = json_decode($discountDetails, true);
@@ -101,7 +101,7 @@ class CheckoutController extends Controller
                 'cvv' => 'required|max:4',
             ]);
         }
-        
+
         if(!\Auth::user()) {
             $user = User::where('email', $data['email'])->first();
             if(!$user) {
@@ -119,10 +119,10 @@ class CheckoutController extends Controller
             $cart = Cart::where('user_id', \Auth::user()->id)->first();
             $cart = json_decode($cart['products'], true);
         }
-        
+
         // $cartTotalAmount = array_sum(array_column($cart, 'price'));
         $cartTotalAmount = $data['total_amount_submit'];
-        
+
         if($user && $data['delivery_type'] == 'Delivery') {
             Address::create([
                 'user_id' => $user['id'],
@@ -133,9 +133,9 @@ class CheckoutController extends Controller
                 'city' => $data['city'],
             ]);
         }
-        
+
         if($data['payment_type'] == 'Credit Card') {
-            
+
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
             try {
                 $cardToken = \Stripe\Token::create(array(
@@ -149,7 +149,7 @@ class CheckoutController extends Controller
             } catch(\Exception $e) {
                 return back()->withErrors(['card_number' => $e->getMessage()]);
             }
-            
+
             $stripeCustomer = StripeCustomer::where('user_id', $user['id'])->first();
 
             if(!$stripeCustomer) {
@@ -164,8 +164,8 @@ class CheckoutController extends Controller
                     'user_id' => $user['id'],
                     'stripe_customer_id' => $customer_token
                 ]);
-    
-                
+
+
             } else {
                 $customer_token = $stripeCustomer['stripe_customer_id'];
             }
@@ -217,6 +217,7 @@ class CheckoutController extends Controller
                 'payment_type' => $data['payment_type'],
                 'price' => $cartTotalAmount
             ]);
+            \Auth::loginUsingId($user['id']);
         }
         BillingInfo::create([
             'order_id' => $order['id'],
@@ -224,8 +225,9 @@ class CheckoutController extends Controller
             'phone' => $data['phone'],
             'email' => $data['email'],
         ]);
-
-        Cart::where('user_id', \Auth::user()->id)->delete();
+        if(\Auth::user()){
+            Cart::where('user_id', \Auth::user()->id)->delete();
+        }
         \Session::forget('cart');
         return redirect()->route('front.orders.index');
     }
