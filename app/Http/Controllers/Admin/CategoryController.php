@@ -160,7 +160,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function delete(Request $request, $id)
+    public function delete(Request $request)
     {
         $id = $request->get('id');
         

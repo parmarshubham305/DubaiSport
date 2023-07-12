@@ -35,7 +35,7 @@
     $(document).ready(function(){
 
 				var dynamic_form =$("#attributes").dynamicForm("#add_attribute", "#remove_attribute", {
-						limit:5,
+						limit:20,
 						normalizeFullForm: false
 				});
 
