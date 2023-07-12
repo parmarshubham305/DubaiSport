@@ -15,7 +15,7 @@ class FilterComponent extends Component
 
     public function mount()
     {
-        // $this->selectedCategories[] = $this->categoryId;
+        $this->selectedCategories[] = $this->categoryId;
 
         $this->categories = Category::where('category_group_id', $this->categoryGroupId)->get()->toArray();
 

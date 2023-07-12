@@ -4,6 +4,7 @@ namespace App\Helpers;
 use App\Models\Product;
 use App\Models\MasterOption;
 use App\Models\CategoryGroup;
+use App\Models\Category;
 
 class Helper
 {
@@ -42,5 +43,10 @@ class Helper
     public static function categoryGroups()
     {
         return CategoryGroup::with('categories')->orderBy('sort', 'ASC')->get()->toArray();
+    }
+
+    public static function categories()
+    {
+        return Category::with('categoryGroup')->orderBy('sort', 'ASC')->inRandomOrder()->limit(10)->get()->toArray();
     }
 }

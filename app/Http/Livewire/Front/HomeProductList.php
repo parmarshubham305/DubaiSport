@@ -8,7 +8,7 @@ use Livewire\Component;
 class HomeProductList extends Component
 {
     public $products = [];
-
+ 
     public function mount($type)
     {
         if($type == 'new') {

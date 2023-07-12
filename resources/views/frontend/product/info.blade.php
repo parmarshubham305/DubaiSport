@@ -104,7 +104,7 @@
 
     </div>
 </div>
-@stop
+@stop 
 @section('css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 @stop

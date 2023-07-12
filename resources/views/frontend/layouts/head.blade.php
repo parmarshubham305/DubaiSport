@@ -10,11 +10,10 @@
     {{ Html::script("front/js/bootstrap.bundle.js") }}
     {{ Html::script("front/thirdparty/js/jquery.min.js") }}
     {{ Html::script("front/thirdparty/js/slick-animation.min.js") }}
-    {{ Html::script("front/thirdparty/js/all.min.js") }}
     {{ Html::script("front/thirdparty/js/slick.min.js") }}
-    {{ Html::script("front/js/theme.js") }}
     <script type="text/javascript" src="https://parsleyjs.org/dist/parsley.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{ Html::script("front/js/theme.js") }}
     @livewireStyles
     <style>
         /*!
