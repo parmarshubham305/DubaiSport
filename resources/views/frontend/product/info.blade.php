@@ -27,10 +27,12 @@
                     <a href="#product_images" class="carousel-control-next next-arrow" data-bs-slide="next"><i
                             class="fa-solid fa-chevron-right"></i></a>
                     @endif
-                    <div
-                        class="carousel-thumbs position-relative w-100 mt-4 carousel-indicators d-none d-md-flex m-0">
-                        @foreach($product['other_images'] as $otherImage)
+                    <div class="carousel-thumbs position-relative w-100 mt-4 carousel-indicators d-none d-md-flex m-0">
                         <a href="#product_images" class="active d-inline-block thumb-box mb-2" data-bs-slide-to="0">
+                            <img src="{{ $product['main_image'] }}" title="product 1" class="img-fluid">
+                        </a>
+                        @foreach($product['other_images'] as $key => $otherImage)
+                        <a href="#product_images" class="d-inline-block thumb-box mb-2" data-bs-slide-to="{{ $key + 1 }}">
                             <img src="{{ env('APP_URL').$otherImage }}" title="tshirt black front"
                                 class="img-fluid">
                         </a>
@@ -83,10 +85,12 @@
                                 </thead>
                                 <tbody>
                                     @foreach($product['productSpecification'] as $key => $specification)
-                                    <tr>
-                                        <td width="40%"><strong>{{ $specification['option']['name'] }}</strong></td>
-                                        <td width="60%"><span class="text-dark">{{ $specification['optionAttribute']['value'] }}</span></td>
-                                    </tr>
+                                        @if($specification['option'])
+                                        <tr>
+                                            <td width="40%"><strong>{{ $specification['option']['name'] }}</strong></td>
+                                            <td width="60%"><span class="text-dark">{{ $specification['optionAttribute']['value'] }}</span></td>
+                                        </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>

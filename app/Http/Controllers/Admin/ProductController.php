@@ -120,7 +120,9 @@ class ProductController extends Controller
         foreach ($optionAttributes as $key => $optionAttribute) {
             $data['option_'.$optionAttribute['option_id']] = $optionAttribute['option_id'].'_'.$optionAttribute['option_attribute_id'];
         }
-
+        if(!empty($data['other_images'])) {
+            $data['other_images'] = json_decode($data['other_images']);
+        }
         return view('admin.product.edit', compact('data'));
     }
 
@@ -169,5 +171,29 @@ class ProductController extends Controller
 
         return redirect()->back()->with('message', 'Record Deleted Successfully.')
             ->with('type', 'success');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function removeOtherImage(Request $request) {
+        $params = $request->all();
+        
+        $data = Product::find($params['productId']);
+        
+        if($data && $data['other_images']) {
+
+            $images = json_decode($data['other_images']);
+            unset($images[$params['index']]);
+
+            Product::where('id', $params['productId'])->update(['other_images' => json_encode($images)]);
+
+            return response()->json(['success' => true, 'message' => 'Image deleted successfully.']);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Something went wrong.']);
+        }
+        
     }
 }

@@ -27,6 +27,26 @@
 	</div>
 </section>
 @stop
+@section('js')
+<script type="text/javascript">
+  function removeOtherImage(path, index, productId) {
+    var token = '{{ csrf_token() }}';
+    $.ajax({
+        url: '{{ route("admin.products.otherimage.delete") }}',
+        data: { path, productId, index, _token: token },
+        type: "POST",
+        success: function(data){
+            if(data.success) {
+              $('.remove_'+ index).hide();
+              toastr.success(data.message);
+            } else {
+              toastr.error(data.message);
+            }
+        }
+    });
+  }
+</script>
+@stop
 <!-- @section('js')
 {{ Html::script("backend/bower_components/ckeditor/ckeditor.js") }}
 <script type="text/javascript">

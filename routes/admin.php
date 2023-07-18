@@ -41,6 +41,7 @@ Route::group(['as' => 'admin.'], function () {
 		Route::resource('/master-options', 'MasterOptionController');
 
 		Route::post('products/delete', 'ProductController@delete')->name('products.delete');
+		Route::post('products/remove-other-image', 'ProductController@removeOtherImage')->name('products.otherimage.delete');
 		Route::resource('/products', 'ProductController');
 
 		Route::post('users/delete', 'UserController@delete')->name('users.delete');

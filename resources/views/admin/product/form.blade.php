@@ -26,15 +26,19 @@
 <div class="box-body">
 	<div class="form-group">
 		<label for="" class="col-sm-2 control-label">Other Images</label>
-		<div class="col-sm-8">
+		<div class="col-sm-2">
 			{{ Form::file('other_images[]', ['class' => '', 'multiple' => true ]) }}
 			<span class='text-danger'>{{ $errors->first('other_images') }}</span>
-			<!-- @if(isset($data) && $data['image'])
-				<div class="image-area">
-					<img src="{{ $data['image'] }}" height="100" width="100" alt="Preview">
-					<a onclick="removeProfile({{ $data['image'] }})" class="remove-image" href="#" style="display: inline;">&#215;</a>
-				</div>
-			@endif -->
+		</div>
+		<div class="col-sm-8">
+		@if(isset($data) && $data['other_images'])
+			@foreach($data['other_images'] as $key => $otherImage)
+			<div class="image-area col-sm-2 remove_{{$key}}">
+				<a onclick="removeOtherImage('{{ $otherImage }}', '{{ $key }}', '{{ $data['id'] }}')" class="remove-image" href="#" style="display: inline; font-size: 20px; color: red;">&#215;</a>
+				<img src="{{ env('APP_URL').$otherImage }}" height="100" width="100" alt="Preview">
+			</div>
+			@endforeach
+		@endif
 		</div>
 	</div>
 </div>
