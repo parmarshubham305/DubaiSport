@@ -1,8 +1,12 @@
 <div class="d-flex align-items-center justify-content-between py-xl-0 py-4 position-relative">
-    <button class="navbar-toggler p-2 border d-xl-none d-block" type="button" data-bs-toggle="collapse"
+    <button class="navbar-toggler collapsed p-2 border-0 d-xl-none d-block" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars fa-lg"></i>
+                <span class="hamburger-menu">
+                    <span class="bar-top"></span>
+                    <span class="bar-middle"></span>
+                    <span class="bar-bottom"></span>
+                </span>
             </button>
         <a href="{{ route('home') }}" class="site-logo"> <img src="{{ asset('front/images/site_logo.png') }}" alt="site logo" width="300"
                 height="36"></a>
@@ -71,7 +75,7 @@
     </div>
     <ul class="user-link d-flex align-items-center list-unstyled mb-0">
         <li class="d-xl-none d-inline-block "><a href="#"
-                    class="d-flex position-relative border-0 border-secondary px-lg-3 px-0"><span
+                    class="d-flex position-relative border-0 border-secondary px-lg-3 px-0 search-icon"><span
                         class="custom-icon custom-search"><span class="path1"></span><span
                             class="path2"></span></span></a></li>
         <li class="d-lg-inline-block d-none"><a href="tel:+97142678618" class="d-flex position-relative border-end border-secondary"><span
