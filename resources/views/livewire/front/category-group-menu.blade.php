@@ -26,7 +26,7 @@
                     </div>
                 </li>
                 @endforeach
-                <li class="nav-item align-self-end">
+                <li class="nav-item align-self-end d-md-inline-block d-none">
                     <a class="btn btn-primary text-white px-4 text-uppercase py-2" href="#">SALE!</a>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
     </div>
 </nav>
 <div class="offcanvas offcanvas-start py-4" tabindex="-1" id="offcanvasExample"
-    aria-labelledby="offcanvasExampleLabel"> 
+    aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header border-bottom pb-1">
         <h5 class="mb-0 offcanvas-title fs-6" id="offcanvasExampleLabel"><a href="#">Shop By Category</a></h5>
         <button type="button" class="btn-close close-btn position-absolute bg-primary" data-bs-dismiss="offcanvas"

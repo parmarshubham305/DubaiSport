@@ -103,7 +103,14 @@ $( document ).ready(function() {
     $('.popover-dismiss').popover({
         trigger: 'focus'
     });
-
+    $('.search-icon').click(function(){
+        $(".search-bar").toggleClass("search-active");
+    });
+    $('.search-bar').click(function(){
+        if($(this).hasClass("search-active")){
+            $(this).addClass("search-active");
+        }
+    });
 });
 
 
