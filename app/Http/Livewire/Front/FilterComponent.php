@@ -15,16 +15,17 @@ class FilterComponent extends Component
 
     public function mount()
     {
-        $this->selectedCategories[] = $this->categoryId;
+        if(empty($this->selectedCategories)) {
+            $this->selectedCategories[] = $this->categoryId;
+        }
 
-        $this->categories = Category::where('category_group_id', $this->categoryGroupId)->get()->toArray();
+        $this->categories = Category::where('id', $this->categoryId)->get()->toArray();
 
         $categoriesMappedOption = [];
 
         foreach ($this->categories as $key => $value) {
             $categoriesMappedOption[] = $value['option_ids'];
         }
-
         $arraySingle = array_unique(call_user_func_array('array_merge', $categoriesMappedOption));
 
         array_filter($arraySingle, function($item){
@@ -61,6 +62,16 @@ class FilterComponent extends Component
     public function categoryUpdate()
     {
         $this->emit('filterProducts', [ $this->selectedCategories, $this->selectedOptions ]);
+    }
+
+    public function updateCategories($id) {
+        if(in_array($id, $this->selectedCategories)) {
+            if (($key = array_search($id, $this->selectedCategories)) !== false) {
+                unset($this->selectedCategories[$key]);
+            }
+        } else {
+            $this->selectedCategories[] = $id;
+        }
     }
 
     public function render()

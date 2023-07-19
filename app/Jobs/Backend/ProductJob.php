@@ -78,19 +78,8 @@ class ProductJob
             $data->main_image = $fileName;
         }
 
-        $otherImagesArray = [];
         if(isset($this->data['other_images'])) {
-            // if($this->data['other_images'] && !empty($this->data['_method'] ) && $this->data['_method'] == 'PATCH' && file_exists(public_path($data['other_images']))) {
-                
-            //     try {
-            //         if($data['other_images'] != '') {
-            //             unlink(public_path($data['aadhar_card_front']));
-            //         }
-            //     } catch (Throwable $e) {
-            //         // return false;
-            //     }
-                
-            // }
+            $otherImagesArray = [];
             
             foreach ($this->data['other_images'] as $key => $otherImage) {
                 $name = time().'_'.$key.'.' . $otherImage->getClientOriginalExtension();
@@ -99,9 +88,10 @@ class ProductJob
                 $fileName = 'uploads/products/'.$folderName.'/'.$name;
                 $otherImagesArray[] = $fileName;
             }
+            $oldOtherImages = json_decode($oldOtherImages, true);
+            $otherImagesArray = array_merge($oldOtherImages, $otherImagesArray);
+            $data->other_images = json_encode($otherImagesArray);
         }
-        
-        $data->other_images = json_encode($otherImagesArray);
 
         $data->save();
         

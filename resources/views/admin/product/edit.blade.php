@@ -28,6 +28,7 @@
 </section>
 @stop
 @section('js')
+{{ Html::script("backend/bower_components/ckeditor/ckeditor.js") }}
 <script type="text/javascript">
   function removeOtherImage(path, index, productId) {
     var token = '{{ csrf_token() }}';
@@ -45,12 +46,7 @@
         }
     });
   }
-</script>
-@stop
-<!-- @section('js')
-{{ Html::script("backend/bower_components/ckeditor/ckeditor.js") }}
-<script type="text/javascript">
-	$(function () {
+  $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
     CKEDITOR.replace('product_details');
@@ -60,5 +56,5 @@
     // $('.textarea').wysihtml5()
   })
 </script>
-@stop -->
+@stop
 

@@ -18,7 +18,7 @@
               <h3 class="box-title">Create</h3>
             </div>
     			{{ Form::open(['url' => route('admin.coupons.store'), 'class' => 'form-horizontal', 'files' => true]) }}
-                    @include('admin.Coupon.form')
+                    @include('admin.coupon.form')
                 {{ Form::close() }}
           </div>
         </div>

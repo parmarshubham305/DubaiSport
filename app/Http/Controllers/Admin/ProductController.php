@@ -184,8 +184,8 @@ class ProductController extends Controller
         $data = Product::find($params['productId']);
         
         if($data && $data['other_images']) {
-
-            $images = json_decode($data['other_images']);
+            $images = json_decode($data['other_images'], true);
+            unlink(public_path($images[$params['index']]));
             unset($images[$params['index']]);
 
             Product::where('id', $params['productId'])->update(['other_images' => json_encode($images)]);
