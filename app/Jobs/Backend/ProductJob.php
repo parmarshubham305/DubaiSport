@@ -89,7 +89,9 @@ class ProductJob
                 $otherImagesArray[] = $fileName;
             }
             $oldOtherImages = json_decode($oldOtherImages, true);
-            $otherImagesArray = array_merge($oldOtherImages, $otherImagesArray);
+            if(is_array($oldOtherImages)) {
+                $otherImagesArray = array_merge($oldOtherImages, $otherImagesArray);
+            }
             $data->other_images = json_encode($otherImagesArray);
         }
 

@@ -4,7 +4,7 @@
             <label class="col-sm-2 control-label">Category <span class="text-danger">*</span></label>
             <div class="col-sm-8">
                 <select class="form-control" name="category_id" wire:model="categoryId" wire:change="getoption($event.target.value)" class="mt-1" required>
-                    <option>Select Category</option>
+                    <option value="">Select Category</option>
                     @foreach($categories as $key => $category)
                     <option value="{{ $key }}">{{ $category }}</option>
                     @endforeach

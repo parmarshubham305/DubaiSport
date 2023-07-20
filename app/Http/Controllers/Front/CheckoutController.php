@@ -25,9 +25,9 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $country = Country::where('iso_code', 'AE')->first();
+        $countries = Country::get()->toArray();
 
-        $states = State::where('country_id', $country['id'])->get()->toArray();
+        $states = State::get()->toArray();
 
         $discountDetails = json_decode(\Session::get('cart_discount'), true);
 
@@ -42,10 +42,13 @@ class CheckoutController extends Controller
             $totalAmount = array_sum(array_column($cart, 'price'));
             if($discountDetails) {
                 $totalAmount -= $discountDetails['discount'];
-                $vat = ($totalAmount * 5) / 100;
+                $vat = ($totalAmount * 5) / 100; 
                 $totalAmount += $vat;
                 $discountDetails['vat'] = $vat;
                 \Session::put('cart_discount', json_encode($discountDetails));
+            } else {
+                $vat = ($totalAmount * 5) / 100; 
+                $totalAmount += $vat;
             }
         }
 
@@ -53,7 +56,7 @@ class CheckoutController extends Controller
             return redirect()->route('home');
         }
 
-        return view('frontend.checkout', compact('cart', 'subTotal', 'totalAmount', 'country', 'states', 'discountDetails'));
+        return view('frontend.checkout', compact('cart', 'subTotal', 'totalAmount', 'countries', 'states', 'discountDetails', 'vat'));
     }
 
     /**

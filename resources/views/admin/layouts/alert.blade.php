@@ -3,7 +3,7 @@
 		<script>
 	        $(document).ready(function(){
 		        toastr.{{ Session::get('type') }}
-		        ('{{ Session::get('message') }}');
+		        ("{{ Session::get('message') }}");
 	        });
 	    </script>
     @endif

@@ -66,9 +66,11 @@
                                 <div class="col-md-6">
                                     <div class="d-flex form-group mb-4 position-relative">
                                         <span class="square-icon"><i class="fa-solid fa-location-dot"></i></span>
-                                        <select class="form-select" name="country_id" value="{{ old('country_id') }}" aria-label="Default select example">
+                                        <select class="form-select" id="country_id" name="country_id" value="{{ old('country_id') }}" aria-label="Default select example">
                                             <option selected>Select Country</option>
-                                            <option value="{{ $country['id'] }}">{{ $country['name'] }}</option>
+                                            @foreach($countries as $country)
+                                                <option value="{{ $country['id'] }}">{{ $country['name'] }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     @error('country_id')
@@ -83,7 +85,7 @@
                                         <select name="state_id" id="state_id" class="form-select" value="{{ old('state_id') }}" aria-label="Default select example">
                                             <option selected>Select State</option>
                                             @foreach($states as $state)
-                                                <option value="{{ $state['id'] }}" data-deliveryCharge="{{ $state['delivery_charge'] }}">{{ $state['name'] }}</option>
+                                                <option class="d-none" data-country="{{ $state['country_id'] }}" value="{{ $state['id'] }}" data-deliveryCharge="{{ $state['delivery_charge'] }}">{{ $state['name'] }}</option>
                                             @endforeach
                                             </select>
                                     </div>
@@ -231,8 +233,8 @@
                             <input type="hidden" name="delivery_charge_submit" id="delivery_charge_submit"  value="{{ $subTotal }}"/>
                             @if($discountDetails)
                             <li class="d-flex justify-content-between mb-1 text-danger"><span>Coupon Discount</span> <span class="fw-semibold">AED - {{ $discountDetails['discount'] }}</span></li>
-                            <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED {{ number_format($discountDetails['vat'], 2) }}</span></li>
                             @endif
+                            <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED {{ number_format($vat, 2) }}</span></li>
                             <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold totalAmount">AED {{ number_format($totalAmount, 2) }}</span></li>
                             <input type="hidden" name="total_amount_submit" id="total_amount_submit" value="{{ $totalAmount }}" />
                         </ul>
@@ -267,6 +269,19 @@
         }
 
 
+    });
+
+    $('#country_id').on('change', function(){
+        var countryId = $(this).val();
+        $("#state_id option").each(function()
+        {   
+            var x = $(this).data('country');
+            if(x == countryId) {
+                $(this).removeClass('d-none');
+            } else {
+                $(this).addClass('d-none');
+            }
+        });
     });
 
     $('#state_id').on('change', function(){

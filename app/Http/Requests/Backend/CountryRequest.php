@@ -28,14 +28,14 @@ class CountryRequest extends FormRequest
                 {
                     return [
                         'name' => 'required',
-                        'iso_code' => 'required',
+                        'iso_code' => 'required|max:3',
                     ];
                 }
             case 'PATCH':
                 {
                     return [
                         'name' => 'required',
-                        'iso_code' => 'required'
+                        'iso_code' => 'required|max:3'
                     ];
                 }
             default:break;

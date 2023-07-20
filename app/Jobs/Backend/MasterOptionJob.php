@@ -41,7 +41,7 @@ class MasterOptionJob
         
         $data->save();
         $keepAtributes = [];
-        if(isset($this->data['attributes'])) {
+        if(!empty($this->data['attributes'])) {
             foreach ($this->data['attributes']['attributes'] as $key => $value) {
                 $updated = MasterOptionAttribute::updateOrCreate([
                     'id' => $value['master_option_attribute_id']

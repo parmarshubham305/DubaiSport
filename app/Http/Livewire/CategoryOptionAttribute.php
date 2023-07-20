@@ -8,7 +8,7 @@ use App\Models\MasterOption;
 
 class CategoryOptionAttribute extends Component
 {
-    public $categories = [], $categoryId = null, $options = [];
+    public $categories = [], $categoryId, $options = [];
 
     public function mount()
     {

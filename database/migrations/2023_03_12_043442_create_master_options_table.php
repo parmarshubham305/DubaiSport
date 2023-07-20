@@ -17,7 +17,7 @@ class CreateMasterOptionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->enum('status', ['0','1'])->default('1');
-            $table->tinyInteger('sort');
+            $table->tinyInteger('sort')->nullable();
             $table->timestamps();
         });
     }
