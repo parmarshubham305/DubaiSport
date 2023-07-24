@@ -88,7 +88,11 @@
                                         @if($specification['option'])
                                         <tr>
                                             <td width="40%"><strong>{{ $specification['option']['name'] }}</strong></td>
-                                            <td width="60%"><span class="text-dark">{{ $specification['optionAttribute']['value'] }}</span></td>
+                                            <td width="60%"><span class="text-dark">
+                                            @if(isset($specification['optionAttribute']))
+                                            {{ $specification['optionAttribute']['value'] }}
+                                            @endif
+                                            </span></td>
                                         </tr>
                                         @endif
                                     @endforeach

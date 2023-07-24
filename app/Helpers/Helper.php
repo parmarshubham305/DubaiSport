@@ -26,15 +26,19 @@ class Helper
 
     public static function getProductBrand($productId)
     {
-        $masterOptionId = MasterOption::where('name', 'LIKE','%Brand%')->value('id');
+        $masterOptionId = MasterOption::where('name', 'LIKE','%Brand%')->pluck('id', 'id');
         
         $product = Product::where('id', $productId)->with('productSpecification', function($query) use ($masterOptionId)
         {
-            $query->where('option_id', $masterOptionId);
+            $query->whereIn('option_id', $masterOptionId);
         })->first();
-
+        
         if($product['productSpecification'] && isset($product['productSpecification'][0])) {
-            return $product['productSpecification'][0]['optionAttribute']['value'];
+            if(isset($product['productSpecification'][0]['optionAttribute'])) {
+                return $product['productSpecification'][0]['optionAttribute']['value'];
+            } else {
+                return '';
+            }
         } else {
             return '';
         }

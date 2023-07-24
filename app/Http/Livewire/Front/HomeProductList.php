@@ -14,7 +14,7 @@ class HomeProductList extends Component
         if($type == 'new') {
             $this->products = Product::where('status','1')->orderBy('id', 'desc')->with(['category'])->take(8)->get()->toArray();
         } else {
-            $this->products = Product::where($type, '1')->where('status','1')->with(['category'])->get()->toArray();
+            $this->products = Product::where($type, '1')->where('status','1')->orderBy('sort', 'asc')->with(['category'])->get()->toArray();
         }
     }
 
