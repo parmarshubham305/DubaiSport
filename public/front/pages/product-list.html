@@ -501,7 +501,7 @@
                                     <div class="accordion-item bg-transparent  border-0">
                                         <h2 class="accordion-header" id="headingsix"><button aria-controls="Price"
                                                 aria-expanded="false"
-                                                class="accordion-button pt-3 pb-2 fw-semibold  collaps bg-transparent text-dark"
+                                                class="accordion-button px-2 pt-3 pb-2 fw-semibold  collaps bg-transparent text-dark"
                                                 data-bs-target="#Price" data-bs-toggle="collapse"
                                                 type="button">Price</button>
                                         </h2>
@@ -515,17 +515,12 @@
                                                             value="1" disabled=""><input id="filter_max_price"
                                                             name="filter.price[]" readonly="readonly" type="hidden"
                                                             value="1000" disabled=""></p>
-                                                    <div class="d-flex justify-content-between mb-1"><span
-                                                            class="price-range-min value start-0">$1</span><span
-                                                            class="price-range-max value end-0">$1000</span></div>
-                                                    <div class="range-bar ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                                        id="slider-range">
-                                                        <div class="ui-slider-range ui-corner-all ui-widget-header"
-                                                            style="left: 0%; width: 100%;"></div><span tabindex="0"
-                                                            class="ui-slider-handle ui-corner-all ui-state-default"
-                                                            style="left: 0%;"></span><span tabindex="0"
-                                                            class="ui-slider-handle ui-corner-all ui-state-default"
-                                                            style="left: 100%;"></span>
+                                                    <div class="d-flex justify-content-between mb-2"><span
+                                                            class="price-range-min value start-0">MIN- AED 1 </span><span
+                                                            class="price-range-max value end-0">MAX- AED 10000</span></div>
+                                                    <div class="range-slider">
+                                                        <input class="range-slider__range w-100" type="range" value="1" min="1" max="10000">
+                                                        <span class="range-slider__value">AED 0</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -985,6 +980,27 @@
             </div>
         </div>
     </div>
+    <script>
+          function rangeSlider() {
+    let slider = document.querySelectorAll(".range-slider");
+    let range = document.querySelectorAll(".range-slider__range");
+    let value = document.querySelectorAll(".range-slider__value");
+
+    slider.forEach((currentSlider) => {
+      value.forEach((currentValue) => {
+        let val = currentValue.previousElementSibling.getAttribute("value");
+        currentValue.innerText = "AED " +  val;
+      });
+
+      range.forEach((elem) => {
+        elem.addEventListener("input", (eventArgs) => {
+          elem.nextElementSibling.innerText = "AED " +  eventArgs.target.value;
+        });
+      });
+    });
+  }
+  rangeSlider();
+    </script>
 </body>
 
 </html>
