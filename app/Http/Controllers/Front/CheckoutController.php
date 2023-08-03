@@ -14,6 +14,7 @@ use App\Models\Address;
 use App\Models\Payment;
 use App\Models\BillingInfo;
 use App\Models\StripeCustomer;
+use App\Models\Stock;
 
 
 class CheckoutController extends Controller
@@ -201,6 +202,16 @@ class CheckoutController extends Controller
                     'price' => $cartTotalAmount
                 ]);
 
+                //--- Debit Product Stock
+                foreach ($cart as $key => $value) {
+                    Stock::create([
+                        'product_id' => $value['product']['id'],
+                        'type' => 'Debit',
+                        'qty' => $value['quantity'],
+                        'note' => 'Order #'.$order['id']
+                    ]);
+                }
+
                 \Auth::loginUsingId($user['id']);
             } else {
                 return redirect()->back();
@@ -220,6 +231,17 @@ class CheckoutController extends Controller
                 'payment_type' => $data['payment_type'],
                 'price' => $cartTotalAmount
             ]);
+
+            //--- Debit Product Stock
+            foreach ($cart as $key => $value) {
+                Stock::create([
+                    'product_id' => $value['product']['id'],
+                    'type' => 'Debit',
+                    'qty' => $value['quantity'],
+                    'note' => 'Order #'.$order['id']
+                ]);
+            }
+
             \Auth::loginUsingId($user['id']);
         }
         BillingInfo::create([

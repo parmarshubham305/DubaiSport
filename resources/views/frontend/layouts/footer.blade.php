@@ -26,32 +26,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-2 mb-3">
                     <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="{{ route('front.aboutus') }}">About Us</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('front.terms') }}">Terms &amp; Conditions</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('front.policy') }}">Privacy Policy</a>
-                        </li>
-                        <!-- <li>
-                            <a href="#">Warranty Policy</a>
-                        </li> -->
-                        <li>
-                            <a href="{{ route('front.delivery.policy') }}">Delivery &amp; Returns</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('front.carrer') }}">Careers</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('front.faq') }}">FAQs</a>
-                        </li>
-                        <!-- <li>
-                            <a href="#">Whats New!</a>
-                        </li> -->
-                    </ul>
+                    {!! Helper::cmsPages() !!}
                 </div>
                 <div class="col-md-6 col-lg-3 mb-3">
                     <h5 class="mb-2">Contact Us</h5>

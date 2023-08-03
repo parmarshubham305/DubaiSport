@@ -20,4 +20,8 @@ class DashboardController extends Controller {
 
 		return view('admin.dashboard', compact('products', 'users'));
 	}
+
+	public function stock() {
+		return view('admin.stock.index');
+	}
 }

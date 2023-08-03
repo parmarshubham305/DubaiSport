@@ -285,4 +285,12 @@
         }
     }
     });
+
+    window.addEventListener('swal:modal', event => { 
+        swal({
+        title: event.detail.message,
+        text: event.detail.text,
+        icon: event.detail.type,
+        });
+    });
 </script>

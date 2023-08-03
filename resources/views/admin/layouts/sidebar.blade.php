@@ -138,6 +138,23 @@
             <li class="@if(Request::segment(2) == 'states' && Request::segment(3) == 'create') active @endif"><a href="{{ route('admin.states.create') }}"><i class="fa fa-circle-o"></i> Create </a></li>
           </ul>
         </li>
+        <li class="@if(Request::segment(2) == 'cms-pages') active @endif treeview">
+          <a href="#">
+            <i class="fa fa-file"></i> <span>CMS</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+           <ul class="treeview-menu">
+            <li class="@if(Request::segment(2) == 'cms-pages' && Request::segment(3) == '') active @endif"><a href="{{ route('admin.cms-pages.index') }}"><i class="fa fa-circle-o"></i> List </a></li>
+            <li class="@if(Request::segment(2) == 'cms-pages' && Request::segment(3) == 'create') active @endif"><a href="{{ route('admin.cms-pages.create') }}"><i class="fa fa-circle-o"></i> Create </a></li>
+          </ul>
+        </li>
+        <li class="@if(Request::segment(2) == 'stocks') active @endif">
+          <a href="{{ route('admin.stocks') }}">
+            <i class="fa fa-gear"></i> <span>Stock</span>
+          </a>
+        </li>
       </ul>
     </section>
   </aside>

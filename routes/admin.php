@@ -31,6 +31,8 @@ Route::group(['as' => 'admin.'], function () {
 	Route::group(['middleware' => ['admin', 'revalidate']], function () {
 		Route::resource('/dashboard', 'DashboardController');
 
+		Route::get('/stocks', 'DashboardController@stock')->name('stocks');
+
 		Route::post('category-groups/delete', 'CategoryGroupController@delete')->name('category-groups.delete');
 		Route::resource('/category-groups', 'CategoryGroupController');
 		
@@ -61,5 +63,8 @@ Route::group(['as' => 'admin.'], function () {
 
 		Route::post('states/delete', 'StateController@delete')->name('states.delete');
 		Route::resource('/states', 'StateController');
+
+		Route::post('cms-pages/delete', 'CMSController@delete')->name('cms-pages.delete');
+		Route::resource('/cms-pages', 'CMSController');
 	});
 });

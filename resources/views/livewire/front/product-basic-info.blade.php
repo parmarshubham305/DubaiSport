@@ -3,10 +3,17 @@
         <h2 class="product-heading mb-0">{{ $product['title'] }} </h2>
         <!-- <span class="text-primary">Treadmill</span> -->
         <div class="brands mb-lg-0 mb-2">
+            @if(!empty(Helper::getProductBrand($product['id'])))
             <span class="badge bg-dark d-inline-block p-2 mr-2 mb-1"><i class="fas fa-check-circle me-1"
-                    aria-hidden="true"></i> {{ $product['category']['title'] }} </span>
+                    aria-hidden="true"></i> {!! Helper::getProductBrand($product['id']) !!} </span>
+            @endif
+            @if($productStock > 0)
             <span class="badge bg-success d-inline-block p-2 mb-1"><i class="fas fa-check-circle me-1"
                     aria-hidden="true"></i> In stock</span>
+            @else
+            <span class="badge bg-danger d-inline-block p-2 mb-1"><i class="fas fa-time-circle me-1"
+                    aria-hidden="true"></i> Out stock</span>
+            @endif
         </div>
     </div>
     <div class="price-calculator">
@@ -18,13 +25,22 @@
                 </a>
             </h5>
             <div class="qty d-flex">
-                <button type="button" wire:click="incrementQty" class="add btn btn-info me-2"> <i
+                <button type="button" wire:click="incrementQty" class="btn btn-info me-2"> <i
                         class="fa-solid fa-plus"></i> </button>
-                <input type="text" id="qty1" value="{{ $productQty }}"
+                <input type="text" wire:change="qtyChange($event.target.value)" value="{{ $productQty }}"
                     class="form-control text-center fw-bold border border-secondary qty">
                 <button type="button" wire:click="decrementQty" class="btn btn-info ms-2"><i
                         class="fa-solid fa-minus"></i></button>
             </div>
+            @if($productStock < 4)
+                <div class="stock">
+                    <p class="text-primary my-2">(Only {{ $productStock }} Products Left)</p>
+                </div>
+            @elseif($productStock == $productQty) 
+                <div class="stock">
+                    <p class="text-primary my-2">(Max. Product qty limit reached)</p>
+                </div>
+            @endif
         </div>
         <div class="product-details mb-4">
             <h5>Product Details
@@ -49,7 +65,7 @@
                     <span class="ms-md-4 ms-0 fw-semibold fs-5 text-success">({{ $product['discount_percentage'] }}% OFF)</span>
                 @endif
             </div>
-        </div>
+        </div> 
         <p class="mb-2"><strong>Note:</strong> Next Day Delivery is only available for Dubai and Abu
             Dhabi</p>
         <p class="mb-2"><strong><i class="fa-solid fa-tag fa-lg"></i> Bank Offers:</strong> 0% EMI
@@ -58,7 +74,7 @@
         </p>
         <div class="shopping-now mobile-sticky my-lg-4 d-flex">
         <h3 class="fs-4 mb-0 fw-bold d-md-none d-inline-block w-100 me-2 align-self-center">AED {{ number_format($productPrice,2) }} </h3>
-            <a wire:click="addToCart" class="btn btn-primary w-50 sd-w-100 px-lg-4 px-2 py-3 fw-semibold mb-lg-0 mb-md-3 me-md-3"><i
+            <a wire:click="addToCart" class="@if($productStock <= 0) disabled @endif btn btn-primary w-50 sd-w-100 px-lg-4 px-2 py-3 fw-semibold mb-lg-0 mb-md-3 me-md-3"><i
                     class="fa-solid fa-cart-shopping fa-lg me-2"></i> ADD TO CART</a>
             <livewire:front.wishlist :page="'product_info'" :productId="$product['id']"/>
         </div>

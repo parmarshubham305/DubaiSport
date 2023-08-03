@@ -59,40 +59,39 @@
                     </div>
                 </div>
                 @endforeach
-                <!-- <div class="accordion position-relative" id="accordion_for_sidebar_five">
+                <div class="accordion position-relative" id="accordion_for_sidebar_five">
                     <div class="accordion-item bg-transparent  border-0">
                         <h2 class="accordion-header" id="headingsix"><button aria-controls="Price"
                                 aria-expanded="false"
-                                class="accordion-button pt-3 pb-2 fw-semibold  collaps bg-transparent text-dark"
+                                class="accordion-button px-2 pt-3 pb-2 fw-semibold  collaps bg-transparent text-dark"
                                 data-bs-target="#Price" data-bs-toggle="collapse"
                                 type="button">Price</button>
                         </h2>
                         <div aria-labelledby="headingsix" class="accordion-collapse collapse show"
                             data-bs-parent="#productlistgroup" id="Price">
                             <div class="accordion-body p-0 my-2 px-2">
-                                <div class="price-range-slider">
-                                    <p class="range-value"><input id="filter_min_price"
-                                            name="filter.price[]" readonly="readonly" type="hidden"
-                                            value="1" disabled=""><input id="filter_max_price"
-                                            name="filter.price[]" readonly="readonly" type="hidden"
-                                            value="1000" disabled=""></p>
-                                    <div class="d-flex justify-content-between mb-1"><span
-                                            class="price-range-min value start-0">$1</span><span
-                                            class="price-range-max value end-0">$1000</span></div>
-                                    <div class="range-bar ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                        id="slider-range">
-                                        <div class="ui-slider-range ui-corner-all ui-widget-header"
-                                            style="left: 0%; width: 100%;"></div><span tabindex="0"
-                                            class="ui-slider-handle ui-corner-all ui-state-default"
-                                            style="left: 0%;"></span><span tabindex="0"
-                                            class="ui-slider-handle ui-corner-all ui-state-default"
-                                            style="left: 100%;"></span>
+                                <div class="price-input">
+                                    <div class="field">
+                                        <span>Min</span>
+                                        <input type="number" class="input-min" wire:model="minPrice">
                                     </div>
+                                    <div class="separator">-</div>
+                                    <div class="field">
+                                        <span>Max</span>
+                                        <input type="number" class="input-max" wire:model="maxPrice">
+                                    </div>
+                                </div>
+                                <div class="slider">
+                                    <div class="progress"></div>
+                                </div>
+                                <div class="range-input">
+                                    <input type="range" class="range-min" wire:change="priceChange" min="0" max="50000" wire:model="minPrice" step="100">
+                                    <input type="range" class="range-max" wire:change="priceChange" min="0" max="50000" wire:model="maxPrice" step="100">
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>

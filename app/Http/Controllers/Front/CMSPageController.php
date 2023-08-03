@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CMS;
 
 class CMSPageController extends Controller
 {
-    public function aboutUs() {
-        return view('frontend.about_us');
+    public function cmsPage($slug) {
+        $content = CMS::where('slug', $slug)->value('content');
+
+        return view('frontend.cms', compact('content'));
     }
 
     public function terms() {

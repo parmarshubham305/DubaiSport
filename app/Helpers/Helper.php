@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\MasterOption;
 use App\Models\CategoryGroup;
 use App\Models\Category;
+use App\Models\CMS;
 
 class Helper
 {
@@ -52,5 +53,21 @@ class Helper
     public static function categories()
     {
         return Category::with('categoryGroup')->orderBy('sort', 'ASC')->inRandomOrder()->limit(10)->get()->toArray();
+    }
+
+    public static function cmsPages()
+    {
+        $pages = CMS::orderBy('sort', 'asc')->get()->toArray();
+        
+        $html = '<ul class="list-unstyled">';
+
+        foreach ($pages as $key => $value) {
+            $html .= '<li>';
+            $html .= '<a href="'.$value["slug"].'">'.$value["title"].'</a>';
+            $html .= '</li>';
+        }
+        $html .= '</ul>';
+        
+        return $html;
     }
 }

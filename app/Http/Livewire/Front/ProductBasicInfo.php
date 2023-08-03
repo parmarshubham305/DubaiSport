@@ -4,19 +4,26 @@ namespace App\Http\Livewire\Front;
 
 use Livewire\Component;
 use App\Models\Cart;
+use App\Models\Stock;
 
 class ProductBasicInfo extends Component
 {
-    public $product, $productQty = 1, $productPrice;
+    public $product, $productQty = 1, $productPrice, $productStock = 0;
 
     public function mount()
     {
+        $creditStock = Stock::where(['product_id' => $this->product['id'], 'type' => 'Credit'])->sum('qty');
+        $debitStock = Stock::where(['product_id' => $this->product['id'], 'type' => 'Debit'])->sum('qty');
+        $this->productStock = $creditStock - $debitStock;
+        
         $this->productPrice();
     }
 
     public function incrementQty()
     {
-        $this->productQty += 1; 
+        if($this->productStock > $this->productQty) {
+            $this->productQty += 1; 
+        }
         $this->productPrice();
     }
 
@@ -24,6 +31,15 @@ class ProductBasicInfo extends Component
     {
         if($this->productQty > 1) {
             $this->productQty -= 1;
+        }
+        $this->productPrice();
+    }
+
+    public function qtyChange($value) {
+        if($this->productStock >= $value) {
+            $this->productQty = $value; 
+        } else {
+            $this->productQty = $this->productStock;
         }
         $this->productPrice();
     }

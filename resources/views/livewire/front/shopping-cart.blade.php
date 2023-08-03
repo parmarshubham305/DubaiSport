@@ -59,6 +59,9 @@
                             <button type="button" wire:click="decrementQty({{ $key }})" class="btn btn-info ms-2"><i
                                     class="fa-solid fa-minus"></i></button>
                         </div>
+                        @if($cart['stocks'] <= 3)
+                        <p class="text-primary my-2">(Only {{ $cart['stocks'] }} Products Left)</p>
+                        @endif
                     </div>
                     <div class="col-md-2 mb-md-0 text-md-end">
                         <div class="price d-flex align-items-center justify-content-md-end justify-content-center mb-3">

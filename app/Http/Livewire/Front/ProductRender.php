@@ -35,12 +35,12 @@ class ProductRender extends Component
         $this->optionAttributes = MasterOptionAttribute::whereIn('id', $this->optionAttributeIds)->get()->toArray();
         
         if(!empty($tempAttributes)) {
-            $this->products = Product::whereIn('category_id', $value[0])->with(['category', 'productSpecification'])->whereHas('productSpecification', function($query) use ($tempAttributes)
+            $this->products = Product::whereBetween('discounted_price', [floatval($value[2]), floatval($value[3])])->whereIn('category_id', $value[0])->with(['category', 'productSpecification'])->whereHas('productSpecification', function($query) use ($tempAttributes)
             {
                 $query->whereIn('option_attribute_id', $tempAttributes);
             })->get()->toArray();
         } else {
-            $this->products = Product::whereIn('category_id', $value[0])->with(['category', 'productSpecification'])->get()->toArray();
+            $this->products = Product::whereBetween('discounted_price', [floatval($value[2]), floatval($value[3])])->whereIn('category_id', $value[0])->with(['category', 'productSpecification'])->get()->toArray();
         }
     }
 

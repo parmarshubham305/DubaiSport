@@ -29,10 +29,5 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function () {
     Route::resource('/orders', 'OrderController');
     
     //--- Content pages
-    Route::get('about-us', 'CMSPageController@aboutUs')->name('aboutus');
-    Route::get('terms', 'CMSPageController@terms')->name('terms');
-    Route::get('policy', 'CMSPageController@policy')->name('policy');
-    Route::get('faqs', 'CMSPageController@faq')->name('faq');
-    Route::get('carrer', 'CMSPageController@carrer')->name('carrer');
-    Route::get('delivery-policy', 'CMSPageController@deliveryPolicy')->name('delivery.policy');
+    Route::get('{slug}', 'CMSPageController@cmsPage');
 });

@@ -5,10 +5,11 @@ namespace App\Http\Livewire\Front;
 use Livewire\Component;
 use App\Models\Cart;
 use App\Models\Coupon;
+use App\Models\Stock;
 
 class ShoppingCart extends Component
 {
-    public $carts = [], $totalAmount, $subTotal, $deliveryCharge = 0, $tax = 0, $discount = 0, $couponCode = '';
+    public $carts = [], $totalAmount, $subTotal, $deliveryCharge = 0, $tax = 0, $discount = 0, $couponCode = '', $productStock = 0;
 
     public function mount()
     {
@@ -20,12 +21,23 @@ class ShoppingCart extends Component
                 $this->carts = json_decode($cart['products'], true);
             }
         }
+        $this->getStock();
         $this->priceSummary();
+    }
+
+    public function getStock() {
+        foreach ($this->carts as $key => $value) {
+            $creditStock = Stock::where(['product_id' => $value['product']['id'], 'type' => 'Credit'])->sum('qty');
+            $debitStock = Stock::where(['product_id' => $value['product']['id'], 'type' => 'Debit'])->sum('qty');
+            $this->carts[$key]['stocks'] = $creditStock - $debitStock;
+        }
     }
 
     public function incrementQty($productId)
     {
-        $this->carts[$productId]['quantity'] += 1; 
+        if($this->productStock > $this->carts[$productId]['quantity']) {
+            $this->carts[$productId]['quantity'] += 1; 
+        }
         $this->productPrice($productId);
     }
 
