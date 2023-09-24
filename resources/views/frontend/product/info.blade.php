@@ -12,6 +12,7 @@
                                 <img src="{{ $product['main_image'] }}" title="product 1" class="img-fluid">
                             </a>
                         </div>
+                        @if($product['other_images'])
                         @foreach($product['other_images'] as $otherImage)
                         <div class="carousel-item">
                             <a href="#" data-src="{{ env('APP_URL').$otherImage }}" class="fancybox-img"
@@ -20,6 +21,7 @@
                             </a>
                         </div>
                         @endforeach
+                        @endif
                     </div>
                     @if($product['other_images'])
                     <a href="#product_images" class="carousel-control-prev prev-arrow" data-bs-slide="prev"><i
@@ -31,12 +33,14 @@
                         <a href="#product_images" class="active d-inline-block thumb-box mb-2" data-bs-slide-to="0">
                             <img src="{{ $product['main_image'] }}" title="product 1" class="img-fluid">
                         </a>
+                        @if($product['other_images'])
                         @foreach($product['other_images'] as $key => $otherImage)
                         <a href="#product_images" class="d-inline-block thumb-box mb-2" data-bs-slide-to="{{ $key + 1 }}">
                             <img src="{{ env('APP_URL').$otherImage }}" title="tshirt black front"
                                 class="img-fluid">
                         </a>
                         @endforeach
+                        @endif
                     </div>
                 </div>
 

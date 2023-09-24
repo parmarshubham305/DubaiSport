@@ -148,7 +148,7 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function delete(Request $request, $id)
+    public function delete(Request $request)
     {
         $id = $request->get('id');
         
@@ -156,7 +156,7 @@ class BannerController extends Controller
             $id = array($id);
         }
         
-        BannerRequest::whereIn('id',$id)->delete();
+        Banner::whereIn('id',$id)->delete();
 
         return redirect()->back()->with('message', 'Record Deleted Successfully.')
             ->with('type', 'success');

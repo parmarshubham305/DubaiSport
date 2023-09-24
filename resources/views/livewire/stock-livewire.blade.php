@@ -41,10 +41,11 @@
     <div class="box box-info">
         <div class="box-header">
             <h4>Product Stock History</h4>
-            <!-- <p style="text-align: right">
-                <a href="javascript:void(0);" id="refresh" onclick="reload()" class="btn btn-info icon-btn p-5">Refresh</a>
-                <a href="javascript:void(0);" id="delete" onclick="" class="btn btn-danger icon-btn p-5 hidden">Delete</a>
-            </p> -->
+            <div class="box-header">
+                <h4>Product Stock History</h4>
+                <h4>Available Stock : <b>{{ $totalQty }}</b></h4>
+                <a href="javascript:void(0);" wire:click="clearStockHistory" class="btn btn-danger icon-btn p-5">Clear Stock History</a>
+            </div>
         </div>
         <div class="box-body">
             <table id="dataTable" class="table table-bordered table-striped">

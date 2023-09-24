@@ -5,12 +5,7 @@
         <div class="page-header">
             <h2 class="mb-0 text-center">Products <span class="text-primary">List</span></h2>
         </div>
-        <div class="row">
-            <livewire:front.filter-component :categoryGroupId="$categoryGroupId" :categoryId="$categoryId"/>
-            <div class="col-md-9 product-list">
-                <livewire:front.product-render :categoryId="$categoryId"/>
-            </div>
-        </div>
+        <livewire:front.product-filter :categoryId="$categoryId" :categoryGroupId="$categoryGroupId" />
     </div>
 </div>
 @stop

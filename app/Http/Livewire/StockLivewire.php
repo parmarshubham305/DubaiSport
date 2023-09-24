@@ -8,7 +8,7 @@ use App\Models\Stock;
 
 class StockLivewire extends Component
 {
-    public $products, $productId, $type, $qty = 0, $histories = [];
+    public $products, $productId, $type, $qty = 0, $histories = [], $totalQty = 0;
 
     public function mount()
     {
@@ -16,7 +16,10 @@ class StockLivewire extends Component
     }
 
     public function getReport() {
-        $this->histories = Stock::where('product_id', $this->productId)->with('product')->get()->toArray();
+        $this->histories = Stock::where('product_id', $this->productId)->orderBy('id', 'desc')->with('product')->get()->toArray();
+        $creditStock = Stock::where(['product_id' => $this->productId, 'type' => 'Credit'])->sum('qty');
+        $debitStock = Stock::where(['product_id' => $this->productId, 'type' => 'Debit'])->sum('qty');
+        $this->totalQty = $creditStock - $debitStock;
     }
 
     public function submit() {
@@ -31,8 +34,19 @@ class StockLivewire extends Component
             'message' => 'Stock has been updated successfully.', 
         ]);
 
+        $this->getReport();
+
         $this->type = '';
         $this->qty = 0;
+    }
+
+    public function clearStockHistory() {
+        Stock::where('product_id', $this->productId)->delete();
+        $this->histories = [];
+        $this->dispatchBrowserEvent('swal:modal', [
+            'type' => 'success',  
+            'message' => 'Stock has been cleared.', 
+        ]);
     }
 
     public function render()
