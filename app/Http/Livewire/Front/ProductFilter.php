@@ -12,13 +12,25 @@ use Illuminate\Support\Str;
 class ProductFilter extends Component
 {
     public $categoryId, $categories = [], $selectedCategories = [], $masterOptions = [], $selectedOptions = [],
-    $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice = 10, $maxPrice = 10000;
+    $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice = 2500, $maxPrice = 7500;
 
     public function mount() {
         $this->categories = Category::get()->toArray();
         $this->selectedCategories[] = 'category-'.$this->categoryId;
 
-        $this->masterOptions = MasterOption::with('attributeValues')->get()->toArray();
+        $categoriesMappedOption = [];
+
+        foreach ($this->categories as $key => $value) {
+            $categoriesMappedOption[] = $value['option_ids'];
+        }
+        $arraySingle = array_unique(call_user_func_array('array_merge', $categoriesMappedOption));
+
+        array_filter($arraySingle, function($item){
+            $this->selectedOptions[$item] = [];
+        });
+        
+        $this->masterOptions = MasterOption::whereIn('id', $arraySingle)->with('attributeValues')->get()->toArray();
+
         $this->renderProducts();
     }
 
@@ -53,23 +65,27 @@ class ProductFilter extends Component
     {
         if(!empty($params))
         { 
-            foreach ($this->selectedOptions as $key => $attributes) {
-                if(($key = array_search($params, $attributes)) !== false) {
-                    unset($attributes[$key]);
-                    $this->selectedOptions[$key] = $attributes;
-                }
+            if(($key = array_search('attribute-'.$params, $this->optionAttributeIds)) !== false) {
+                unset($this->optionAttributeIds[$key]);
             }
-        } else {
-            foreach ($this->selectedOptions as $key => $attributes) {
-                $this->selectedOptions[$key] = [];
-            }
+            // foreach ($this->selectedOptions as $key => $attributes) {
+            //     if(($key = array_search($params, $attributes)) !== false) {
+            //         unset($attributes[$key]);
+            //         $this->selectedOptions[$key] = $attributes;
+            //     }
+            // }
         }
+        $this->renderProducts();
     }
 
     public function clearFilters()
     {
         $this->optionAttributeIds = [];
         $this->optionAttributes = [];
+        $this->renderProducts();
+    }
+
+    public function priceChange() {
         $this->renderProducts();
     }
 

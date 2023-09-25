@@ -1,3 +1,4 @@
+<div>
 <nav class="navbar navbar-expand-xl py-0 bg-white position-relative">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -49,4 +50,5 @@
             @endforeach
         </ul>
     </div>
+</div>
 </div>
