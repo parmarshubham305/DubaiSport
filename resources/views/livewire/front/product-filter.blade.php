@@ -73,22 +73,26 @@
                                 <div class="accordion-body p-0 my-2 px-2">
                                     <div class="price-input">
                                         <div class="field">
-                                        <span>Min</span>
-                                        <input type="number" class="input-min" wire:model="minPrice">
+                                        <!-- <span>Min</span> -->
+                                        <input type="number" class="input-min" wire:model="minPrice" placeholder="Min">
                                         </div>
                                         <div class="separator">-</div>
                                         <div class="field">
-                                        <span>Max</span>
-                                        <input type="number" class="input-max" wire:model="maxPrice">
+                                        <!-- <span>Max</span> -->
+                                        <input type="number" class="input-max" wire:model="maxPrice" placeholder="Max">
+                                        </div>
+                                        <div class="pt-2 mx-2" style="cursor: pointer;">
+                                        <a wire:click="renderProducts" class="text-primary"><h4>GO<h4/></a>
                                         </div>
                                     </div>
-                                    <div class="slider">
+                                    
+                                    <!-- <div class="slider">
                                         <div class="progress"></div>
                                     </div>
                                     <div class="range-input">
                                         <input type="range" class="range-min" min="0" max="10000" wire:model="minPrice" step="100">
                                         <input type="range" class="range-max" min="0" max="10000" wire:model="maxPrice" step="100">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -97,7 +101,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-9 product-list">
+    <div class="col-md-9 product-list" >
         <div class="top-product-list d-flex align-items-center justify-content-between pb-3">
             <div class="d-flex search-bar" role="search">
                 <input class="form-control border-end-0" wire:model="keyword" type="search" placeholder="Search" aria-label="Search">
@@ -126,6 +130,7 @@
             @endif
         </ul>
         <div class="row listing-product">
+            @if($products)
             @foreach($products as $product)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card position-relative">
@@ -140,6 +145,11 @@
                     </div>
                 </div>
             @endforeach
+            @else
+            <div class="col-md-6 col-lg-4 mb-4">
+                <h4>No records found.</h4>
+            </div>
+            @endif
         </div>
     </div>
 </div>

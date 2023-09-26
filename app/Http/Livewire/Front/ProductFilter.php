@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 class ProductFilter extends Component
 {
     public $categoryId, $categories = [], $selectedCategories = [], $masterOptions = [], $selectedOptions = [],
-    $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice = 2500, $maxPrice = 7500;
+    $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice = '', $maxPrice = '';
 
     public function mount() {
         $this->categories = Category::get()->toArray();
@@ -34,7 +34,7 @@ class ProductFilter extends Component
         $this->renderProducts();
     }
 
-    public function updated()
+    public function updated($value)
     {
         $this->renderProducts();
     }
@@ -97,13 +97,17 @@ class ProductFilter extends Component
 
         $this->optionAttributes = MasterOptionAttribute::whereIn('id', $selectedFilters)->get()->toArray();
         
+        $products = new Product();
+        if($this->minPrice > 0 && $this->maxPrice > 0 && $this->maxPrice > $this->minPrice) {
+            $products->whereBetween('discounted_price', [floatval($this->minPrice), floatval($this->maxPrice)]);
+        }
         if(!empty($this->optionAttributeIds)) {
-            $this->products = Product::whereBetween('discounted_price', [floatval($this->minPrice), floatval($this->maxPrice)])->whereIn('category_id', $selectedCategories)->with(['category', 'productSpecification'])->whereHas('productSpecification', function($query) use ($selectedFilters)
+            $this->products = $products->whereIn('category_id', $selectedCategories)->with(['category', 'productSpecification'])->whereHas('productSpecification', function($query) use ($selectedFilters)
             {
                 $query->whereIn('option_attribute_id', $selectedFilters);
             })->get()->toArray();
         } else {
-            $this->products = Product::whereBetween('discounted_price', [floatval($this->minPrice), floatval($this->maxPrice)])->whereIn('category_id', $selectedCategories)->with(['category', 'productSpecification'])->get()->toArray();
+            $this->products = $products->whereIn('category_id', $selectedCategories)->with(['category', 'productSpecification'])->get()->toArray();
         }
     }
 
