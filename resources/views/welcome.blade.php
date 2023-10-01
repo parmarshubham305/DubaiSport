@@ -257,7 +257,7 @@
                     <div class="commercial-box">
                         <img src="{{ env('APP_URL').'front/images/service.jpg' }}" class="img-fluid w-100" alt="service">
                         <div class="commercial-content">
-                            <h4 class="text-white d-block"><span class="text-primary d-block">EQUIPMENT</span> SERVICE
+                            <h4 class="text-white d-block"><span class="text-primary d-block">AMC & </span> EQUIPMENT SERVICE
                             </h4>
                             <a href="#" class="btn btn-primary fw-semibold">BOOK AN APPOINMENTS</a>
                         </div>
@@ -267,8 +267,7 @@
                     <div class="commercial-box">
                         <img src="{{ env('APP_URL').'front/images/black_body.jpg' }}" class="img-fluid w-100" alt="black_body">
                         <div class="commercial-content">
-                            <h4 class="text-white d-block"><span class="text-primary d-block">COMMERCIAL</span> FITNESS
-                                SOLUTIONS</h4>
+                            <h4 class="text-white d-block"><span class="text-primary d-block">SAUNA & STEAM</span> SOLUTIONS</h4>
                             <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
                         </div>
                     </div>
@@ -277,8 +276,7 @@
                     <div class="commercial-box">
                         <img src="{{ env('APP_URL').'front/images/body_image.jpg' }}" class="img-fluid w-100" alt="body_image">
                         <div class="commercial-content">
-                            <h4 class="text-white d-block"><span class="text-primary d-block">COMMERCIAL</span> FITNESS
-                                SOLUTIONS</h4>
+                            <h4 class="text-white d-block"><span class="text-primary d-block">OUTDOOR FITNESS AND</span> KIDS PLAY SOLUTIONS</h4>
                             <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
                         </div>
                     </div>

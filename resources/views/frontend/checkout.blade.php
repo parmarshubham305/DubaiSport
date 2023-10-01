@@ -225,7 +225,7 @@
                             </div>
                             <div class="col-md-9">
                                 <p class="fw-semibold mb-1 product-heading"><a href="#" tabindex="0">{{ $cart[array_key_first($cart)]['product']['title'] }}</a></p>
-                                <p class="text-primary fw-bold product-price d-flex align-items-center">AED {{ number_format($cart[array_key_first($cart)]['product']['discounted_price'], 2) }}</p>
+                                <p class="text-primary fw-bold product-price d-flex align-items-center">AED {{ number_format($cart[array_key_first($cart)]['productDiscountPrice'], 2) }}</p>
                             </div>
                         </div>
                         <ul class="list-unstyled mb-0">

@@ -155,6 +155,11 @@
             <i class="fa fa-gear"></i> <span>Stock</span>
           </a>
         </li>
+        <li class="@if(Request::segment(2) == 'quotes') active @endif">
+          <a href="{{ route('admin.quotes.index') }}">
+            <i class="fa fa-gear"></i> <span>Quote</span>
+          </a>
+        </li>
       </ul>
     </section>
   </aside>

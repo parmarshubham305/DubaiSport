@@ -91,10 +91,20 @@
                     class="custom-icon custom-account me-2"><span class="path1"></span><span
                         class="path2"></span></span><span class="link-content d-xl-inline-block d-none">Hello, {{ Auth::user()->first_name }}</span></a>
             @endguest
-            <ul class="dropdown-menu ms-3 mt-1 bg-light-gray">
+            <ul class="dropdown-menu ms-3 mt-1 shadow">
+                <li class="p-0 border-bottom">
+                    <a href="#" class="d-block py-2 px-1">
+                        <i class="fa-solid fa-user mx-2"></i><span class="link-content d-xl-inline-block d-none">My Profile</span>
+                    </a>
+                </li>
+                <li class="p-0 border-bottom">
+                    <a href="{{ route('front.orders.index') }}" class="d-block py-2 px-1">
+                    <i class="fa-solid fa-truck mx-2"></i><span class="link-content d-xl-inline-block d-none">My Order</span>
+                    </a>
+                </li>
                 <li class="p-0">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();" class="d-block p-1">
+                                            document.getElementById('logout-form').submit();" class="d-block py-2 px-1">
                     <i class="fa-solid fa-right-from-bracket mx-2"></i>  <span class="link-content d-xl-inline-block d-none">logout</span
                 ></a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

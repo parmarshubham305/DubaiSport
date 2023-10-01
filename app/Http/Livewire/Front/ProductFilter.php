@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 class ProductFilter extends Component
 {
     public $categoryId, $categories = [], $selectedCategories = [], $masterOptions = [], $selectedOptions = [],
-    $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice = '', $maxPrice = '';
+    $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice, $maxPrice;
 
     public function mount() {
         $this->categories = Category::get()->toArray();
@@ -34,9 +34,11 @@ class ProductFilter extends Component
         $this->renderProducts();
     }
 
-    public function updated($value)
+    public function updated($field)
     {
-        $this->renderProducts();
+        if($field != 'minPrice' && $field != "maxPrice") {
+            $this->renderProducts();
+        }
     }
 
     public function removeSelection($id)
@@ -85,10 +87,6 @@ class ProductFilter extends Component
         $this->renderProducts();
     }
 
-    public function priceChange() {
-        $this->renderProducts();
-    }
-
     public function renderProducts()
     {
         $selectedCategories = array_filter((str_replace("category-","",$this->selectedCategories)));
@@ -96,19 +94,23 @@ class ProductFilter extends Component
         $selectedFilters = array_filter((str_replace("attribute-","",$this->optionAttributeIds)));
 
         $this->optionAttributes = MasterOptionAttribute::whereIn('id', $selectedFilters)->get()->toArray();
+
+        $minPrice = $this->minPrice;
+        $maxPrice = $this->maxPrice;
         
-        $products = new Product();
-        if($this->minPrice > 0 && $this->maxPrice > 0 && $this->maxPrice > $this->minPrice) {
-            $products->whereBetween('discounted_price', [floatval($this->minPrice), floatval($this->maxPrice)]);
-        }
-        if(!empty($this->optionAttributeIds)) {
-            $this->products = $products->whereIn('category_id', $selectedCategories)->with(['category', 'productSpecification'])->whereHas('productSpecification', function($query) use ($selectedFilters)
+        $this->products = Product::when($selectedCategories, function($query) use ($selectedCategories, $selectedFilters){
+            return $query->where('category_id', $selectedCategories);
+        })
+        ->when($selectedFilters, function($query) use ($selectedFilters){
+            return $query->with(['category', 'productSpecification'])->whereHas('productSpecification', function($query) use ($selectedFilters)
             {
                 $query->whereIn('option_attribute_id', $selectedFilters);
-            })->get()->toArray();
-        } else {
-            $this->products = $products->whereIn('category_id', $selectedCategories)->with(['category', 'productSpecification'])->get()->toArray();
-        }
+            });
+        })
+        ->when($minPrice, function($query) use ($minPrice, $maxPrice){
+            return $query->whereBetween('discounted_price', [floatval($minPrice), floatval($maxPrice)]);
+        })
+        ->get()->toArray();
     }
 
     public function render()

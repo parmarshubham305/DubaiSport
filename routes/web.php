@@ -28,6 +28,9 @@ Route::group(['as' => 'front.', 'namespace' => 'Front'], function () {
     Route::resource('/checkout', 'CheckoutController');
     Route::resource('/orders', 'OrderController');
     
+    Route::get('/quote', 'CMSPageController@getQuoteForm')->name('quote.get');
+    Route::post('/quote', 'CMSPageController@storeQuoteForm')->name('quote.store');
+
     //--- Content pages
     Route::get('{slug}', 'CMSPageController@cmsPage');
 });

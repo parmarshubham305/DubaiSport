@@ -47,12 +47,12 @@ class Helper
 
     public static function categoryGroups()
     {
-        return CategoryGroup::with('categories')->orderBy('sort', 'ASC')->get()->toArray();
+        return CategoryGroup::where('status', '1')->with('categories')->orderBy('sort', 'ASC')->get()->toArray();
     }
 
     public static function categories()
     {
-        return Category::with('categoryGroup')->orderBy('sort', 'ASC')->inRandomOrder()->limit(10)->get()->toArray();
+        return Category::where('status', '1')->with('categoryGroup')->orderBy('sort', 'ASC')->inRandomOrder()->limit(10)->get()->toArray();
     }
 
     public static function cmsPages()

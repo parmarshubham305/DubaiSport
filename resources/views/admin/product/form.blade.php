@@ -92,10 +92,11 @@
 		<label for="" class="col-sm-2 control-label">Status</label>
 		<div class="col-sm-8" style="padding-top: 10px;">
 		{{ Form::checkbox('status', old('status')) }}
-		<span class='text-danger'>{{ $errors->first('sort') }}</span>
+		<span class='text-danger'>{{ $errors->first('status') }}</span>
 		</div>
 	</div>
 </div>
+<livewire:product-option-price-form :optionPriceList="isset($data) && $data['price_list'] != '' && $data['price_list'] != null ? json_decode($data['price_list'], true) : []" :enableOptionPrice="isset($data) && $data['additional_price_enable'] == '1' ? true : false"/>
 <div class="box-body">
 	<div class="form-group">
 		<label for="" class="col-sm-2 control-label">Best Seller</label>

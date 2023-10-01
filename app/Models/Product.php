@@ -26,28 +26,33 @@ class Product extends Model
         'sort',
         'image_prefix_folder',
         'best_seller',
-        'popular_product'
+        'popular_product',
+        'additional_price_enable',
+        'price_list'
     ];
 
-    public function getMainImageAttribute($value)
-    {
+    public function getMainImageAttribute($value) {
         return env('APP_URL').$value;
     }
 
-    public function category()
-    {
+    public function category() {
         return $this->belongsTo('App\Models\Category');
     }
 
-    public function setTitleAttribute($value)
-    {
+    public function setTitleAttribute($value) {
         $this->attributes['title'] = Str::title($value);
         $this->attributes['slug'] = Str::slug($value, '-');
     }
 
-    public function productSpecification()
-    {
+    public function productSpecification() {
         return $this->hasMany('App\Models\ProductSpecification')->with(['option', 'optionAttribute']);
+    }
+
+    public function setAdditionalPriceEnableAttribute($value) {
+        $this->attributes['additional_price_enable'] = $value ? '1' : '0';
+        if(!$value) {
+            $this->attributes['price_list'] = '';
+        }
     }
 
     public function setStatusAttribute($value) {

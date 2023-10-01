@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\CMS;
-use App\Jobs\Frontend\CMSJob;
-use App\Http\Requests\Frontend\CMSRequest;
+use App\Models\Quote;
 
-class CMSController extends Controller
+class QuoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,18 +22,18 @@ class CMSController extends Controller
 
             if ($request->has('sSearch')) {
                 $search = $request->get('sSearch');
-                $where_str .= " and ( title like \"%{$search}%\""
+                $where_str .= " and ( name like \"%{$search}%\""
                     . ")";
             }
             
-            $data = CMS::select('id', 'title', 'sort')
+            $data = Quote::select('id', 'name', 'email', 'phone', 'company', 'location', 'description')
                 ->whereRaw($where_str, $where_params);
                 
-            $data_count = CMS::select('id')
+            $data_count = Quote::select('id')
                 ->whereRaw($where_str, $where_params)
                 ->count();
 
-            $columns = ['id', 'title', 'sort'];
+            $columns = ['id', 'name', 'email', 'phone', 'company', 'location', 'description'];
 
             if ($request->has('iDisplayStart') && $request->get('iDisplayLength') != '-1') {
                 $data = $data->take($request->get('iDisplayLength'))->skip($request->get('iDisplayStart'));
@@ -62,7 +60,7 @@ class CMSController extends Controller
             return $response;
         }
 
-        return view('admin.cms.index');
+        return view('admin.quote.index');
     }
 
     /**
@@ -72,7 +70,7 @@ class CMSController extends Controller
      */
     public function create()
     {
-        return view('admin.cms.create');
+        //
     }
 
     /**
@@ -81,14 +79,9 @@ class CMSController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CMSRequest $request)
+    public function store(Request $request)
     {
-        $params = $request->all();
-        
-        dispatch(new CMSJob($params));
- 
-        return redirect()->back()->with('message', 'Record Saved Successfully.')
-            ->with('type', 'success');
+        //
     }
 
     /**
@@ -110,9 +103,7 @@ class CMSController extends Controller
      */
     public function edit($id)
     {
-        $data = CMS::find($id);
-
-        return view('admin.cms.edit', compact('data'));
+        //
     }
 
     /**
@@ -122,14 +113,9 @@ class CMSController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CMSRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $params = $request->all();
-        
-        dispatch(new CMSJob($params));
- 
-        return redirect()->back()->with('message', 'Record Saved Successfully.')
-            ->with('type', 'success');
+        //
     }
 
     /**
@@ -140,7 +126,7 @@ class CMSController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 
     /**
@@ -156,7 +142,7 @@ class CMSController extends Controller
             $id = array($id);
         }
         
-        CMS::whereIn('id',$id)->delete();
+        Quote::whereIn('id',$id)->delete();
 
         return redirect()->back()->with('message', 'Record Deleted Successfully.')
             ->with('type', 'success');

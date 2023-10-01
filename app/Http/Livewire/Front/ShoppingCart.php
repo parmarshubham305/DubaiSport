@@ -35,7 +35,7 @@ class ShoppingCart extends Component
 
     public function incrementQty($productId)
     {
-        if($this->productStock > $this->carts[$productId]['quantity']) {
+        if($this->carts[$productId]['stocks'] > $this->carts[$productId]['quantity']) {
             $this->carts[$productId]['quantity'] += 1; 
         }
         $this->productPrice($productId);
@@ -51,11 +51,16 @@ class ShoppingCart extends Component
 
     public function productPrice($productId)
     {
-        $this->carts[$productId]['price'] = $this->carts[$productId]['quantity'] * $this->carts[$productId]['product']['discounted_price'];
-        // $this->carts[$productId]['product']['discounted_price'] = $this->carts[$productId]['quantity'] * $this->carts[$productId]['product']['discounted_price'];
-        // if($this->carts[$productId]['product']['discount_percentage'] > 0) {
-        //     $this->carts[$productId]['product']['discount_percentage'] = $this->carts[$productId]['quantity'] * $this->carts[$productId]['product']['discount_percentage'];
-        // }
+        if($this->carts[$productId]['product']['additional_price_enable'] == '1') {
+            $additionalPriceList = json_decode($this->carts[$productId]['product']['price_list'], true);
+            $selectedPriceOptionId = $this->carts[$productId]['selectedPriceOptionId'];
+            $this->carts[$productId]['price'] = $this->carts[$productId]['quantity'] * $additionalPriceList[$selectedPriceOptionId]['price'];
+            $this->carts[$productId]['productDiscountPrice'] = $this->carts[$productId]['quantity'] * $additionalPriceList[$selectedPriceOptionId]['discounted_price'];
+        } else {
+            $this->carts[$productId]['price'] = $this->carts[$productId]['quantity'] * $this->carts[$productId]['product']['price'];
+            $this->carts[$productId]['productDiscountPrice'] = $this->carts[$productId]['quantity'] * $this->carts[$productId]['product']['discounted_price'];
+        }
+
         $this->priceSummary();
     }
 
@@ -64,7 +69,7 @@ class ShoppingCart extends Component
         $amountSummary = 0;
         if($this->carts) {
             foreach ($this->carts as $key => $cart) {
-                $amountSummary += $cart['price'];
+                $amountSummary += $cart['productDiscountPrice'];
             }
             $this->subTotal = $amountSummary;
             $this->totalAmount = $amountSummary;

@@ -11,7 +11,7 @@ class CategoryGroupMenu extends Component
     
     public function mount()
     {
-        $this->categoryGroups = CategoryGroup::with('categories')->orderBy('sort', 'ASC')->get()->toArray();
+        $this->categoryGroups = CategoryGroup::where('status', '1')->with('categories')->orderBy('sort', 'ASC')->get()->toArray();
     }
 
     public function render()

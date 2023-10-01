@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-md-2 mb-md-0 text-md-end">
                         <div class="price d-flex align-items-center justify-content-md-end justify-content-center mb-3">
-                            <h4 class="mb-0 fw-semibold text-primary">AED {{ number_format($cart['price'],2) }}</h4>
+                            <h4 class="mb-0 fw-semibold text-primary">AED {{ number_format($cart['productDiscountPrice'],2) }}</h4>
                         </div>
                     </div>
                 </div>

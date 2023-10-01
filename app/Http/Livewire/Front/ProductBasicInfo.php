@@ -8,14 +8,16 @@ use App\Models\Stock;
 
 class ProductBasicInfo extends Component
 {
-    public $product, $productQty = 1, $productPrice, $productStock = 0;
+    public $product, $productQty = 1, $productPrice, $productDiscountPrice, $productStock = 0, $additionalPriceEnabled = '0',
+    $additionalPriceList = [], $selectedPriceOptionId = 0;
 
     public function mount()
     {
         $creditStock = Stock::where(['product_id' => $this->product['id'], 'type' => 'Credit'])->sum('qty');
         $debitStock = Stock::where(['product_id' => $this->product['id'], 'type' => 'Debit'])->sum('qty');
         $this->productStock = $creditStock - $debitStock;
-        
+        $this->additionalPriceEnabled = $this->product['additional_price_enable'];
+        $this->additionalPriceList = json_decode($this->product['price_list'], true);
         $this->productPrice();
     }
 
@@ -46,11 +48,22 @@ class ProductBasicInfo extends Component
 
     public function productPrice()
     {
-        $this->productPrice = $this->productQty * $this->product['discounted_price'];
+        if($this->additionalPriceEnabled == '1') {
+            $this->productPrice = $this->productQty * $this->additionalPriceList[$this->selectedPriceOptionId]['price'];
+            $this->productDiscountPrice = $this->productQty * $this->additionalPriceList[$this->selectedPriceOptionId]['discounted_price'];
+        } else {
+            $this->productPrice = $this->productQty * $this->product['price'];
+            $this->productDiscountPrice = $this->productQty * $this->product['discounted_price'];
+        }
         // $this->product['discounted_price'] = $this->productQty * $this->product['discounted_price'];
         // if($this->product['discount_percentage'] > 0) {
         //     $this->product['discount_percentage'] = $this->productQty * $this->product['discount_percentage'];
         // }
+    }
+
+    public function selectOption($key) {
+        $this->selectedPriceOptionId = $key;
+        $this->productPrice();
     }
 
     public function addToCart()
@@ -61,6 +74,8 @@ class ProductBasicInfo extends Component
             $cart[$this->product['id']] = [
                 'product' => $this->product,
                 'price' => $this->productPrice,
+                'productDiscountPrice' => $this->productDiscountPrice,
+                'selectedPriceOptionId' => $this->selectedPriceOptionId,
                 'quantity' => $this->productQty,
             ];
 
@@ -74,6 +89,8 @@ class ProductBasicInfo extends Component
             $jsonDecodedProducts[$this->product['id']] = [
                 'product' => $this->product,
                 'price' => $this->productPrice,
+                'productDiscountPrice' => $this->productDiscountPrice,
+                'selectedPriceOptionId' => $this->selectedPriceOptionId,
                 'quantity' => $this->productQty,
             ];
 

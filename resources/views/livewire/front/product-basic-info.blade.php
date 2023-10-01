@@ -59,12 +59,26 @@
                 </a>
             </h5>
             <div class="price d-flex align-items-center mb-3 flex-wrap">
-                <h3 class="fs-1 mb-0 fw-bold">AED {{ number_format($productPrice,2) }} </h3>
+                <h3 class="fs-1 mb-0 fw-bold">AED {{ number_format($productDiscountPrice,2) }} </h3>
                 @if($product['discount_percentage'] > 0)
-                    <del class="text-primary fs-5 ms-3">AED {{ number_format($product['price'],2) }}</del>
+                    <del class="text-primary fs-5 ms-3">AED {{ number_format($productPrice,2) }}</del>
                     <span class="ms-md-4 ms-0 fw-semibold fs-5 text-success">({{ $product['discount_percentage'] }}% OFF)</span>
                 @endif
             </div>
+            
+            @if($additionalPriceEnabled)
+            <div class="b-md-4 mb-3">
+                <h5 class="mb-3">Wight
+                    <a href="javascript:void()" class="text-primary" data-bs-toggle="popover"
+                    data-bs-trigger="focus" data-bs-content="Weight">
+                    <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
+                </a>
+                </h5>
+                @foreach($additionalPriceList as $addPricekey => $additionalPrice)
+                    <a wire:click="selectOption({{ $addPricekey }})" class="btn btn-outline-dark @if($selectedPriceOptionId == $addPricekey) active @endif px-3 py-2">{{ $additionalPrice['title'] }}</a>
+                @endforeach
+            </div>
+            @endif
         </div> 
         <p class="mb-2"><strong>Note:</strong> Next Day Delivery is only available for Dubai and Abu
             Dhabi</p>

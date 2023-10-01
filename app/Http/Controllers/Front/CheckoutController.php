@@ -39,8 +39,8 @@ class CheckoutController extends Controller
             $cart = json_decode($userCart['products'], true);
         }
         if($cart) {
-            $subTotal = array_sum(array_column($cart, 'price'));
-            $totalAmount = array_sum(array_column($cart, 'price'));
+            $subTotal = array_sum(array_column($cart, 'productDiscountPrice'));
+            $totalAmount = array_sum(array_column($cart, 'productDiscountPrice'));
             if($discountDetails) {
                 $totalAmount -= $discountDetails['discount'];
                 $vat = ($totalAmount * 5) / 100; 

@@ -35,24 +35,6 @@ class ProductJob
         $oldMainImage = $data['main_image'];
         $oldOtherImages = $data['other_images'];
 
-        if(!isset($this->data['status'])) {
-            $this->data['status'] = '0';
-        } else {
-            $this->data['status'] = '1';
-        }
-
-        if(!isset($this->data['popular_product'])) {
-            $this->data['popular_product'] = '0';
-        } else {
-            $this->data['popular_product'] = '1';
-        }
-
-        if(!isset($this->data['best_seller'])) {
-            $this->data['best_seller'] = '0';
-        } else {
-            $this->data['best_seller'] = '1';
-        }
-        
         $data->fill($this->data);
         
         $folderName = time();
@@ -64,6 +46,18 @@ class ProductJob
         
         $data->discounted_price = ($this->data['price'] - ( $this->data['price'] * $this->data['discount_percentage'] ) / 100);
         
+        //--- Additional Price
+        if(isset($this->data['additional_price_enable'])) {
+            $tempPriceArray = [];
+            foreach(json_decode($this->data['price_list'], true) as $key => $value) {
+                $tempPriceArray[$key] = [
+                    'title' => $value['title'],
+                    'price' => $value['price'],
+                    'discounted_price' => ($value['price'] - ( $value['price'] * $this->data['discount_percentage'] ) / 100)
+                ];
+            }
+            $data->price_list = json_encode($tempPriceArray);
+        }
         if(isset($this->data['main_image'])) {
             if($this->data['main_image'] && !empty($this->data['_method']) && $this->data['_method'] == 'PATCH') {
                 if(file_exists(public_path(str_replace(env('APP_URL'),'',$oldMainImage)))) {
@@ -103,15 +97,16 @@ class ProductJob
         foreach ($optionKeys as $key => $value) {
             if(strpos($value, 'option_') === 0) {
                 $attributeOption = $this->data[$value];
-
-                ProductSpecification::updateOrCreate([
-                    'product_id' => $data['id'],
-                    'option_id' => explode('_',$attributeOption)[0],
-                ],[
-                    'product_id' => $data['id'],
-                    'option_id' => explode('_',$attributeOption)[0],
-                    'option_attribute_id' => explode('_',$attributeOption)[1]
-                ]);
+                if(sizeof(explode('_',$attributeOption)) >= 2) {
+                    ProductSpecification::updateOrCreate([
+                        'product_id' => $data['id'],
+                        'option_id' => explode('_',$attributeOption)[0],
+                    ],[
+                        'product_id' => $data['id'],
+                        'option_id' => explode('_',$attributeOption)[0],
+                        'option_attribute_id' => explode('_',$attributeOption)[1]
+                    ]);
+                }
             }
         }
         

@@ -64,6 +64,9 @@ Route::group(['as' => 'admin.'], function () {
 		Route::post('states/delete', 'StateController@delete')->name('states.delete');
 		Route::resource('/states', 'StateController');
 
+		Route::post('quotes/delete', 'QuoteController@delete')->name('quotes.delete');
+		Route::resource('/quotes', 'QuoteController');
+
 		Route::post('cms-pages/delete', 'CMSController@delete')->name('cms-pages.delete');
 		Route::resource('/cms-pages', 'CMSController');
 	});

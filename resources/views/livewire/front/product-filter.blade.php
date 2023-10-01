@@ -69,7 +69,7 @@
                                     type="button">Price</button>
                             </h2>
                             <div aria-labelledby="headingsix" class="accordion-collapse collapse show"
-                                data-bs-parent="#productlistgroup" id="Price">
+                                data-bs-parent="#productlistgroup">
                                 <div class="accordion-body p-0 my-2 px-2">
                                     <div class="price-input">
                                         <div class="field">
@@ -82,7 +82,7 @@
                                         <input type="number" class="input-max" wire:model="maxPrice" placeholder="Max">
                                         </div>
                                         <div class="pt-2 mx-2" style="cursor: pointer;">
-                                        <a wire:click="renderProducts" class="text-primary"><h4>GO<h4/></a>
+                                            <a wire:click="renderProducts" class="text-primary"><h4>GO<h4/></a>
                                         </div>
                                     </div>
                                     

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CMS;
+use App\Http\Requests\Frontend\QuoteRequest;
+use App\Jobs\Frontend\QuoteJob;
 
 class CMSPageController extends Controller
 {
@@ -32,5 +34,19 @@ class CMSPageController extends Controller
 
     public function deliveryPolicy() {
         return view('frontend.delivery_policy');
+    }
+
+    public function getQuoteForm() {
+        return view('frontend.quote');
+    }
+
+    public function storeQuoteForm(QuoteRequest $request) {
+
+        $params = $request->all();
+        
+        dispatch(new QuoteJob($params));
+ 
+        return redirect()->back()->with('message', 'Record Saved Successfully.')
+            ->with('type', 'success');
     }
 }
