@@ -73,11 +73,11 @@ class Helper
         return $html;
     }
 
-    public function getCountry($id) {
+    public static function getCountry($id) {
         return Country::find($id);
     }
 
-    public function getState($id) {
+    public static function getState($id) {
         return State::find($id);
     }
 }
