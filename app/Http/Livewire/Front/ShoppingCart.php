@@ -26,10 +26,12 @@ class ShoppingCart extends Component
     }
 
     public function getStock() {
-        foreach ($this->carts as $key => $value) {
-            $creditStock = Stock::where(['product_id' => $value['product']['id'], 'type' => 'Credit'])->sum('qty');
-            $debitStock = Stock::where(['product_id' => $value['product']['id'], 'type' => 'Debit'])->sum('qty');
-            $this->carts[$key]['stocks'] = $creditStock - $debitStock;
+        if($this->carts) {
+            foreach ($this->carts as $key => $value) {
+                $creditStock = Stock::where(['product_id' => $value['product']['id'], 'type' => 'Credit'])->sum('qty');
+                $debitStock = Stock::where(['product_id' => $value['product']['id'], 'type' => 'Debit'])->sum('qty');
+                $this->carts[$key]['stocks'] = $creditStock - $debitStock;
+            }
         }
     }
 

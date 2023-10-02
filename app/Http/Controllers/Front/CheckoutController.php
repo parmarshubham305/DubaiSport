@@ -85,9 +85,10 @@ class CheckoutController extends Controller
             ]);
 
         $data = $request->all();
+    
         $discountDetails = \Session::get('cart_discount');
         $discountDetails = json_decode($discountDetails, true);
-        $discountDetails['delivery_charge'] = $data['delivery_charge_submit'];
+        $discountDetails['delivery_charge'] = $data['delivery_charge'];
 
         if($data['delivery_type'] == 'Delivery') {
             $validated = $request->validate([
@@ -128,14 +129,15 @@ class CheckoutController extends Controller
         $cartTotalAmount = $data['total_amount_submit'];
 
         if($user && $data['delivery_type'] == 'Delivery') {
-            Address::create([
-                'user_id' => $user['id'],
-                'address_line_1' => $data['address_line_1'],
-                'address_line_2' => $data['address_line_2'],
-                'country_id' => $data['country_id'],
-                'state_id' => $data['state_id'],
-                'city' => $data['city'],
-            ]);
+            // Address::create([
+            //     'user_id' => $user['id'],
+            //     'address_line_1' => $data['address_line_1'],
+            //     'address_line_2' => $data['address_line_2'],
+            //     'country_id' => $data['country_id'],
+            //     'state_id' => $data['state_id'],
+            //     'city' => $data['city'],
+            // ]);
+
         }
 
         if($data['payment_type'] == 'Credit Card') {
@@ -191,7 +193,16 @@ class CheckoutController extends Controller
                     'products' => json_encode($cart),
                     'delivery_type' => $data['delivery_type'],
                     'shipping_note' => $data['shipping_information'],
-                    'discount' => json_encode($discountDetails)
+                    'discount' => json_encode($discountDetails),
+                    'address' => json_encode([
+                        'address_line_1' => $data['address_line_1'],
+                        'address_line_2' => $data['address_line_2'],
+                        'country_id' => $data['country_id'],
+                        'state_id' => $data['state_id'],
+                        'city' => $data['city'],
+                    ]),
+                    'delivery_charge' => $data['delivery_charge'],
+                    'vat' => $data['vat'],
                 ]);
 
                 Payment::create([
@@ -222,7 +233,16 @@ class CheckoutController extends Controller
                 'products' => json_encode($cart),
                 'delivery_type' => $data['delivery_type'],
                 'shipping_note' => $data['shipping_information'],
-                'discount' => json_encode($discountDetails)
+                'discount' => json_encode($discountDetails),
+                'address' => json_encode([
+                    'address_line_1' => $data['address_line_1'],
+                    'address_line_2' => $data['address_line_2'],
+                    'country_id' => $data['country_id'],
+                    'state_id' => $data['state_id'],
+                    'city' => $data['city'],
+                ]),
+                'delivery_charge' => $data['delivery_charge'],
+                'vat' => $data['vat'],
             ]);
             Payment::create([
                 'user_id' => $user['id'],

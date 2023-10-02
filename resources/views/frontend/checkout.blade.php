@@ -230,11 +230,14 @@
                         </div>
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex justify-content-between mb-1"><span>Sub-Total</span> <span class="fw-semibold">AED {{ number_format($subTotal, 2) }} </span></li>
-                            <input type="hidden" name="delivery_charge_submit" id="delivery_charge_submit"  value="{{ $subTotal }}"/>
+                            <input type="hidden" name="sub_total" id="sub_total"  value="{{ $subTotal }}"/>
+                            <input type="hidden" name="delivery_charge" id="delivery_charge"  value="0"/>
                             @if($discountDetails)
                             <li class="d-flex justify-content-between mb-1 text-danger"><span>Coupon Discount</span> <span class="fw-semibold">AED - {{ $discountDetails['discount'] }}</span></li>
                             @endif
                             <li class="d-flex justify-content-between mb-1"><span>Vat(5%)</span> <span class="fw-semibold">AED {{ number_format($vat, 2) }}</span></li>
+                            <li class="d-flex justify-content-between mb-1 deliveryCharge"></li>
+                            <input type="hidden" name="vat"  value="{{ $vat }}"/>
                             <li class="d-flex justify-content-between fs-4 "><span class="fw-semibold">Total</span> <span class="fw-semibold totalAmount">AED {{ number_format($totalAmount, 2) }}</span></li>
                             <input type="hidden" name="total_amount_submit" id="total_amount_submit" value="{{ $totalAmount }}" />
                         </ul>
@@ -286,10 +289,11 @@
 
     $('#state_id').on('change', function(){
         var totalAmount = '{{ $totalAmount }}';
-        if(total_amount_submit < 200) {
+        console.log(totalAmount)
+        if(parseFloat(totalAmount) < 200) {
             var deliveryCharge = $(this).find(':selected').data('deliverycharge').toFixed(2);
-            $('#delivery_charge_submit').val(deliveryCharge);
-            $('.deliveryCharge').html('AED ' + deliveryCharge);
+            $('#delivery_charge').val(deliveryCharge);
+            $('.deliveryCharge').html('<span>Delivery Charge</span> <span class="fw-semibold">AED '+ + deliveryCharge +'</span>');
             totalAmount = (parseFloat(totalAmount) + parseFloat(deliveryCharge)).toFixed(2);
             $('.totalAmount').html('AED ' + totalAmount);
             $('#total_amount_submit').val(totalAmount);

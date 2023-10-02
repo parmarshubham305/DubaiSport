@@ -249,7 +249,7 @@
                         <div class="commercial-content">
                             <h4 class="text-white d-block"><span class="text-primary d-block">COMMERCIAL</span> FITNESS
                                 SOLUTIONS</h4>
-                            <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
+                            <a href="{{ route('front.quote.get') }}" class="btn btn-primary fw-semibold">GET A QOUTE</a>
                         </div>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
                         <img src="{{ env('APP_URL').'front/images/black_body.jpg' }}" class="img-fluid w-100" alt="black_body">
                         <div class="commercial-content">
                             <h4 class="text-white d-block"><span class="text-primary d-block">SAUNA & STEAM</span> SOLUTIONS</h4>
-                            <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
+                            <a href="{{ route('front.quote.get') }}" class="btn btn-primary fw-semibold">GET A QOUTE</a>
                         </div>
                     </div>
                 </div>
@@ -277,7 +277,7 @@
                         <img src="{{ env('APP_URL').'front/images/body_image.jpg' }}" class="img-fluid w-100" alt="body_image">
                         <div class="commercial-content">
                             <h4 class="text-white d-block"><span class="text-primary d-block">OUTDOOR FITNESS AND</span> KIDS PLAY SOLUTIONS</h4>
-                            <a href="#" class="btn btn-primary fw-semibold">GET A QOUTE</a>
+                            <a href="{{ route('front.quote.get') }}" class="btn btn-primary fw-semibold">GET A QOUTE</a>
                         </div>
                     </div>
                 </div>

@@ -42,6 +42,19 @@
                 </div>
             @endif
         </div>
+        @if($additionalPriceEnabled)
+            <div class="b-md-4 mb-3">
+                <h5 class="mb-3">Wight
+                    <a href="javascript:void()" class="text-primary" data-bs-toggle="popover"
+                    data-bs-trigger="focus" data-bs-content="Weight">
+                    <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
+                </a>
+                </h5>
+                @foreach($additionalPriceList as $addPricekey => $additionalPrice)
+                    <a wire:click="selectOption({{ $addPricekey }})" class="btn btn-outline-dark @if($selectedPriceOptionId == $addPricekey) active @endif px-3 py-2">{{ $additionalPrice['title'] }}</a>
+                @endforeach
+            </div>
+        @endif
         <div class="product-details mb-4">
             <h5>Product Details
                 <a href="javascript:void()" class="text-primary" data-bs-toggle="popover"
@@ -65,20 +78,6 @@
                     <span class="ms-md-4 ms-0 fw-semibold fs-5 text-success">({{ $product['discount_percentage'] }}% OFF)</span>
                 @endif
             </div>
-            
-            @if($additionalPriceEnabled)
-            <div class="b-md-4 mb-3">
-                <h5 class="mb-3">Wight
-                    <a href="javascript:void()" class="text-primary" data-bs-toggle="popover"
-                    data-bs-trigger="focus" data-bs-content="Weight">
-                    <i class="fas fa-info-circle fa-sm" aria-hidden="true"></i>
-                </a>
-                </h5>
-                @foreach($additionalPriceList as $addPricekey => $additionalPrice)
-                    <a wire:click="selectOption({{ $addPricekey }})" class="btn btn-outline-dark @if($selectedPriceOptionId == $addPricekey) active @endif px-3 py-2">{{ $additionalPrice['title'] }}</a>
-                @endforeach
-            </div>
-            @endif
         </div> 
         <p class="mb-2"><strong>Note:</strong> Next Day Delivery is only available for Dubai and Abu
             Dhabi</p>

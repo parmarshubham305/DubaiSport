@@ -9,14 +9,15 @@
     @if(Request::route()->getName() != 'login' && Request::route()->getName() != 'register' && Request::route()->getName() != 'password.request' && Request::route()->getName() != 'password.reset')
         @include('frontend.layouts.footer')
     @endif
+    @include('admin.layouts.alert')
     @yield('js')
     @livewireScripts
     <script>
         window.addEventListener('swal:modal', event => { 
             swal({
-            title: event.detail.message,
-            text: event.detail.text,
-            icon: event.detail.type,
+                title: event.detail.message,
+                text: event.detail.text,
+                icon: event.detail.type,
             });
         });
         

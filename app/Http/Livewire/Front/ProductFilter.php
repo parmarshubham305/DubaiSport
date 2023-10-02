@@ -21,7 +21,9 @@ class ProductFilter extends Component
         $categoriesMappedOption = [];
 
         foreach ($this->categories as $key => $value) {
-            $categoriesMappedOption[] = $value['option_ids'];
+            if($value['id'] == $this->categoryId) {
+                $categoriesMappedOption[] = $value['option_ids'];
+            }
         }
         $arraySingle = array_unique(call_user_func_array('array_merge', $categoriesMappedOption));
 
@@ -38,6 +40,17 @@ class ProductFilter extends Component
     {
         if($field != 'minPrice' && $field != "maxPrice") {
             $this->renderProducts();
+        }
+        if($field == 'selectedCategories') {
+            $categoriesMappedOption = [];
+            $selectedCategories = array_filter((str_replace("category-","",$this->selectedCategories)));
+            $categories = Category::whereIn('id', $selectedCategories)->get()->toArray();
+            foreach ($categories as $key => $value) {
+                $categoriesMappedOption[] = $value['option_ids'];
+            }
+            $arraySingle = array_unique(call_user_func_array('array_merge', $categoriesMappedOption));
+
+            $this->masterOptions = MasterOption::whereIn('id', $arraySingle)->with('attributeValues')->get()->toArray();
         }
     }
 

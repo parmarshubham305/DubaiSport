@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Front;
 
 use Livewire\Component;
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Stock;
 
 class ProductBasicInfo extends Component
@@ -68,11 +69,13 @@ class ProductBasicInfo extends Component
 
     public function addToCart()
     {
+        $product = Product::select('id', 'title', 'slug','category_id', 'main_image', 'price', 'discounted_price', 'discount_percentage', 'image_prefix_folder', 'best_seller', 'popular_product', 'additional_price_enable', 'price_list')->find($this->product['id'])->toArray();
+        
         if(!\Auth::user()) {
             $cart = \Session::get('cart');
-
+            
             $cart[$this->product['id']] = [
-                'product' => $this->product,
+                'product' => $product,
                 'price' => $this->productPrice,
                 'productDiscountPrice' => $this->productDiscountPrice,
                 'selectedPriceOptionId' => $this->selectedPriceOptionId,
@@ -87,7 +90,7 @@ class ProductBasicInfo extends Component
             }
 
             $jsonDecodedProducts[$this->product['id']] = [
-                'product' => $this->product,
+                'product' => $product,
                 'price' => $this->productPrice,
                 'productDiscountPrice' => $this->productDiscountPrice,
                 'selectedPriceOptionId' => $this->selectedPriceOptionId,

@@ -22,7 +22,8 @@ class OrderController extends Controller
 
             if ($request->has('sSearch')) {
                 $search = $request->get('sSearch');
-                $where_str .= " and ( users.first_name like \"%{$search}%\""
+                $where_str .= " and ( orders.id like \"%{$search}%\"" .
+                        "or users.first_name like \"%{$search}%\""
                     . ")";
             }
             
@@ -96,7 +97,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Order::with(['user', 'getPayment'])->find($id);
+    
+        return view('admin.order.show', compact('data'));
     }
 
     /**
@@ -119,7 +122,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Order::find($id);
+        $data->status = $request->get('status');
+        $data->save();
+
+        return response()->json(['code' => 200]);
     }
 
     /**
@@ -131,5 +138,24 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Request $request)
+    {
+        $id = $request->get('id');
+        
+        if(!is_array($id)){
+            $id = array($id);
+        }
+        
+        Order::whereIn('id',$id)->delete();
+
+        return redirect()->back()->with('message', 'Record Deleted Successfully.')
+            ->with('type', 'success');
     }
 }

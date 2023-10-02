@@ -6,6 +6,8 @@ use App\Models\MasterOption;
 use App\Models\CategoryGroup;
 use App\Models\Category;
 use App\Models\CMS;
+use App\Models\Country;
+use App\Models\State;
 
 class Helper
 {
@@ -69,5 +71,13 @@ class Helper
         $html .= '</ul>';
         
         return $html;
+    }
+
+    public function getCountry($id) {
+        return Country::find($id);
+    }
+
+    public function getState($id) {
+        return State::find($id);
     }
 }

@@ -112,8 +112,8 @@
 	            {
 	                return '<div class="animated-checkbox">'
 	                            + '<label>'
-	                            +' <input type="checkbox" id="chk_'+v+'" name="id[]" value="'+v+'"/>'
-	                            +'<span class="label-text"></span></label></div>';
+	                            +' <input type="checkbox" class="selectall" id="chk_'+v+'" name="id[]" value="'+v+'"/>'
+	                            +'</label></div>';
 	            }
 	        },
 	        { "mData": "id", sWidth: "10%",bSortable: true,},
@@ -139,11 +139,14 @@
 	                var editUrl = '{{ route("admin.orders.edit", ":id") }}';
             		editUrl = editUrl.replace(':id',o['id']);
 
+					var showUrl = '{{ route("admin.orders.show", ":id") }}';
+            		showUrl = showUrl.replace(':id',o['id']);
+
 	                var string_obj = JSON.stringify(o);
 
 	                var act_html = "<div class='btn-group'>"
 	                                // +"<a class='btn btn-primary' href='"+editUrl+"' data-toggle='tooltip' title='Edit' data-placement='top' class='p-5'><i class='fa fa-pencil'></i></a> "
-	                                // +"<a href='" +  showUrl+ "' data-toggle='tooltip' title='View' data-placement='top'<i class='glyphicon glyphicon-eye-open'></i></a> "
+	                                +"<a class='btn btn-primary' href='" +  showUrl + "' data-toggle='tooltip' title='View' data-placement='top'><i class='glyphicon glyphicon-eye-open'></i></a> "
 	                                +" <a class='btn btn-danger' href='javascript:void(0)' onclick=\"deleteRecord('"+delete_path+"','"+title+"','"+text+"','"+token+"','"+type+"',"+o['id']+")\" data-toggle='tooltip' title='Delete' data-placement='top'><i class='fa fa-trash-o'></i></a>"
 	                                +"</div>"
 	                return act_html;

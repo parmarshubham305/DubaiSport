@@ -46,7 +46,7 @@ class CMSPageController extends Controller
         
         dispatch(new QuoteJob($params));
  
-        return redirect()->back()->with('message', 'Record Saved Successfully.')
+        return redirect()->back()->with('message', 'Quote submitted Successfully.')
             ->with('type', 'success');
     }
 }

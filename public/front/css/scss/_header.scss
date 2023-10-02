@@ -132,7 +132,7 @@ nav{
                 }
             }
             .dropdown-menu{
-                width:100%;border:none;@include radius(0);margin-top: 0;padding:2rem 0rem;@include box-shadow(0px, 4px, 6px, 0px, #7171718c);left:0;right:0;top:100%;opacity:0;visibility:hidden;
+                width:100%;border:none;@include radius(0);margin-top: 0;padding:0rem;@include box-shadow(0px, 4px, 6px, 0px, #7171718c);left:0;right:0;top:100%;opacity:0;visibility:hidden;
                 @include mq("tablet"){display:inline-block !important;}
                 .dropdown-item{
                   padding: 0rem;@include radius(6px);background: #f9f9f9;
@@ -142,6 +142,13 @@ nav{
                         > span{
                             color:$primary;}
                         }
+                }
+                .row {
+                    .col-md-auto{
+                     @include mq("tablet"){
+                         padding:2rem 1rem;
+                     }
+                    }
                 }
             }
             &:hover{
@@ -153,7 +160,23 @@ nav{
         }
     }
 }
-
+.all_product{
+   > li{
+        &:first-child, &:last-child{
+            display: none;
+        }
+        a{
+            padding:0.5rem 1rem;
+            border-bottom:1px solid #d5d5d5;
+            &:hover,&:active,&:focus{
+                color:$primary;
+            }
+        }
+        > ul{
+            @include transform(none !important);
+        }
+    }
+}
 // services
 .services{ border-color: #d5d5d5 !important;
     h5{display:none;}

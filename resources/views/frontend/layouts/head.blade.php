@@ -14,6 +14,7 @@
     <script type="text/javascript" src="https://parsleyjs.org/dist/parsley.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {{ Html::script("front/js/theme.js") }}
+    @yield('css')
     @livewireStyles
     <style>
         /*!

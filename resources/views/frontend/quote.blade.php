@@ -67,3 +67,9 @@
     </div>
 </div>
 @stop
+@section('css')
+{{ Html::style('backend/plugins/toster/toster.min.css') }}
+@stop
+@section('js')
+{{ Html::script('backend/plugins/toster/toster.min.js') }}
+@stop

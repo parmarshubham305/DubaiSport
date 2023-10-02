@@ -32,44 +32,46 @@
                         <h5 class="mb-0">Price</h5>
                     </div>
                 </div>
-                @foreach($carts as $key => $cart)
-                <div class="row py-4 px-3 text-md-start text-center">
-                    <div class="col-md-2 mb-md-0 mb-4">
-                        <a href="#" data-src="{{ $cart['product']['main_image'] }}"
-                            class="fancybox-img shopping-img d-inline-block border rounded" data-fancybox="product">
-                            <img src="{{ $cart['product']['main_image'] }}" alt="produsct"
-                                class="card-img-top img-fluid rounded">
-                        </a>
-                    </div>
-                    <div class="col-md-5 mb-md-0 mb-4">
-                        <a href="#" class="fw-semibold fs-5 text-primary mb-2">{{ $cart['product']['title'] }}</a>
-                        <span class="d-block w-100">Brand : <strong>{!! Helper::getProductBrand($cart['product']['id']) !!}</strong></span>
-                        <!-- <span class="d-block w-100">Model Number : <strong>ICON-PETL-38817</strong></span> -->
-                        <div class="mt-2">
-                            <a href="{{ route('front.products.show', $cart['product']['slug']) }}" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
-                            <a wire:click="removeProduct({{ $key }})" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
+                @if($carts)
+                    @foreach($carts as $key => $cart)
+                    <div class="row py-4 px-3 text-md-start text-center">
+                        <div class="col-md-2 mb-md-0 mb-4">
+                            <a href="#" data-src="{{ $cart['product']['main_image'] }}"
+                                class="fancybox-img shopping-img d-inline-block border rounded" data-fancybox="product">
+                                <img src="{{ $cart['product']['main_image'] }}" alt="produsct"
+                                    class="card-img-top img-fluid rounded">
+                            </a>
                         </div>
-                    </div> 
-                    <div class="col-md-3 mb-md-0 mb-4">
-                        <div class="qty d-flex justify-content-center justify-content-md-start">
-                            <button type="button" wire:click="incrementQty({{ $key }})" class="btn btn-info me-2"> <i
-                                    class="fa-solid fa-plus"></i> </button>
-                            <input type="text" value="{{ $cart['quantity'] }}"
-                                class="form-control text-center fw-bold border border-secondary qty">
-                            <button type="button" wire:click="decrementQty({{ $key }})" class="btn btn-info ms-2"><i
-                                    class="fa-solid fa-minus"></i></button>
+                        <div class="col-md-5 mb-md-0 mb-4">
+                            <a href="#" class="fw-semibold fs-5 text-primary mb-2">{{ $cart['product']['title'] }}</a>
+                            <span class="d-block w-100">Brand : <strong>{!! Helper::getProductBrand($cart['product']['id']) !!}</strong></span>
+                            <!-- <span class="d-block w-100">Model Number : <strong>ICON-PETL-38817</strong></span> -->
+                            <div class="mt-2">
+                                <a href="{{ route('front.products.show', $cart['product']['slug']) }}" class="btn btn-outline-secondary btn-sm me-2"><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a>
+                                <a wire:click="removeProduct({{ $key }})" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-trash me-2"></i>Remove</a>
+                            </div>
+                        </div> 
+                        <div class="col-md-3 mb-md-0 mb-4">
+                            <div class="qty d-flex justify-content-center justify-content-md-start">
+                                <button type="button" wire:click="incrementQty({{ $key }})" class="btn btn-info me-2"> <i
+                                        class="fa-solid fa-plus"></i> </button>
+                                <input type="text" value="{{ $cart['quantity'] }}"
+                                    class="form-control text-center fw-bold border border-secondary qty">
+                                <button type="button" wire:click="decrementQty({{ $key }})" class="btn btn-info ms-2"><i
+                                        class="fa-solid fa-minus"></i></button>
+                            </div>
+                            @if($cart['stocks'] <= 3)
+                            <p class="text-primary my-2">(Only {{ $cart['stocks'] }} Products Left)</p>
+                            @endif
                         </div>
-                        @if($cart['stocks'] <= 3)
-                        <p class="text-primary my-2">(Only {{ $cart['stocks'] }} Products Left)</p>
-                        @endif
-                    </div>
-                    <div class="col-md-2 mb-md-0 text-md-end">
-                        <div class="price d-flex align-items-center justify-content-md-end justify-content-center mb-3">
-                            <h4 class="mb-0 fw-semibold text-primary">AED {{ number_format($cart['productDiscountPrice'],2) }}</h4>
+                        <div class="col-md-2 mb-md-0 text-md-end">
+                            <div class="price d-flex align-items-center justify-content-md-end justify-content-center mb-3">
+                                <h4 class="mb-0 fw-semibold text-primary">AED {{ number_format($cart['productDiscountPrice'],2) }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
             <div class="col-md-3">
                 <div class="card order-summery">

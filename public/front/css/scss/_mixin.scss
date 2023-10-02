@@ -29,8 +29,12 @@
             width: 30px;
             opacity: 1;
             height: 30px;
-            @include radius(0px 5px 5px 0px)
+            @include radius(0px 5px 5px 0px);
+            background-image:none;
         }
+    }
+    @include mq-max("tablet"){
+        width: 90% !important;
     }
 }
 
@@ -231,7 +235,12 @@
     }
 }
 
-
+.banner__slider {
+    min-height: 500px;
+    .slider {
+        min-height: 500px;
+    }
+}
 
 
 // Shweet CSS
@@ -265,6 +274,12 @@
     }
     .footer-content .footer_top .category-list{
         column-count: 1;
+    }
+    .banner__slider {
+        min-height: 330px;
+        .slider {
+            min-height: 330px;
+        }
     }
     .signup-page .signup .sign-up-form.current{
         overflow: auto;
@@ -384,6 +399,8 @@
             background:#ffffff;
         }
     }
+    .slider {
+        height: 330px;}
 }
 
  /* webkit specific styling */

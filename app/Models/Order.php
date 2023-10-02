@@ -15,8 +15,15 @@ class Order extends Model
         'status',
         'delivery_type',
         'shipping_note',
-        'discount'
+        'discount',
+        'vat',
+        'delivery_charge',
+        'address'
     ];
+
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
 
     public function getPayment()
     {

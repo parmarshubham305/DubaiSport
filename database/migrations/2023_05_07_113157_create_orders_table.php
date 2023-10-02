@@ -21,6 +21,9 @@ class CreateOrdersTable extends Migration
             $table->enum('delivery_type', ['Delivery', 'Pickup'])->nullable();
             $table->string('shipping_note')->nullable();
             $table->string('discount')->nullable();
+            $table->double('vat', [5,2])->default(0);
+            $table->string('delivery_charge',[10,2])->default(0);
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
