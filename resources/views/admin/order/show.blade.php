@@ -40,7 +40,7 @@
                 @endphp
                 <!-- <strong>John Doe</strong><br> -->
                 {{ $address['address_line_1'] }}, {{ $address['address_line_2'] }}<br>
-                {{ $address['city'] }}, {{ $state['name'] }}, {{ $country['iso_code'] }}<br>
+                {{ $address['city'] }}, @if($state) {{ $state['name'] }} @endif, @if($country) {{ $country['iso_code'] }} @endif<br>
                 <!-- Phone: (555) 539-1037<br> -->
                 <!-- Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3953565157175d565c795c41585449555c175a5654">[email&#160;protected]</a> -->
             </address>
