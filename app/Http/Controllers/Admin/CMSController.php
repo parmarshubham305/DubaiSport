@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CMS;
 use App\Jobs\Frontend\CMSJob;
-use App\Http\Requests\Frontend\CMSRequest;
+use App\Http\Requests\Backend\CMSRequest;
 
 class CMSController extends Controller
 {
