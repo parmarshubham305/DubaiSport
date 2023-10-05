@@ -290,7 +290,7 @@
     $('#state_id').on('change', function(){
         var totalAmount = '{{ $totalAmount }}';
         console.log(totalAmount)
-        if(parseFloat(totalAmount) < 200) {
+        if(parseFloat(totalAmount) < 150) {
             var deliveryCharge = $(this).find(':selected').data('deliverycharge').toFixed(2);
             $('#delivery_charge').val(deliveryCharge);
             $('.deliveryCharge').html('<span>Delivery Charge</span> <span class="fw-semibold">AED '+ + deliveryCharge +'</span>');

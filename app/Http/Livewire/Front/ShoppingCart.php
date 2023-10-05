@@ -109,6 +109,9 @@ class ShoppingCart extends Component
                             ->first();
             if($couponInfo) {
                 $this->discount = round(($this->subTotal * $couponInfo['percentage']) / 100, 2);
+                if($this->discount > 500) {
+                    $this->discount = 500;
+                }
                 $this->totalAmount -= $this->discount; 
 
                 $discountSession = [
