@@ -11,11 +11,11 @@ use Illuminate\Support\Str;
 
 class ProductFilter extends Component
 {
-    public $categoryId, $categories = [], $selectedCategories = [], $masterOptions = [], $selectedOptions = [],
+    public $categoryId, $categoryGroupId, $categories = [], $selectedCategories = [], $masterOptions = [], $selectedOptions = [],
     $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice, $maxPrice;
 
     public function mount() {
-        $this->categories = Category::get()->toArray();
+        $this->categories = Category::where('category_group_id', $this->categoryGroupId)->get()->toArray();
         $this->selectedCategories[] = 'category-'.$this->categoryId;
 
         $categoriesMappedOption = [];
