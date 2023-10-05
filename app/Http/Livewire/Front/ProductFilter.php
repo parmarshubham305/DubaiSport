@@ -15,8 +15,10 @@ class ProductFilter extends Component
     $products = [], $keyword = '', $optionAttributeIds = [], $optionAttributes = [], $minPrice, $maxPrice;
 
     public function mount() {
-        $this->categories = Category::where('category_group_id', $this->categoryGroupId)->get()->toArray();
-        $this->selectedCategories[] = 'category-'.$this->categoryId;
+        if(empty($this->selectedCategories)) {
+            $this->categories = Category::where('category_group_id', $this->categoryGroupId)->get()->toArray();
+            $this->selectedCategories[] = 'category-'.$this->categoryId;
+        }
 
         $categoriesMappedOption = [];
 
@@ -38,19 +40,19 @@ class ProductFilter extends Component
 
     public function updated($field)
     {
-        if($field != 'minPrice' && $field != "maxPrice") {
-            $this->renderProducts();
-        }
         if($field == 'selectedCategories') {
             $categoriesMappedOption = [];
             $selectedCategories = array_filter((str_replace("category-","",$this->selectedCategories)));
-            $categories = Category::whereIn('id', $selectedCategories)->get()->toArray();
+            $categories = Category::where('category_group_id', $this->categoryGroupId)->whereIn('id', $selectedCategories)->get()->toArray();
             foreach ($categories as $key => $value) {
                 $categoriesMappedOption[] = $value['option_ids'];
             }
             $arraySingle = array_unique(call_user_func_array('array_merge', $categoriesMappedOption));
 
             $this->masterOptions = MasterOption::whereIn('id', $arraySingle)->with('attributeValues')->get()->toArray();
+        }
+        if($field != 'minPrice' && $field != "maxPrice") {
+            $this->renderProducts();
         }
     }
 
@@ -112,7 +114,7 @@ class ProductFilter extends Component
         $maxPrice = $this->maxPrice;
         
         $this->products = Product::when($selectedCategories, function($query) use ($selectedCategories, $selectedFilters){
-            return $query->where('category_id', $selectedCategories);
+            return $query->whereIn('category_id', $selectedCategories);
         })
         ->when($selectedFilters, function($query) use ($selectedFilters){
             return $query->with(['category', 'productSpecification'])->whereHas('productSpecification', function($query) use ($selectedFilters)

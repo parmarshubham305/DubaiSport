@@ -27,6 +27,7 @@ class CategoryController extends Controller
             if ($request->has('sSearch')) {
                 $search = $request->get('sSearch');
                 $where_str .= " and ( categories.title like \"%{$search}%\""
+                    . "or category_groups.title like \"%{$search}%\""
                     . ")";
             }
             
