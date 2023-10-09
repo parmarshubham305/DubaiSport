@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CMS;
-use App\Jobs\Frontend\CMSJob;
+use App\Jobs\Backend\CMSJob;
 use App\Http\Requests\Backend\CMSRequest;
 
 class CMSController extends Controller
